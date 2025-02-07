@@ -1,70 +1,44 @@
 ---
 timezone: Europe/Berlin
 ---
-
-> 请在上边的 timezone 添加你的当地时区，这会有助于你的打卡状态的自动化更新，如果没有添加，默认为北京时间 UTC+8 时区
-> 时区请参考以下列表，请移除 # 以后的内容
-
-timezone: Pacific/Honolulu # 夏威夷-阿留申标准时间 (UTC-10)
-
-timezone: America/Anchorage # 阿拉斯加标准时间 (UTC-9)
-
-timezone: America/Los_Angeles # 太平洋标准时间 (UTC-8)
-
-timezone: America/Denver # 山地标准时间 (UTC-7)
-
-timezone: America/Chicago # 中部标准时间 (UTC-6)
-
-timezone: America/New_York # 东部标准时间 (UTC-5)
-
-timezone: America/Halifax # 大西洋标准时间 (UTC-4)
-
-timezone: America/St_Johns # 纽芬兰标准时间 (UTC-3:30)
-
-timezone: America/Sao_Paulo # 巴西利亚时间 (UTC-3)
-
-timezone: Atlantic/Azores # 亚速尔群岛时间 (UTC-1)
-
-timezone: Europe/London # 格林威治标准时间 (UTC+0)
-
-timezone: Europe/Berlin # 中欧标准时间 (UTC+1)
-
-timezone: Europe/Helsinki # 东欧标准时间 (UTC+2)
-
-timezone: Europe/Moscow # 莫斯科标准时间 (UTC+3)
-
-timezone: Asia/Dubai # 海湾标准时间 (UTC+4)
-
-timezone: Asia/Kolkata # 印度标准时间 (UTC+5:30)
-
-timezone: Asia/Dhaka # 孟加拉国标准时间 (UTC+6)
-
-timezone: Asia/Bangkok # 中南半岛时间 (UTC+7)
-
-timezone: Asia/Shanghai # 中国标准时间 (UTC+8)
-
-timezone: Asia/Tokyo # 日本标准时间 (UTC+9)
-
-timezone: Australia/Sydney # 澳大利亚东部标准时间 (UTC+10)
-
-timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
-
----
-
-# {你的名字}
-
 1. 自我介绍
-我是一名传统行业的系统toB产品经理
+   我是一名传统行业的系统toB产品经理
 2. 你认为你会完成本次残酷学习吗？
-我最近工作有一点忙，不确定是不是能够每天都能坚持，但是至少周末可以
+   我最近工作有一点忙，不确定是不是能够每天都能坚持，但是至少周末可以
+
 ## Notes
 
 <!-- Content_START -->
 
-### 2024.07.11
+### 2025.02.06
 
-笔记内容
+# 历史
+"Crypto Anarchist Manifesto" Tim
+Tim 1998年发布加密无政府宣言，将匿名数字交易视为个人自由的基石
 
-### 2024.07.12
+90年代cryptopunks曾多次尝试创建数字货币
+
+David Chaum 推出了DigiCash，首次展现了匿名数字经济的雏形。然而，它依赖于现有的金融基础设施，并且在很大程度上是中心化的。最终，DigiCash 于 1998 年申请破产。
+
+E-gold 于 1996 年晚些时候出现，以实物黄金储备为后盾。在巅峰时期，E-gold 拥有350 万个注册账户，每年促成数十亿美元的交易。然而，2009 年，由于法律问题，转账被暂停。
+
+2008 年，匿名作者中本聪(Satoshi Nakamoto)在一篇题为《比特币：一种点对点电子现金系统》的论文中提出了一种解决方案，解决了如何在没有领导者的情况下达成共识这一悬而未决的问题。比特币确立了一种分布式账本系统，其中的数据以加密方式按时间顺序链接在一起。它还成为第一个去中心化的数字货币，无需底层抵押品即可运行，并且无需银行等受信任的第三方中介机构。
+
+
+2012 年，Vitalik Buterin和 Mihai Alisie 创办了比特币杂志，这是第一本专注于数字货币的严肃出版物。Vitalik 很快发现了比特币的局限性，并提出了一个支持通用金融应用的平台。
+
+2014年，在Gavin Wood的帮助下，以太坊的设计得以正式化。
+
+2015 年 7 月 30 日，以太坊作为一个平台上线，旨在利用数字货币构建自主经济的工具。
+
+# 协议架构
+由两个主要部分组成：
+执行层 EL The execution layer
+处理实际交易和用户交互
+
+共识层 CL The consensus layer 
+提供权益证明共识机制 确保所有节点遵循相同的提示并驱动执行层的规范链
+
+
 
 <!-- Content_END -->

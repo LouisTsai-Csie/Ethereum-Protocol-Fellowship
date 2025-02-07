@@ -11,4 +11,4 @@ timezone: Asia/Taipei
 
 ### 2025.02.06
 
-<筆記 here>
+今天把 wiki 內容簡單看一下，之前有些基本了解的應該會先跳過，例如 BLS, ECDSA, SSZ, RLP serialization 等等。會著重看開發相關/JSONRPC/Transaction細節以及 consensus layer

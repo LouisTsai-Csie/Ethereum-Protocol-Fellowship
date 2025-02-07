@@ -14,6 +14,11 @@ As much as I can.
 ## Notes
 
 <!-- Content_START -->
+### 2025.02.06
 
+完成 week0 和部分 week1 內容
+瀏覽 epf.wiki 一些內容，有很多典故是第一次聽，對於歷史有更宏寬的了解
+同時也去底下連結做了些有關乙太坊的題目順便複習
+https://ethereum.org/quizzes
 
 <!-- Content_END -->

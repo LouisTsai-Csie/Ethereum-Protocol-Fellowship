@@ -14,12 +14,18 @@ timezone: Asia/Shanghai
 ### 2025.02.06
 > 周四
 
-笔记内容
+- 今天首次参与 EPF 残酷共学，主要了 Week0 和 [Week1](https://epf.wiki/#/eps/week1)
+- 以太坊的历史和哲学，和开源自由软件运动紧密的联系在一起，并通过非对称加密学实现了隐私和安全，成为现代加密货币的基本组成部分。
+- 非对称加密有一本书很有意思《改变未来的九大算法》，通过不同的方式解释清楚非对称加密过程，如何和他人安全的保持秘密通信。
+- 以太坊白皮书
 
 ### 2025.02.07
 > 周五
 
-笔记内容
+- [x] [EIP Fun EPF Townhall.pptx - Google Slides](https://docs.google.com/presentation/d/1rcIqRHpI4V6sz9pQTWJ96Y4BDG1Es9D5/edit#slide=id.g2e1eea372ed_0_4)
+- [x] [Week 2](https://epf.wiki/#/eps/week2)
+- [x] 通读 [节点和客户端](https://ethereum.org/zh/developers/docs/nodes-and-clients/)
+- [ ] 以太坊机制
 
 ### 2025.02.08
 > 周六

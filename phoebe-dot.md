@@ -13,18 +13,60 @@ timezone: Asia/GuangZhou
 
 ### 2025.02.06
 
-筆記
+paticipate the first weekly call 
+learning epf.wiki study group week 1 
 
-### 2024.02.07
+### 2025.02.07
 
-筆記
+still learning epf.wiki study group week 1 
 
-### 2024.02.08
+read ethereum.org docs 
 
-筆記
+Pre-reading:
 
-### 2024.02.09
+Cryptography
 
-筆記
+Hashing
+
+Public key cryptography
+
+Data structures
+
+Merkle trees
+
+Networking, p2p and distributed systems
+
+Software development basics
+
+Programming languages, compilers
+
+Ethereum as a platform
+
+From a user perspective
+
+
+### 2025.02.08
+
+Note
+
+### 2025.02.09
+
+note
+
+### 2025.02.10
+
+Note
+
+### 2025.02.11
+
+Note
+
+### 2025.02.12
+
+Note
+
+### 2025.02.13
+
+Note
 
 <!-- Content_END -->
