@@ -127,6 +127,8 @@ timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
 
 #### Protocol Design Philosophy（two day）
 
+------
+
 ##### **账户模型 vs. UTXO**
 
 - **UTXO缺点**：隐私虽高但结构复杂，难以支持智能合约（如去中心化交易所）。
@@ -182,6 +184,8 @@ timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
 ### 2025.02.08
 
 #### 以太坊协议的历史与演进
+
+------
 
 #### **Frontier阶段（2015.7.30）**
 
