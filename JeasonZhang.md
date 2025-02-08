@@ -156,4 +156,95 @@
 
 ### 2024.02.07
 
+#### **I. 核心学习目标**
+
+**主题**: 以太坊执行层（Execution Layer）深度解析
+ **目标**: 掌握执行层节点架构、状态转换机制、EVM运行原理及网络通信协议。
+
+------
+
+#### **II. 课程大纲重点**
+
+##### **1. 执行层节点架构**
+
+- **区块验证（Block Validation）**：
+  - 处理状态转换（State Transition），将交易结果记录到**状态树（Merkle Patricia Trie）**
+  - 维护动态机制更新：EIP-1559基础费用、EIP-4844 Blob Gas、信标链提款等
+  - 提供**快速同步机制**（Snap Sync）帮助新节点快速接入网络
+- **区块构建（Block Building）**：
+  - 基于P2P交易池（Tx Pool）构建新区块
+  - 交易广播与验证的双向流程
+
+##### **2. 状态转换函数**
+
+- 区块头验证：
+  - 校验**默克尔根**（交易根、状态根、收据根）
+  - 验证Gas限制与时间戳合法性
+- 区块验证代码实践：
+  - 分析[go-ethereum代码库](https://github.com/ethereum/go-ethereum)中`core/state_processor.go`的`Process()`函数
+
+##### **3. EVM运行机制**
+
+- 栈式虚拟机原理：
+  - 操作码分类解析：
+    - 堆栈操作码（如`PUSH`, `POP`）
+    - 内存操作码（如`MLOAD`, `MSTORE`）
+    - 系统级操作（如`CALL`, `DELEGATECALL`）
+- 实战工具推荐：
+  - [evm.codes](https://www.evm.codes/)：交互式EVM操作码解析工具
+  - [ethervm.io](https://ethervm.io/)：EVM指令集速查表
+
+##### **4. P2P网络协议**
+
+- 三大核心功能：
+  - 历史区块数据传输
+  - 未确认交易（Pending Transactions）广播
+  - 状态数据同步
+- Snap Sync技术：
+  - **阶段一**：下载快照数据块（Snapshot Tiles）
+  - **阶段二**：状态修复（State Healing）
+
+##### **5. JSON-RPC接口**
+
+- 设计目标：
+  - 统一所有客户端的API标准，实现工具链无缝集成
+  - 目前接近实现但仍有细微差异
+- 关键RPC方法：
+  - `eth_getBlockByNumber`
+  - `eth_sendRawTransaction`
+  - `eth_call`
+
+------
+
+#### **III. 核心学习资源**
+
+##### **必读材料**：
+
+- [执行层规范](https://github.com/ethereum/execution-specs)（Python实现）
+- [ETH2术语更新说明](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming)
+- [合并对应用层的影响](https://blog.ethereum.org/2021/11/29/how-the-merge-impacts-app-layer)
+
+##### **进阶工具**：
+
+- [Engine API可视化指南](https://hackmd.io/@danielrachi/engine_api)（Daniel Ramirez）
+- [Lightclient开发环境配置](https://github.com/lightclient/dotfiles)
+
+##### **代码研究**：
+
+- 核心代码库：
+  - [go-ethereum](https://github.com/ethereum/go-ethereum)
+  - [devp2p协议](https://github.com/ethereum/devp2p)
+- 执行层API规范：
+  - [execution-apis](https://github.com/ethereum/execution-apis)
+
+------
+
+#### **IV. 学习实践建议**
+
+1. **代码调试**：在本地运行Geth节点，观察`state_processor.go`的区块处理流程
+2. **网络模拟**：使用[devp2p工具包](https://github.com/ethereum/devp2p)模拟P2P交易广播
+3. **RPC实验**：通过Postman调用JSON-RPC接口获取链上数据
+
+### 2025.02.08
+
 <!-- Content_END -->

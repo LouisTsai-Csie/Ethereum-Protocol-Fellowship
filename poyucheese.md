@@ -31,4 +31,10 @@ timezone: Asia/Shanghai
 
 ### 2025.02.07
 
+#### [SGweek1](https://epf.wiki/#/eps/week1)
+
+今天讀了 week 1 的內容，順便做了 [quiz](https://ethereum.org/zh/quizzes/) 測試自己對以太坊基礎架構的認識，發現我對一般節點和質押驗證者的區別還不夠了解，只要在客戶端運行並在線就能成為一般節點，不必質押 ETH 同時也不會獲得獎勵，而質押驗證者還負責參與共識和打包區塊，須質押 32 ETH 並且在線時間達 50% 以上才能在上線時得到交易費和質押獎勵，質押驗證者若違反共識機制 (**double proposal** or **double voting**)，會遭到罰沒 (Slashing) ，質押的 ETH 被沒收並被踢出驗證。
+
+看到有關 ENS 域名的技術，但還不懂他的運作原理，明天繼續衝鋒。
+
 <!-- Content_END -->
