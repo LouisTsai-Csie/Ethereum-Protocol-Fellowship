@@ -187,7 +187,11 @@ Telegram：https://t.me/ETHPandaOrg/5427
 | DasNarrenschiff | ✅ | ⭕️ |   | | | | | | | | | | | | | | | | | | | | |   |   |
 | awsomecty | ✅ | ⭕️ |   | | | | | | | | | | | | | | | | | | | | |   |   |
 | devbards | ✅ | ✅ |   | | | | | | | | | | | | | | | | | | | | |   |   |
+| StellaWang5209 | ⭕️ | ⭕️ |   | | | | | | | | | | | | | | | | | | | | |   |   |
+| pillowtalk-Qy | ⭕️ | ⭕️ |   | | | | | | | | | | | | | | | | | | | | |   |   |
+| yoona333 | ⭕️ | ⭕️ |   | | | | | | | | | | | | | | | | | | | | |   |   |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
