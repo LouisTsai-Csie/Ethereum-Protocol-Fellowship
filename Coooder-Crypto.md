@@ -11,7 +11,7 @@ timezone: Asia/Shanghai
 
 <!-- Content_START -->
 
-### 2024.02.06
+### 2025.02.06
 
 #### 今天做了什么：
 1. 整体过了一遍 https://epf.wiki/
@@ -43,7 +43,7 @@ timezone: Asia/Shanghai
 不过都来学习以太坊协议了，当然是一直看好的，也会一直 build，希望早日看到新的突破。From "like an open Bell labs" to "beyond Bell labs"!
 
 
-### 2024.02.07
+### 2025.02.07
 
 #### 今天做了什么：
 1. 继续看完了协议部分的架构、设计理由、演化
