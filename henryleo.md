@@ -2,53 +2,6 @@
 timezone: Asia/Shanghai
 ---
 
-> 请在上边的 timezone 添加你的当地时区，这会有助于你的打卡状态的自动化更新，如果没有添加，默认为北京时间 UTC+8 时区
-> 时区请参考以下列表，请移除 # 以后的内容
-
-timezone: Pacific/Honolulu # 夏威夷-阿留申标准时间 (UTC-10)
-
-timezone: America/Anchorage # 阿拉斯加标准时间 (UTC-9)
-
-timezone: America/Los_Angeles # 太平洋标准时间 (UTC-8)
-
-timezone: America/Denver # 山地标准时间 (UTC-7)
-
-timezone: America/Chicago # 中部标准时间 (UTC-6)
-
-timezone: America/New_York # 东部标准时间 (UTC-5)
-
-timezone: America/Halifax # 大西洋标准时间 (UTC-4)
-
-timezone: America/St_Johns # 纽芬兰标准时间 (UTC-3:30)
-
-timezone: America/Sao_Paulo # 巴西利亚时间 (UTC-3)
-
-timezone: Atlantic/Azores # 亚速尔群岛时间 (UTC-1)
-
-timezone: Europe/London # 格林威治标准时间 (UTC+0)
-
-timezone: Europe/Berlin # 中欧标准时间 (UTC+1)
-
-timezone: Europe/Helsinki # 东欧标准时间 (UTC+2)
-
-timezone: Europe/Moscow # 莫斯科标准时间 (UTC+3)
-
-timezone: Asia/Dubai # 海湾标准时间 (UTC+4)
-
-timezone: Asia/Kolkata # 印度标准时间 (UTC+5:30)
-
-timezone: Asia/Dhaka # 孟加拉国标准时间 (UTC+6)
-
-timezone: Asia/Bangkok # 中南半岛时间 (UTC+7)
-
-timezone: Asia/Shanghai # 中国标准时间 (UTC+8)
-
-timezone: Asia/Tokyo # 日本标准时间 (UTC+9)
-
-timezone: Australia/Sydney # 澳大利亚东部标准时间 (UTC+10)
-
-timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
-
 ---
 
 # henryleo
@@ -70,5 +23,78 @@ EPF Study Group（EPFsg）被提出，以相对浅显的形式介绍以太坊，
 
 残酷共学是ETHPanda主办，以中文社群为主，基于EPFsg的材料的共学获得，每日打卡但并不限制学习进度（无需许可的进展2333），旨在为中文社群更好地连接至EPFsg
 
+### 2025.02.07
+
+Encryption 加密 是将一个被称为Plaintext 明文的信息，对其进行一种操作，称为Cipher 密码。这样，你就会收到一个混乱的、不可读的信息作为输出，称为Ciphertext 密码文本。而将密码文本转会为可读的明文的过程称为Decryption 解密
+
+#### Cipher 密码 
+由两部分组成的：
+- Encryption algorithm 加密算法 用于将明文转换为密文的基本逻辑或过程
+- Key 密钥 为你的密码引入了一些独特的东西。如果没有密钥，任何使用相同算法的人都能解码你的信息，而你实际上不会有任何保密性
+    - 是保护你的数据的独特部分，对称密钥必须保密以确保被保护数据的机密性。Key size 密钥大小，以bit为单位，是组成加密密钥的比特或数据的总数。可以把密钥大小看作是一个给定加密算法可能的密钥总数的上限。Key length 密钥长度在密码学中超级重要，因为它本质上定义了系统的最大潜在强度
+
+#### Kerckhoff's principle 柯克霍夫原则
+又名"the enemy knows the system" “敌人了解系统“， Shannon's maxim 香农箴言
+
+该原则指出，一个Cryptosystem 密码系统，或一个用于Key generation 密钥生成和Encryption 加密及Decryption 解密操作的算法集合，构成了一个密码服务，应该保持安全，即使关于该系统的一切都被知道，除了密钥。这意味着，即使你的敌人知道你用来保护数据的确切加密算法，他们仍然无法从截获的密码文本中恢复明文。
+
+#### Cryptography 密码学
+定义了加密，但涵盖编码和隐藏信息不被第三方发现的做法的总体学科。与此相反，寻找隐藏信息或试图破译编码信息被称为Cryptanalysis 密码分析
+
+- Frequency analysis 频率分析 是研究字母在密码文本中出现的频率的做法 最早记录是来自一个九世纪的阿拉伯数学家
+
+##### 对称密码学
+Symmetric-key algorithm 对称密钥算法，这类型的加密算法被称为symmetric 对称算法，因为它们使用相同的密钥来加密和解密信息。对称加密的最大缺陷是假设密钥可以传达给预期的接收者，而不会将其暴露给不需要的一方。换句话说，无论是单个数字、秘密词还是具有特定配置的机器，密钥都必须以受信任的设置从发送方传递到接收方。所有后续消息的安全性取决于维护密钥的安全传输。
+- Substitution cipher 替换密码 是一种加密机制，用密码文本替换部分明文。Caesar cipher 凯撒密码 是一种替换加密技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文，如：当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推。另一种例子，Vigenère cipher 此密码不是使用常量值来交换消息中的每个字母，而是根据秘密词（secret code word，也称为key 密钥）中字母的字母顺序来改变每个字符的偏移量。 如：密钥 abc 会将编码单词的第一个字母按字母顺序移动一个字母，将第二个字母移动 2 个字母，将第三个字母移动 3 个字母
+- Block ciphers 区块密码，它将明文分成多个等长的模块（block），使用确定的算法和对称密钥对每个区块分别加密解密。
+- Stream ciphers 流密码，加密和解密双方使用相同pseudo-random stream 伪随机加密数据流作为密钥，明文数据每次与密钥数据流顺次对应加密（Simple XOR cipher 简单异或密码），得到密文数据流。
+
+**一些实例：**
+- DES Data Encryption Standard 数据加密标准：使用128位区块密码
+- AES Advanced Encryption Standard 高级加密标准：对称的区块密码
+- RC4 Rivest Cipher 4：一种串流加密法，密钥长度可变。
+- TLS 1.2 + AES GCM：是AES区块密码的一种特殊操作模式，基本上将其变成了流密码。
+
+##### Asymmetric Cryptography 非对称密码学
+又称Public-key cryptography 公开密钥加密。它需要两个密钥，一个是公开密钥，另一个是私有密钥；公钥用作加密，私钥则用作解密。使用公钥把明文加密后所得的密文，只能用相对应的私钥才能解密并得到原本的明文，最初用来加密的公钥不能用作解密。
+- 第一步，A、B交换公钥
+- 第二步，A使用B的公钥加密信息并发送
+- 第三步，B接受接受加密的信息，通过B的私钥将加密信息解密为明文
+
+> 公钥/私钥的物理隐喻是个人锁定邮箱。任何人都可以在其中存放一封信，但只有邮箱的所有者才能打开它并阅读其中包含的消息。
+
+**对称与不对称密码系统的比较：**
+- 不对称密码系统在不受信任的信道上传输比较安全
+- 对称密码系统的算法速度更快，效率更高，可以加密大量的数据
+- 有时可以联合使用，通过不对称密码系统传输对称密码系统的密钥，通过对称密码系统的密钥解锁数据
+
+**非对称密码系统实例**
+- RSA：最早的非对称密码系统 以发明人首字母命名 密钥的生成过程取决于选择两个独特的、随机的、通常是非常大的素数
+- DSA Digital Signature Algorithm 数字签名算法：这个系统的安全性取决于选择一个随机种子值，并将其纳入签署过程。如果这个值被泄露了，或者可以推断出质数不是真正的随机数，那么攻击者就有可能恢复私钥
+- DH Diffie-Hellman 一种流行的密钥交换算法
+- ECC** **E**lliptic **c**urve **c**ryptography  椭圆曲线密码学， 传统的公钥系统是利用大素数的因式分解，ECC使用有限域上的椭圆曲线的代数结构来生成安全密钥。
+    - 椭圆曲线是由一组符合等式的坐标组成的，类似于 $y^2=x^3+ax+b$。一个是**水平对称性**，这意味着在曲线的任何一点都可以沿X轴进行镜像，并且仍然构成相同的曲线。除此之外，任何**非垂直的直线**最多只能在三个地方与曲线相交。
+    - **正是这最后一个特性使得椭圆曲线可以被用于加密**。基于椭圆曲线的加密系统的好处是，它们能够以较小的密钥规模实现与传统公钥系统类似的安全性
+        - 举例来说，一个256位的椭圆曲线密钥，将与一个3072位的RSA密钥相当。这确实很有利，因为它减少了处理密钥时需要存储和传输的数据量
+
+**Cryptography Applications 密码学应用**
+- PKI Public Key Infrastructure system 公钥基础设施系统
+- Web of Trust 信任之网
+- Pretty Good Privacy （PGP） 优良保密协议
+
+#### Hashing 哈希
+又名Hash function 散列函数，是一种函数或操作，它接收任意数据输入并将其映射到一个固定大小的输出，称为Hash 散列或digest 摘要。
+
+哈希不同于加密，哈希是单向的、不可逆的，但运算速度快，一旦有微小的变化哈希函数就会发生改变
+
+**Hash collisions 哈希冲突**
+- 即两个不同的输入映射到同一个输出，这是不应该存在的、需要修正的
+
+**一些例子**
+- MD5：它在512bit的block 区块上运行，并产生128bit的哈希值。是一个流行和广泛使用的散列函数，设计于20世纪90年代初，是一个加密散列函数
+- SHA-1：它操作一个512bit的区块并生成160bit的哈希值 是一个广泛使用的加密散列函数，用于流行的协议，如TLS/SSL、PGP SSH和IPsec。也用于像Git这样的版本控制系统，它使用哈希值来识别修订版，并通过检测损坏或篡改来确保数据的完整性。
+- MIC Message Integrity check 信息完整性检查：是有关信息的哈希值。你可以把它看成是信息的一个校验和，确保信息的内容在传输过程中没有被修改。
+
+### 2025.02.08
 
 <!-- Content_END -->

@@ -28,4 +28,14 @@ It is a fundamental mechanism in cryptocurrencies.
 
 ### 2025.02.07
 
+Week 2 is about how Ethereum’s execution layer works. The Execution Layer (EL) processes transactions and keeps the network running smoothly. Every transaction goes through a validation process, gets executed, and then updates Ethereum’s state. There’s a lot happening under the hood, such as adjusting gas fees (EIP-1559) and handling staking withdrawals.
+
+Ethereum nodes don’t just verify transactions—they also build new blocks by collecting transactions from the network. This requires a transaction pool to keep track of pending transactions before they’re added to a block. I wonder whether that causes latency or not.
+
+The State Transition Function is responsible for processing blocks and updating Ethereum’s state. The Ethereum Virtual Machine (EVM) runs smart contract code using a stack-based system, meaning operations are processed one after another.
+
+The P2) network plays a crucial role in how Ethereum nodes share data, whether it’s historical records, pending transactions, or state syncing (like with snap sync). To make everything accessible, Ethereum provides a JSON-RPC interface, allowing developers to interact with the blockchain using standard API calls. However, would this become a critical issue if the network were hacked?
+
+### 2025.02.08
+
 <!-- Content_END -->

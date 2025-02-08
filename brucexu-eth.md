@@ -94,7 +94,15 @@ Using a DHT DHT（分布式哈希表）的主要优势在于，它的查找操�
 
 discv5 是一个 Ethereum 使用的 discovery protocol，使用 kademlia based DHT 来存储 ENR records. ENR 记录包括路由信息来建立 P2P 链接。
 
+# 2025.02.08
 
+## [Protocol history and evolution](https://epf.wiki/#/wiki/protocol/history)
+
+几个比较重要的以太坊升级：
+
+- Frontier 是 Ethereum Protocol 的发起，在 2015 7 月 30 日上线，创世区块 <https://etherscan.io/block/0>
+- Homestead 在 2016 年 3 月 14 日上线。是一个更加成熟稳定的平台，包括 EIP-2、EIP-7、EIP-8 等升级
+- The Merge 在 2022 年 9 月 15 日上线，将共识层机制切换为 PoS。然后 PoS 共识层分开放在了一个新的 Beacon Chain Layer，有自己的 p2p 网络和逻辑。Beacon Chain 从 2020 年 12 月 1 号就开始运行和测试，没有发现什么问题。
 
 
 <!-- Content_END -->

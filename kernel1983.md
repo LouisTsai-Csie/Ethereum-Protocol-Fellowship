@@ -62,4 +62,20 @@ Slashing Pool Service 则是 Slasher Service 的依赖模块。
 
 ### 2025.02.08
 
+继续阅读代码，由于没有本地搭建编译和调试环境，所以以阅读为主，不求甚解。
+
+https://github.com/prysmaticlabs/prysm/blob/develop/beacon-chain/slasher/service.go#L88 首先是这个 `func (s *Service) run()` 阅读这里的逻辑。这里在做并行系统的人，需要有一种代码感受，因为做 beacon 是一个分布式系统，所以 slash 的逻辑需要在很多 beacon nodes 上一起执行，并且得到相同结果。
+
+带着问题去看以上的代码，尝试把关于POS的一些基本问题定位到具体代码逻辑：什么时候质押（比如32个ETH）会被罚没呢？这会反向让我们跳出代码来思考问题本身。
+
+感受到了知识的缺乏以后，开始在网上搜索，找到了 prysm 自己的官方 doc https://docs.prylabs.network/docs/install/install-with-script 在这方面学习更多对 POS 的基本概念。
+
+阅读之后有了更多基本概念，如果你仅仅需要 staking，做 validator 就可以了。这里我又有了新问题，以太坊 staking 的合约地址和内容是什么？这已经离开了节点层面的知识了。
+
+另外，做 validator 不仅是 staking，也是需要 propose 新区块的。 Execution + Beacon 更是一个全节点，validator 是连接到 Beacon 的。那么作为 propose 或者 builder 的机制也非常值得研究，这看起来是一个 geth 和 prysm 需要通信和合作才能完成的工作。
+
+在这个文档里，我们还发现了能回答上面问题的页面 https://docs.prylabs.network/docs/concepts/slashing 什么条件下，质押会被 slash。
+
+### 2025.02.09
+
 <!-- Content_END -->

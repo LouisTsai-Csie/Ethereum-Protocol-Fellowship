@@ -16,7 +16,7 @@ timezone: Asia/GuangZhou
 paticipate the first weekly call 
 learning epf.wiki study group week 1 
 
-### 2024.02.07
+### 2025.02.07
 
 still learning epf.wiki study group week 1 
 
@@ -45,12 +45,28 @@ Ethereum as a platform
 From a user perspective
 
 
-### 2024.02.08
+### 2025.02.08
 
-筆記
+Note
 
-### 2024.02.09
+### 2025.02.09
 
-筆記
+note
+
+### 2025.02.10
+
+Note
+
+### 2025.02.11
+
+Note
+
+### 2025.02.12
+
+Note
+
+### 2025.02.13
+
+Note
 
 <!-- Content_END -->

@@ -14,7 +14,13 @@ timezone: Asia/Shanghai
 <!-- Content_START -->
 
 TODO: Read https://inevitableeth.com/home/ethereum/world-computer  
-TODO: Figuring out the meaning of this [roadmap](https://x.com/VitalikButerin/status/1741190491578810445)
+TODO: Figuring out the meaning of this [roadmap](https://x.com/VitalikButerin/status/1741190491578810445) or [here](https://ethereum.org/zh/roadmap/)
+
+Links:
+
+| Description  |  Links  |
+|---|---|
+| Great speech vido | https://archive.devcon.org/archive/ |
 
 ### 2025.02.06
 
@@ -79,6 +85,30 @@ TODO: Figuring out the meaning of this [roadmap](https://x.com/VitalikButerin/st
 执行层提供执行或者算力，共识层保证以太坊数据的健壮。
 
 ### 2025.02.07
-Continue from this: https://epf.wiki/#/eps/week1?id=implementations-and-development
+
+#### Implementations and Development
+- client and node  
+ An implementation of the execution layer (EL) or consensus layer (CL) is called a **client**. A computer running this client and connecting to the network is called a **node**. 
+
+- client diversity  
+Ethereum client can be implemented in different language, which make it [diverse](https://ethereum.org/zh/developers/docs/nodes-and-clients/client-diversity/).
+[Here is the implementations list](https://ethereum.org/en/developers/docs/nodes-and-clients/#execution-clients).
+
+#### Testing
+
+You can find some test tools from [here](https://epf.wiki/#/eps/week1?id=testing)
+#### Coordination
+
+- [PM repo](https://github.com/ethereum/pm)shows the schedule for coordination.
+- You can also discuss or propose features through https://ethresear.ch/ or [Ethereum Magicians](https://ethereum-magicians.org/)
+
+#### Bitcoin
+> I think [this video](https://youtu.be/eEQ41gD0iC4?si=w5LNr1Va2oM2R0aX) should been seen by everyone who try to develop Ethereum implementations after learning about the basic concept of Ethereum.
+
+Bitcoin is a Cryptocurrency, the transaction of Bitcoin include the following 
+factors:
+- Signature: To verify the owner of a request, not anyone else, verify the validity of the request.
+- Uniqueness: The transaction request is Uni , to avoid the [Dual spending issue] (# "Deducting once from Party A's account and adding to two Party B's accounts")
+So the **Proof of Work** comes on stage. 
 
 <!-- Content_END -->

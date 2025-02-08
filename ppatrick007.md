@@ -39,7 +39,52 @@ Hi, 我是国内一名理科研究生，会一些编程语言，平时科研主�
   - 目前以太坊面临 **扩展性三难困境（Scalability Trilemma）**，在 **安全、去中心化、扩展性** 之间需要权衡。
   - **Rollups** 和 **Danksharding** 可能是未来解决方案，提高吞吐量的同时保持去中心化。
 
-
 ### 2025.02.07
+
+### 主题：Ethereum 执行层（Execution Layer）
+
+#### 主要内容
+今天的学习主要根据去年EPFsg的week2内容，重点是 **Ethereum 执行层（Execution Layer, EL）**，它负责处理交易、执行智能合约并维护以太坊的状态。主要涉及以下方面：
+
+#### 执行层概览
+- 负责处理状态转换（State Transition）。
+- 验证并执行每一笔交易，将其累积到状态树（State Trie）。
+- 处理以太坊改进提案（EIP）相关的机制，如：
+  - **EIP-1559**: 交易基础费用调整机制。
+  - **EIP-4844**: 处理 Blob Gas 以提高扩展性。
+  - **信标链提款（Beacon Chain Withdrawals）**。
+
+#### 区块验证（Block Validation）
+- 执行层需要验证每个区块：
+  - **头部验证（Header Validation）**：
+    - 校验 **Merkle Root**。
+    - 确保 **Gas Limit** 在合理范围内。
+    - 确保时间戳有效。
+  - **区块处理（Block Processing）**：
+    - 通过 `state_processor.go` 执行状态转换。
+
+#### EVM 及其操作码
+- 以太坊虚拟机（EVM）是基于 **堆栈（Stack Machine）** 的计算环境。
+- 主要操作码类别：
+  - **栈/内存操作（Stack & Memory Manipulation）**。
+  - **环境获取（Env Getters）**。
+  - **以太坊系统操作（Ethereum System Operations）**。
+
+#### P2P 网络 & 同步机制
+- 以太坊的 **P2P 网络** 负责：
+  - **提供历史数据**。
+  - **广播待处理交易**。
+  - **管理状态同步**。
+- **Snap Sync 机制**：
+  - **第一阶段：下载 Snap Tiles**（快速获取区块状态）。
+  - **第二阶段：Healing**（填补数据缺失）。
+
+#### JSON-RPC 及 Engine API
+- JSON-RPC 是 **与以太坊交互的主要接口**，目标是所有客户端提供一致 API。
+- 主要 RPC 方法：
+  - `eth_getBlockByNumber`
+  - `eth_call`
+  - `eth_sendTransaction`
+  - `eth_subscribe`
 
 <!-- Content_END -->
