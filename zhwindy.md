@@ -30,4 +30,17 @@ timezone: Asia/Shanghai
 
 ### 2025.02.08
 
+今天学习第一部分: 以太坊协发展历程, 总结下来主要以下4个方面的内容:
+1. 历史渊源,漫长的进化: 从unix和贝尔实验室,到互联网浪潮,从人类对自由的渴望和追求,到密码学的发展到电子现金的尝试,从比特币的横空出世到以太坊的诞生;
+2. 以太坊协议的整体架构: 执行层(执行客户端)和共识层(共识客户端)各自包含的组件,以及执行客户端和共识客户端的通信方式和流程;
+3. 以太坊协议的设计合理性:
+    * 设计理念(Simplicity, Universality, Modularity, Non-discriminant, Agility)
+    * 设计原则(Managing Complexity, Freedom, Generalization, no features)
+4. 区块链层协议: 账户体系, MPT, RLP;
+5. 协议历史和演变: Frontier -> Homestead -> The Merge;
+
+### 2025.02.09
+
+### 2025.02.10
+
 <!-- Content_END -->
