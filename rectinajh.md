@@ -26,4 +26,8 @@ https://epf.wiki/#/wiki/protocol/prehistory
 今天学习架构
 https://epf.wiki/#/wiki/protocol/architecture
 
+### 2025.02.08
+今天学习协议设计哲学还有基本概念
+https://epf.wiki/#/wiki/protocol/design-rationale
+
 <!-- Content_END -->
