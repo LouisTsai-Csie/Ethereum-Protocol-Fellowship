@@ -47,7 +47,7 @@ From a user perspective
 
 ### 2025.02.08
 
-Note
+reading the Notes <a href="https://hackmd.io/@chloezhux/epfsg_notes"> EPF Study Group 2024 Notes</a> shared by @Chole
 
 ### 2025.02.09
 
