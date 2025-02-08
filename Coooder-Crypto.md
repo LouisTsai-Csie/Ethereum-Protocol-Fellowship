@@ -2,7 +2,7 @@
 timezone: Asia/Shanghai
 ---
 
-# {Coooder-Crypto}
+# Coooder-Crypto
 
 1. 自我介绍: 我是 Coooder，坚定的以太坊建设者哈哈哈
 2. 你认为你会完成本次残酷学习吗？ 这次应该会了
