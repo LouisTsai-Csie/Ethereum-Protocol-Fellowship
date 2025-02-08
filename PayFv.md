@@ -14,6 +14,12 @@ timezone: Asia/Shanghai
 ## Notes
 
 <!-- Content_START -->
+### 2025.02.08
+今天直接开始从 week2 的内容开始学习。
+通过观看视频中伪代码的演示，对 validator 在 execution layer 中如何校验 transactions 和如何产生一个 block 有了更清晰的认识。
+明天计划通过阅读 geth 中这部分的源码，更深入的理解 execution layer 中对 transactions 的处理细节。
+
+
 ### 2025.02.07
 
  由于是 ethereum 开发老手，快速的过了 week1 的内容。
