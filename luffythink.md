@@ -4,14 +4,14 @@ timezone: Asia/Shanghai
 
 # Oscar
 
-1. A eco-lifelong learner. To surf🏄‍♀️ better in the Web3 world. Enjoy this challenging vibe and become cooler 🆒.
+1. A eco-lifelong learner. To surf🏄‍♀️ better in the Web3 world. Enjoy this challenging vibe and become cooler 🆒. TG：lessaremore
 2. 你认为你会完成本次残酷学习吗？ Yes. 
 
 ## Notes
 
 <!-- Content_START -->
 ### 2025.02.06
-学习主题：此次共学内容 EPF 背景，及内容方向
+**学习主题：此次共学内容 EPF 背景，及内容方向**
 学习了解 https://epf.wiki/ ，initiated by EF Protocol Support and maintained by EPFsg community. 主要搞清楚EF、EPF、EPFsg community 间关系。
 - EPFsg has been designed to guide and grow the next generation of Ethereum core developers and provide a deep understanding of Ethereum's internal mechanics. 
 - EPF Wiki 是一个关于以太坊协议的技术资源中心。focused on a general overview of the underlying structure of Ethereum. 此 Wiki 的范围仅限于以太坊核心协议基础设施的技术资源。
@@ -28,7 +28,7 @@ EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成�
     - State and history expiry
 
 ### 2025.02.07
-学习了解 EHT 早期历史：
+**学习了解 ETH 早期历史：**
 - 根植于早期互联网的开放精神，并受到几个关键运动和技术的影响。它从 Unix 的简洁性和模块化设计理念、GNU/Linux 所体现的自由和开源运动以及密码朋克所倡导的密码学进步中汲取灵感。
 
 - 互联网本身起源于 ARPANET，它连接了世界，打破了地域障碍，实现了前所未有的互动。 Unix 及其 C 语言为软件设计提供了基本原则，强调简洁性和可重用性。 出于对安全通信的需求而诞生的公钥密码学为无需信任的系统铺平了道路。 
@@ -45,17 +45,17 @@ EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成�
 ### 2025.02.08
 学习了解 ETH 协议架构 epf.wiki/#/wiki/protocol/architecture
 
-协议发展与目前构架：
+**协议发展与目前构架：**
 - 当前的协议架构是多年发展的成果。该协议由两个主要部分组成 - 执行层和共识层。
 - 执行层 (EL) 处理实际的交易和用户交互，它是 the global computer 执行其程序的地方。
 - 共识层 (CL) 提供权益证明共识机制 - 一种 cryptoeconomic security ，确保所有节点遵循相同的提示并驱动执行层的规范链。
 - 在实践中，这些层是在其自己的客户端中实现的，这些客户端通过 API 连接。每个都有自己的 p2p 网络来处理不同类型的数据。
 
-分析：
+**分析：**
 - 图显示了以太坊的模块化架构，将共识（就状态达成一致）与执行（运行智能合约和处理交易）的关注点分开，并允许将来的升级和可伸缩性改进。
 - Engine API 充当桥梁，使两层可以协同工作以维护安全且一致的区块链。
 
-扩展学习：Blobs
+**扩展学习：Blobs**
 - 一种“半链下”解决方案，可在成本效率和数据安全性/可用性之间取得平衡。虽然 blobs 不是以与交易数据或状态数据相同的方式直接存储在以太坊区块链上，但它们是由以太坊网络管理和保证 的。
 - 在 AI 辅助下梳理 Blobs workflow 图：仅供参考
 - ![](img/blobs_workflow.png)
