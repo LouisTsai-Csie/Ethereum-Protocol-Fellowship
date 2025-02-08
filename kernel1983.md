@@ -78,4 +78,14 @@ https://github.com/prysmaticlabs/prysm/blob/develop/beacon-chain/slasher/service
 
 ### 2025.02.09
 
+简单查看了一下 ETH 的 staking 合约 https://etherscan.io/address/0x00000000219ab540356cBB839Cbe05303d7705Fa#code 并不复杂。
+
+兴趣驱使，发现了用 Nim 语言编写的以太坊，感觉比 rust 更有前途，另外还有个语言 Zig 也挺有意思。
+  * https://github.com/status-im/nimbus-eth1
+  * https://github.com/status-im/nimbus-eth2
+
+接下来的计划，还是搞清楚 prysm 和 geth 之间的通信接口，该看一看 geth 的代码了。
+
+### 2025.02.10
+
 <!-- Content_END -->
