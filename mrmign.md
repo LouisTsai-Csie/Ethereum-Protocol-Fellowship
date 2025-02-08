@@ -52,4 +52,41 @@ Learn [Inevitable Ethereum - World Computer](https://inevitableeth.com/home/ethe
 	- **The Verge**: upgrades related to verifying blocks more easily
 	- **The Purge**: upgrades related to reducing the computational costs of running nodes and simplifying the protocol
 	- **The Splurge**: other upgrades that don't fit well into the previous categories.
+
+### 2025.02.08
+- ### Week2 Pre-reading
+- ### Nodes and clients
+	- Node Types
+		- Full node
+			- Full nodes do a block-by-block validation of the blockchain, including downloading and verifying the block body and state data for each block
+		- Archive node
+			- Archive nodes are full nodes that verify every block from genesis and never delete any of the downloaded data.
+		- Light node
+			- Light nodes only download block headers. Any other information the light node requires gets requested from a full node.
+	- Synchronization modes
+		- Execution layer sync modes
+			- Full sync
+			- Fast sync
+			- Snap sync
+			- Light sync
+		- Consensus layer sync modes
+			- **Optimistic sync**, a post-merge synchronization strategy designed to be opt-in and backwards compatible, allowing execution nodes to sync via established methods
+			- **Checkpoint sync**(weak subjectivity sync), It's based on assumptions of [weak subjectivity](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/weak-subjectivity/) which enables syncing the Beacon Chain from a recent weak subjectivity checkpoint instead of genesis
+
+
+### 2025.02.09
+
+### 2025.02.10
+
+### 2025.02.11
+
+### 2025.02.12
+
+### 2025.02.13
+
+### 2025.02.14
+
+### 2025.02.15
+
+### 2025.02.16
 <!-- Content_END -->

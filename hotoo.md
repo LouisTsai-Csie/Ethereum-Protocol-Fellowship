@@ -22,7 +22,10 @@ timezone: Asia/Shanghai
 ### 2025.02.07
 > 周五
 
-笔记内容
+- [x] [EIP Fun EPF Townhall.pptx - Google Slides](https://docs.google.com/presentation/d/1rcIqRHpI4V6sz9pQTWJ96Y4BDG1Es9D5/edit#slide=id.g2e1eea372ed_0_4)
+- [x] [Week 2](https://epf.wiki/#/eps/week2)
+- [x] 通读 [节点和客户端](https://ethereum.org/zh/developers/docs/nodes-and-clients/)
+- [ ] 以太坊机制
 
 ### 2025.02.08
 > 周六

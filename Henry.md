@@ -38,6 +38,44 @@ timezone: Asia/Shanghai
 以太坊是一种公共区块链技术，主要由执行层客户端和共识层客户端构成。
 执行层主要负责基础的节点执行逻辑（包括pow共识），共识层则只负责pos共识相关的业务。
 
+### 2025.02.07
+学习 geth 部分代码，浏览节点搭建文档
+
 ### 2025.02.08
+继续学习 geth 源码。
+1. 下载 geth 项目
+> git clone https://github.com/ethereum/go-ethereum.git
+2. 编译 geth cli  可执行文件 （位于 build/bin 目录下）
+> make geth
+3. 将可执行文件添加到环境变量中
+> cp /build/bin/geth /usr/local/bin
+4. 测试
+> geth —help
+1. 配置初始状态
+
+要运行以太坊私有链，需要定义自己的创世区块，创世区块信息写在一个 JSON 格式的配置文件中。首先将下面的内容保存到一个 JSON 文件中，例如 `genesis.json`
+```markdown
+"config": {
+        "chainId": 10, 
+        "homesteadBlock": 0,
+        "eip150Block": 0,
+        "eip155Block": 0
+    },
+  "alloc"      : {},
+  "coinbase"   : "0x0000000000000000000000000000000000000000",
+  "difficulty" : "0x20000",
+  "extraData"  : "",
+  "gasLimit"   : "0x2fefd8",
+  "nonce"      : "0x0000000000000042",
+  "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp"  : "0x00"
+}
+```
+
+其中，chainID 指定了独立的区块链网络 ID。网络 ID 在连接到其他节点的时候会用到，以太坊公网的网络 ID 是 1，为了不与公有链网络冲突，运行私有链节点的时候要指定自己的网络 ID。不同 ID 网络的节点无法相互连接。配置文件还对当前挖矿难度 difficulty、区块 Gas 消耗限制 gasLimit 等参数进行了设置。
+
+### 2025.02.09
+
 
 <!-- Content_END -->

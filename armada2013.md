@@ -24,4 +24,10 @@ timezone: Asia/Shanghai
 
 
 Ethereum network leverage decentralization to become permissionless, credible neutral and censorship resistant. It continues evolving to address the latest research, new and always present challenges. To maintain security and decentralization, blockchain technology has certain limits, mainly its scalability. Because Ethereum needs to always adhere to its principles, it motivates us to find clever solutions for these problems rather than accepting trade-offs.
+
+### 2024.02.07
+1. Finish reading the Ethereum Protocol Design. The protocol changes over time, with each network upgrade bringing new improvements. Despite its constant changes, the architecture evolution reflects certain fundamental principles which can be summarized as Simplicity, University, Moduality, Non-discrimination and Agility.
+2. Knowing that the main high level components of Ethereum are execution and consensus layer. These are 2 networks which are connected and dependent on each other. Execution layer provides the execution engine, handles user transaction and all state (address, contract data) while consensus implements the proof-of-stake mechanism ensuring security and fault tolerance.
+
+
 <!-- Content_END -->

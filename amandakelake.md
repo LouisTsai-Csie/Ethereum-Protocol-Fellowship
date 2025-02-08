@@ -153,4 +153,24 @@ https://epf.wiki/#/eps/week1
 https://epf.wiki/#/eps/week2
 #### Execution Layer
 
+基本概念：Execution Layer 主要负责执行所有交易的计算、生成新区块并更新以太坊网络的状态。它与 Consensus Layer（共识层）相互配合，后者负责确保网络的安全性和交易的顺序
+
+Execution Layer 处理
+- 交易的执行：包括普通的转账交易和智能合约的执行
+- 状态更新：通过交易执行后，网络的状态（账户余额、智能合约的存储等）会被更新
+- Gas 管理：在执行每个交易时，需要消耗一定的 Gas，Execution Layer 负责计算 Gas 费用和分配
+
+Execution Layer 的架构
+- 交易池：这是存放待处理交易的地方。交易一旦被验证并打包到区块中，就会从池中移除
+- 虚拟机（EVM - Ethereum Virtual Machine）：EVM 是以太坊的核心组件，所有的智能合约和交易都通过它来执行。它是一个图灵完备的虚拟机，可以处理所有逻辑计算
+- 区块生成与确认：矿工或验证者会根据交易池中的交易生成新的区块，并通过共识协议将它们添加到链上
+
+Execution Layer 和 Consensus Layer 配合工作，共同保证网络的运行
+
+Consensus Layer（共识层）负责确保全网对区块的达成一致，即它决定哪些区块是合法的。它通过 PoW（工作量证明）或 PoS（权益证明）来确保网络安全。 
+
+Execution Layer 则负责实际的区块内容，即执行交易和合约，更新状态，并最终生成区块。
+
+明天再重点深入下交易池和 EVM
+
 <!-- Content_END -->
