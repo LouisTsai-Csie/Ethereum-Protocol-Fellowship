@@ -5,7 +5,7 @@ timezone: Asia/Shanghai
 # Lvista
 
 1. 自我介绍: 
-    - 个人主页：[livsta.site](livsta.site)
+    - 个人主页：[lvista.site](lvista.site)
     - 个人简介：学生，C，C++，C#，嵌入式，python
 2. 你认为你会完成本次残酷学习吗？ 会的。
 
@@ -110,5 +110,54 @@ factors:
 - Signature: To verify the owner of a request, not anyone else, verify the validity of the request.
 - Uniqueness: The transaction request is Uni , to avoid the [Dual spending issue] (# "Deducting once from Party A's account and adding to two Party B's accounts")
 So the **Proof of Work** comes on stage. 
+
+### 2025.02.08
+
+#### Proof of work (PoW)
+> See also: https://youtu.be/_160oMzblY8?si=ySD7m-WXH__b5vlv
+and https://youtu.be/eEQ41gD0iC4?si=w5LNr1Va2oM2R0aX
+
+A block of ledger is needed to be proofed for its validity, so making it less likely to be created is a good proof method. 
+
+An block chain is just like this(play it in [here](https://andersbrownworth.com/blockchain/blockchain)):
+![block_chain](https://files.catbox.moe/oyxjpg.png)
+
+The hash code below is calculate(or called **Mine**, yes! it is the button below) based on the Data, Nonce, Block, Prev.
+
+- **Data** is the essence
+- **Nonce** is the specific num by mining, which makes Hash have multiple zeros starting with it, the more the zeros the greater the workload
+- **Prev** is the previous block's Hash, which included into the Mining in current block.
+- **Block** is just a num of block index
+
+The "Hash with Zeros" and the Nonce are exactly the Proof of Work.
+#### Why is PoW trustworthy
+
+1. Because of the "Chain", once a certain block in the middle is changed, all subsequent blocks will be changed, Moreover, there are many copy of ledger, the forged ledger will be overwhelmed by the correct version.
+2. Of cause, the latest block maybe untrustworthy, or perhaps the latest ledger you received was indeed forged by someone else, who mined out in the fastest time. But this won't last long, other miners will soon surpass it, and the ledger will return to its correct state.
+
+#### Proof of stake (PoS)
+
+TODO
+
+#### Gas
+
+Gas is the fee of transaction
+
+**Gas and ETH**  
+
+The unit of gas is *wei*, and Gas prices are usually quoted in *gwei*.
+$$
+1 gwei =  10^{-9} ETH
+$$
+**Gas fees calculating**  
+$$
+Gas\;fees =  units\;of\;gas\;used * (base \;fee + priority\;fee)
+$$
+- *base fee* is a value set by the protocol, which is finally to be burned and out of currency circulation.
+- *priority fee* is a value set by the user as a tip to the validator.
+
+### 2025.02.09
+
+
 
 <!-- Content_END -->
