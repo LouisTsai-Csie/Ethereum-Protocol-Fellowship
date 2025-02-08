@@ -34,7 +34,12 @@ a. Free veut dire « libre », mais aussi « gratuit ».
 
 ### 2025.02.08
 
-筆記
+今日的學習主要是觀看 v 老師三十分鐘深入淺出以太坊 2022 年這場演講「Ethereum in 30 minutes by Vitalik Buterin | Devcon Bogotá」，也就是 Week 1 推薦的延伸學習內容 https://epf.wiki/#/eps/week1?id=implementations-and-development 看了前二十分鐘。
+
+https://youtu.be/UihMqcj-cqc?si=MqL3ac9Xg30LPJmE
+
+<img width="666" alt="Screenshot 2025-02-08 at 11 36 48 PM" src="https://github.com/user-attachments/assets/2c9dbd0f-ae2a-400d-b334-1ff23da9d45a" />
+
 
 ### 2025.02.09
 

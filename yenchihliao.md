@@ -66,10 +66,14 @@ web3 developer, 朋友推坑第一次嘗試參加
 
 <!-- Content_START -->
 
-### 2024.07.11
+### 2025.02.08
+Finished week0 and week1
 
-笔记内容
-
-### 2024.07.12
+The week1 contains a lot of useful info, despite the vedio recording of somehow hard to focus on. The [quiz](https://ethereum.org/zh/quizzes/) is extremely helpful
+Picked up/strengthened some key concepts
+- Pretty Good Privacy (PGP) protocol, Signal protocol (both asymatric)
+- Stacking offline panelty
+- Proto-Danksharding and Danksharing
+- validator --(Beacon APIs)-- Consensus layer --(Engine API)-- Execution layer --(JSON-RPC API)-- User/Web3
 
 <!-- Content_END -->

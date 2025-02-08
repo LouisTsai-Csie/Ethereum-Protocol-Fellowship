@@ -30,7 +30,9 @@ timezone: Asia/Shanghai
 ### 2025.02.08
 > 周六
 
-笔记内容
+- [x] 第3周演讲笔记 https://github.com/eth-protocol-fellows/protocol-studies/files/14850973/Week.3.EPFsg.Consensus.Layer.Overview.pdf
+- [x] [权益证明(PoS)](https://ethereum.org/zh/developers/docs/consensus-mechanisms/pos/)
+- [/] [The Beacon Chain Ethereum 2.0 explainer you need to read first | ethos.dev](https://ethos.dev/beacon-chain)
 
 ### 2025.02.09
 > 周日
