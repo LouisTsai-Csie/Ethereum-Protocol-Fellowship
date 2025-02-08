@@ -35,5 +35,10 @@ Week 1: Protocol Intro
 - [Week 1相关资料](https://github.com/IntensiveCoLearning/Ethereum-Protocol-Fellowship/issues/73)
 
 ### 2025.02.07
+Week 1的视频基本看完了, Week2的视频复习了一下。
+比较感兴趣的地方在于Merkle tree的更高性能实现,看了下Layer0和MegaETH这方面的[解读](https://x.com/yilongl_megaeth/status/1879810863319941311).
+此外对于节点间如何进行P2P通讯也很感兴趣, 打算用python或者go实现一个最简单的版本。
+
+### 2025.02.08
 
 <!-- Content_END -->

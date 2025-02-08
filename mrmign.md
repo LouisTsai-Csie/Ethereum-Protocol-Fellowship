@@ -32,5 +32,24 @@ Learn [Inevitable Ethereum - World Computer](https://inevitableeth.com/home/ethe
 			- Stake 32ETH to become a validator
 
 ### 2025.02.07
-
+- Ethereum Accounts
+	- the information("state") that the blockchain keeps track of is make up of accounts.
+	- Two types of accounts:
+		- Externally owned account(EOA), represents the user
+		- Contract, a computer program that lives on-chain
+- Gas
+	- Gas is the "unit" of resource consumption within Ethereum
+- Ethereum fundamental principles:
+	- Simplicity
+	- Universality
+	- Modularity
+	- Non-discrimination
+	- Agility
+- [The vision for the Ethereum roadmap](https://twitter.com/VitalikButerin/status/1741190491578810445)
+	- **The Merge**: upgrades relating to the switch from proof-of-work to proof-of-stake
+	- **The Surge**: upgrades related to scalability by rollups and data sharding
+	- **The Scourge**: upgrades related to censorship resistance, decentralization and protocol risks from MEV
+	- **The Verge**: upgrades related to verifying blocks more easily
+	- **The Purge**: upgrades related to reducing the computational costs of running nodes and simplifying the protocol
+	- **The Splurge**: other upgrades that don't fit well into the previous categories.
 <!-- Content_END -->

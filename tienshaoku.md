@@ -88,4 +88,37 @@ user ---(User API)>>> execution engine ---(Engine API)>>> beacon node ---(Beacon
 - Casper FFG: follows a Byzantine Fault Tolerance (BFT) tradition with modifications to achieve PoS. Simply put, each validator votes on the checkpoint, and after two rounds of voting, the checkpoint is finalized. All finalized checkpoints become part of the blockchain history. While Casper **guarantees finality** through attestations to the latest block addition to the canonical chain, it requires a **fork-choice rule** where validators attest to blocks to signal support for those blocks
 - Latest Message Driven Greediest Heaviest Observed Sub-Tree (LMD-GHOST) is the fork-choice rule similar in some ways to the fork choice rule used in Proof-of-work network, where the fork with the most work done is selected as the canonical chain
 
+### 2025.02.08
+
+#### Protocol History
+
+##### The Merge
+
+- On Sep 15th, 2022, EIP-3675: Upgrade consensus to Proof-of-Stake, was live
+- New proof-of-stake consensus has been implemented in its own layer with a separate p2p network and logic, also know as Beacon Chain. The Beacon Chain has been running and achieving consensus since December 1st, 2020. After a prolonged period of consistent performance without any failures, it was deemed ready to become Ethereum's consensus provider. The Merge gets its name from the union of the two networks
+
+#### Execution Layer Spec
+
+- The Execution Layer focuses exclusively on executing the state transition function (STF). This role addresses two primary questions:
+  - Is it possible to append the block to the end of the blockchain?
+  - How does the state change as a result?
+- Rather than being stored in a specific location, the system's state is dynamically derived through the application of the state collapse function
+  - The state is not explicitly preserved as a simple flat snapshot at every block. Instead, state information is dynamically reconstructed using MPT structures
+  - The execution layer uses a trie (tree-like structure) to store state data efficiently and verify its integrity. Rather than accessing a static state object, the system looks up components dynamically
+  - Storing every single state for every block would be computationally infeasible. The MPT structure allows nodes to efficiently derive and prove state without keeping redundant snapshots
+- The state transition function includes the following steps:
+  1. Retrieve the Header: Obtain the header of the most recent block added to the chain, referred to as the parent block
+  2. Excess Blob Gas Validation
+  3. Header Validation: Compare and validate the current block's header against that of the parent block
+  4. Ommers Field Check: Verify that the ommers field in the current block is empty. Note: "ommers" is the gender-neutral term that replaces the previously used term "uncles."
+  5. Block Execution: Execute the transactions within the block, which yields the following outputs:
+  - Gas Used
+  - Trie Roots: The roots of the tries for all transactions and receipts contained in the block
+  - Logs Bloom: A bloom filter (a data structure for efficient filtering) of logs from all transactions within the block
+  - State: The state after executing all transactions
+  6. Header Parameters Verification
+  7. Block Addition
+  8. Pruning Old Blocks: Remove blocks that are older than the most recent 255 blocks from the blockchain
+  9. Error Handling: If any validation checks fail, raise an "Invalid Block" error. Otherwise, return None
+
 <!-- Content_END -->

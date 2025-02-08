@@ -60,4 +60,31 @@ https://epf.wiki/#/eps/week1
 - **The Purge** Pruning old state data to reduce node storage requirements.  
 - **The Splurge** Miscellaneous upgrades and optimizations.  
 
+---
+### 2025.02.07
+
+https://epf.wiki/#/eps/week2
+
+#### Execution Layer
+
+##### Block Validation
+```typescript
+stf(parentBlock: Block, curBlock: Block, state: State): [State, Error]
+```
+- `stf` -> state transition function
+- verify and process a block
+##### Block Building
+
+```typescript
+build(env: Environment, pool: TransactionPool, state: State): [Block, State, Error]
+```
+- construct a new block from environment, transaction pool, and current state
+
+---
+
+
+TBC
+赶灰机去了
+
+
 <!-- Content_END -->
