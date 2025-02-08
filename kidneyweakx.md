@@ -28,4 +28,16 @@ Note: 今日任務把 https://epf.wiki/#/ 簡單掃一遍，列一下這次共�
 
 TODO: 明日計畫看一下 protocol 目前的樹設計 MPT 和 Verkle Tree 的優劣之類的
 
+# 2025.02.07
+看來 MPT 和 Verkle 的主要差異就在 witness 證明，這邊只有簡介到時候會再花時間研究
+
+LMD GHOST + Casper FFG = Gasper (ETH2 目前的共識機制)
+
+DHT 是我蠻感興趣的部分，很好奇ETH 底層的 p2p 效率和路由如何構建
+以太目前設計和多數 DHT 不同的是，在 bittorrent 和 IPFS 這類產品都沒有一個明確的搜索目標，而在以太坊網路中最重要的就是最新區塊
+用過私有鏈一陣子，整體 p2p 大概是透過 enode:// + ip 和地址來互相獲取資訊，接下來就是 Gossipsub 裡面在做的事了
+
+整體把結構看了一下，ETH 和 ETH2 主要不同的點目前看來比較會 focus 在 Gasper 的實現，之後也可以深入研究下 Verkle 對於當前以太的好處
+
+TODO: 明天假日可以來看下 week0 + 1 的影片，如正常按照順序會順便看 EL 的介紹
 <!-- Content_END -->
