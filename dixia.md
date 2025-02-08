@@ -43,4 +43,18 @@ Burn ether preventing off-chain fee refund agreement to proposers that I did not
 
 In bitcoin's world, miner has fixed cost for mining the block but they do get fee reward as well. So this could apply to Bitcoin as well
 
+### 2025.02.08
+
+#### Why would proposer engage into off-chain fee refund agreement
+
+It is not due to the block reward as it is not proportional to the txs they included. But for the following reason:
+
+1. Proposer could fake up transactions to create a impression/illusion of higher activity on the chain. Given if they could get the gas fee back the cost of artificially creating txs is very low (transaction fee + effort to inflate txs). But that would require you control majority of the validator nodes or can reliably predict the next block proposer. The former could be the case actually right now? given there are 2-3 block builder building most of the blocks.(builder == proposer?) 
+
+2. To bid up the gas fee so other users have to pay more to get their txs included. This could require the same condition as above. As you intentionally pay a higher gas fee but can recover most of it back. It would be in the interest of proposer to do so. This would apply to Bitcoin as well. If majority of mining pool has an agreement. Could very well be the case for other chains.
+
+#### 
+gas fee right felt like a spam preventing mechanism rather than a fee market which pricing different resources.
+
+encrypted mempool: total gas case has to be unencrypted. Cosmos has encrypted mempool. general idea is no complete solution available yet
 <!-- Content_END -->
