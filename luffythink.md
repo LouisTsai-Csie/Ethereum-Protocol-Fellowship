@@ -42,5 +42,23 @@ EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成�
 
 - Bitcoin Magazine 的联合创始人 Vitalik Buterin 认识到比特币的局限性，并提出了一个更通用的平台。 在 Gavin Wood 的帮助下，以太坊的设计得以正式确定，并于 2015 年 7 月 30 启动，旨在构建一个自主的数字经济。On July 30, 2015, Ethereum went live as a platform aimed at building tools for a self-sovereign economy using digital currency. 其目标是构建一个无国界、自我主权的数字经济生态。
 
+### 2025.02.08
+学习了解 ETH 协议架构 epf.wiki/#/wiki/protocol/architecture
+
+协议发展与目前构架：
+- 当前的协议架构是多年发展的成果。该协议由两个主要部分组成 - 执行层和共识层。
+- 执行层 (EL) 处理实际的交易和用户交互，它是 the global computer 执行其程序的地方。
+- 共识层 (CL) 提供权益证明共识机制 - 一种 cryptoeconomic security ，确保所有节点遵循相同的提示并驱动执行层的规范链。
+- 在实践中，这些层是在其自己的客户端中实现的，这些客户端通过 API 连接。每个都有自己的 p2p 网络来处理不同类型的数据。
+
+分析：
+- 图显示了以太坊的模块化架构，将共识（就状态达成一致）与执行（运行智能合约和处理交易）的关注点分开，并允许将来的升级和可伸缩性改进。
+- Engine API 充当桥梁，使两层可以协同工作以维护安全且一致的区块链。
+
+扩展学习：Blobs
+- 一种“半链下”解决方案，可在成本效率和数据安全性/可用性之间取得平衡。虽然 blobs 不是以与交易数据或状态数据相同的方式直接存储在以太坊区块链上，但它们是由以太坊网络管理和保证 的。
+- 在 AI 辅助下梳理 Blobs workflow 图：仅供参考
+- ![](img/blobs_workflow.png)
+  
 
 <!-- Content_END -->
