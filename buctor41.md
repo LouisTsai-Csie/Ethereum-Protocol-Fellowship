@@ -33,3 +33,6 @@ timezone: Asia/Shanghai
 # 2025.02.07
 今天的时间较为紧张，自己将时间投入到了Week0的视频观看中，观看了约40分钟的视频。
 <!-- Content_END -->
+# 2024.02.08
+- 学习了Verkle Tree
+- 开通了自己的Web3钱包
