@@ -92,5 +92,17 @@ epf.wiki 是以太坊协议学习的协作知识库，由 EPF 学习小组的参
 * 作为开发者学习和贡献的开源平台。
 * 帮助开发者更好地理解以太坊的底层机制
 
+### 2025.02.09
+写 Ethereum Protocol Studies Survey 2025
+
+**重要链接**
+
+* [市政厅电话链接](https://epf.wiki/#/eps/intro?id=participate:~:text=%E9%87%8D%E8%A6%81%E9%93%BE%E6%8E%A5-,%E5%B8%82%E6%94%BF%E5%8E%85%E7%94%B5%E8%AF%9D%E9%93%BE%E6%8E%A5,-Discord%20%E6%9C%8D%E5%8A%A1%E5%99%A8)
+* [Discord 服务器](https://epf.wiki/#/eps/intro?id=participate:~:text=%E7%94%B5%E8%AF%9D%E9%93%BE%E6%8E%A5-,Discord%20%E6%9C%8D%E5%8A%A1%E5%99%A8,-%E5%85%B3%E4%BA%8E%20StreamEth%20%E7%9A%84)
+* [关于 StreamEth 的每周讨论](https://epf.wiki/#/eps/intro?id=participate:~:text=Discord%20%E6%9C%8D%E5%8A%A1%E5%99%A8-,%E5%85%B3%E4%BA%8E%20StreamEth%20%E7%9A%84%E6%AF%8F%E5%91%A8%E8%AE%A8%E8%AE%BA,-YouTube)
+* [YouTube](https://epf.wiki/#/eps/intro?id=participate:~:text=%E7%9A%84%E6%AF%8F%E5%91%A8%E8%AE%A8%E8%AE%BA-,YouTube,-%E4%BC%9A%E8%AE%AE%E6%97%A5%E7%A8%8B)
+* [会议日程](https://epf.wiki/#/eps/intro?id=participate:~:text=YouTube-,%E4%BC%9A%E8%AE%AE%E6%97%A5%E7%A8%8B,-EPF%20%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8)
+* [EPF 邮件列表](https://epf.wiki/#/eps/intro?id=participate:~:text=%E4%BC%9A%E8%AE%AE%E6%97%A5%E7%A8%8B-,EPF%20%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8,-EF%20%E5%8D%9A%E5%AE%A2)
+* [EF 博客](https://epf.wiki/#/eps/intro?id=participate:~:text=EPF%20%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8-,EF%20%E5%8D%9A%E5%AE%A2,-%E5%91%BC%E5%8F%AB%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4)
 
 <!-- Content_END -->
