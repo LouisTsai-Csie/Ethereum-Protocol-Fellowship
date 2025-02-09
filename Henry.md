@@ -76,6 +76,8 @@ timezone: Asia/Shanghai
 其中，chainID 指定了独立的区块链网络 ID。网络 ID 在连接到其他节点的时候会用到，以太坊公网的网络 ID 是 1，为了不与公有链网络冲突，运行私有链节点的时候要指定自己的网络 ID。不同 ID 网络的节点无法相互连接。配置文件还对当前挖矿难度 difficulty、区块 Gas 消耗限制 gasLimit 等参数进行了设置。
 
 ### 2025.02.09
+观看 Ethereum Execution Layer Overview | lightclient 学习视频，巩固复习代码知识
+研究了 geth 部分网络层代码
 
 
 <!-- Content_END -->
