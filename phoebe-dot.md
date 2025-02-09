@@ -51,7 +51,7 @@ reading the Notes <a href="https://hackmd.io/@chloezhux/epfsg_notes"> EPF Study 
 
 ### 2025.02.09
 
-note
+Today is a busy day, and I haven't had the chance to read or learn anything about EPF yet.
 
 ### 2025.02.10
 
