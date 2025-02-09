@@ -75,4 +75,11 @@ timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
 
 1. Week0: 前置准备工作： 密码学、默克尔树数据结构、网络 p2p 分布式系统、软件开发基础、以太坊平台
 
+### 2025.02.09
+
+1. Week1: 协议和生态的基本介绍
+   1. 为了理解 Ethereum 的设计，需要提前了解之前的历史 和对应的文化建立：自由软件运动、非对称密码技术的发明
+   2. Ethereum 协议的设计最初来源 V 神的 blog, 灵感来自 BTC 把 ETH 设计为一个通用的 区块链计算平台
+   3. https://ethereum.org/en/quizzes/ 这个地址可以测试对 以太坊资料的了解程度
+
 <!-- Content_END -->
