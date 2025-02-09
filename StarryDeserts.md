@@ -247,4 +247,72 @@ timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
 
 
 
+### 2025.02.09
+
+#### 以太坊执行层规范（第1天）
+
+------
+
+#### **状态转换函数（State Transition Function）**
+
+- **核心作用**：回答两个关键问题——
+
+  1. 当前区块能否被添加到区块链末尾？
+  2. 添加后状态如何变化？
+
+- **公式表示**：
+
+  $$\sigma_{t+1} \equiv \Pi(\sigma_t, B)$$
+
+  - $$\sigma_t$$：前一区块状态
+  - $$B$$：当前区块
+  - $$\Pi$$：区块级状态转换函数，处理交易并更新状态
+
+- **实现步骤**：
+
+  1. 获取父区块头（Parent Header）
+  2. 验证"Excess Blob Gas"（EIP-4844引入的Blob交易相关参数）
+  3. 检查区块头字段（时间戳、Gas限制等）
+  4. 执行区块内交易，生成状态根、日志等
+  5. 验证执行结果与区块头是否一致
+
+------
+
+#### **区块头验证（Block Header Validation）**
+
+- **关键校验项**：
+1. **Gas限制约束**：子区块Gas限制需在父区块的±1/1024范围内，防止突变：
+     $$\begin{cases}
+     H_{\text{gasLimit}} < P(H)_{\text{gasLimit}} + \left\lfloor \frac{P(H)_{\text{gasLimit}}}{1024} \right\rfloor & (57b) \\
+     H_{\text{gasLimit}} > P(H)_{\text{gasLimit}} - \left\lfloor \frac{P(H)_{\text{gasLimit}}}{1024} \right\rfloor & (57c)
+     \end{cases}$$
+  
+2. **时间戳顺序**：$$H_{\text{timestamp}} > P(H)_{\text{timestamp}}$$（57e）
+  
+3. **Nonce与难度归零**：$$H_{\text{difficulty}} = 0$$（57k），$$H_{\text{nonce}} = \texttt{0x0000000000000000}$$（57l）
+  
+4. **Blob Gas限制**：单区块Blob Gas上限为786,432（57p），且必须为217的整数倍（57q）
+
+------
+
+#### **数据结构与数学基础**
+
+- **状态树（Merkle Patricia Trie）**：
+
+  - 存储账户状态，通过TRIE函数生成状态根哈希。
+
+  - 示例：账户存储根计算（公式7）：
+
+    $$\text{TRIE}(LI^*(\sigma[a]_s)) \equiv \sigma[a]_s$$
+
+    - $$LI((k,v)) \equiv (\text{KEC}(k), \text{RLP}(v))$$
+
+- **自然数（$$\mathbb{N}$$）的应用**：
+
+  - Gas相关参数（如$$H_{\text{gasUsed}}`、`H_{\text{gasLimit}}$$）使用自然数，确保计算精确性。
+
+
+
+
+
 <!-- Content_END -->

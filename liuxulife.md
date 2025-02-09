@@ -29,5 +29,10 @@ timezone: Asia/Shanghai
 | [Reth](https://reth.rs/)                                     | Rust       | Linux、Windows、macOS | 
 | [EthereumJS](https://github.com/ethereumjs/ethereumjs-monorepo) | TypeScript | Linux、Windows、macOS | 
 
+### 2025.02.08
+以太坊权益证明的核心是一条称为“信标链”的系统链。信标链存储和管理验证者注册表。在权益证明的初始部署阶段，成为验证者的唯一机制是将 ETH 交易单向（Capella 后可提现）到以太坊工作量证明链上的存款合约。当信标链处理存款收据、达到激活余额并完成排队过程时，就会激活验证者。退出要么是自愿的，要么是作为对不当行为的惩罚而被迫进行的。信标链上的主要负载来源是 “证明”。证明同时是分片块的可用性投票（在以后的升级中）和信标块的权益证明投票（第 0 阶段）。
+
+### 2025.02.09
+EIP-4844，也称为 proto-danksharding，是 Deneb/Cancun 硬分叉的一部分。它为以太坊引入了数据可用性层，允许在区块链上临时存储任意数据。这种以这种方式存储的任意数据称为 blob，每个块可以有 3 ~ 6 个 blob sidecar（blob 的包装器）。EIP-4844 标志着以太坊迈向分片和可扩展性的第一步，使第 2 层解决方案 （L2） 能够使用此数据可用性层来降低 gas 费用并处理更多交易。
 
 <!-- Content_END -->

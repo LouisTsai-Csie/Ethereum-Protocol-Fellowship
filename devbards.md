@@ -37,5 +37,6 @@ The State Transition Function is responsible for processing blocks and updating 
 The P2) network plays a crucial role in how Ethereum nodes share data, whether it’s historical records, pending transactions, or state syncing (like with snap sync). To make everything accessible, Ethereum provides a JSON-RPC interface, allowing developers to interact with the blockchain using standard API calls. However, would this become a critical issue if the network were hacked?
 
 ### 2025.02.08
+Week 3 covered consensus mechanisms, but to be honest, I didn’t fully grasp everything. So I’m reading it together with Week 4 to get a better understanding. However, there are still some parts that require further clarification. I plan to review everything again after going through Week 5.
 
 <!-- Content_END -->

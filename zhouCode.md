@@ -277,5 +277,171 @@ EVM 的所有实现都必须遵守以[太坊黄皮书](https://ethereum.github.i
 也叫弱主观性同步，从最近的弱主观性检查点而不是从创世块同步信标链。检查点同步可大幅加快初始同步速度，其信任假设与从创世块同步时类似。
 
 在实践中，这意味着你的节点会连接到远程服务，以下载最近的最终确定状态并从该点继续验证数据。 提供数据的第三方会受到信任，因此要谨慎选择。
+### 2025.02.08
+
+#### Study Group 2024 week2 学习
+
+#### 学习内容
+
+观看thereum Execution Layer Overview | lightclient视频
+
+#### 概念补充
+
+##### gas
+
+as 是衡量交易和智能合约执行时所消耗计算资源的单位，其消耗量决定了需支付的交易费用，同时通过限制资源消耗来防止网络滥用。
+
+Gas 的使用量主要取决于交易或合约调用中执行的操作类型和复杂性，交易中操作越简单、状态变化越少、计算越轻量，gas 使用就越少；而操作越复杂、需要修改状态或执行大量计算时，则会消耗更多 gas。
+
+##### Deneb Beacon Chain
+
+以太坊共识层——即Beacon Chain，在经过“Deneb”升级后所呈现的新版形态。简单来说：
+
+- **Beacon Chain 的作用**：Beacon Chain 是以太坊采用权益证明（PoS）共识机制的核心链，负责管理验证者、组织区块生产和确认，以及协调网络安全。
+- **Deneb 升级**：Deneb 是以太坊后续升级计划中的一个阶段（常与Capella等升级配合），旨在改善Beacon Chain的性能和数据处理能力，提升网络效率，并为未来扩容（如Danksharding）做准备。
+
+因此，“Deneb Beacon Chain”就是指在完成Deneb升级之后的Beacon Chain版本，它通过一系列技术改进，提高了共识效率、数据可用性和整体网络扩展性。
+
+#### 视频主要内容
+
+##### 1 执行层的区块验证
+
+执行层现在更像是一个状态转换函数
+
+```go
+// 接收父区块、当前区块和当前状态（StateDB）作为参数。
+// 首先调用 core.VerifyHeaders 验证区块头（确保区块头信息符合规定，如时间戳、难度、父区块哈希等）。
+// 然后遍历区块中所有交易，对于每笔交易调用 vm.Run 在虚拟机中执行，更新状态。
+// 如果在验证区块头或执行某笔交易时出错，则立即返回错误，说明该区块无效；如果所有操作都成功，则返回更新后的状态。
+func stf(parent types.Block, block types.Block, state state.StateDB) (state.StateDB, error) {
+    if err := core.VerifyHeaders(parent, block); err != nil {
+        // header error detected
+        return nil, err
+    }
+    for _,tx := range block.Transactions() {
+        res, err := vm.Run(block.Header(), tx, state)
+        if err != nil {
+            // trasaction invalid, block is invalid
+            return nil, err
+        }
+        state = res
+    }
+    return state, nil
+}
+// 这个函数调用了 stf函数来处理（执行）一个执行载荷（ExecutionPayload）。
+// 如果执行过程中没有错误，说明载荷中的交易都合法，则返回 true；否则返回 false，表示载荷无效。
+func newPayLoad(execPayload engine.ExecutionPayload) bool {
+    if _, err := stf(..); err != nil {
+        return false
+    } 
+    return true
+}
+```
+
+- 合并后，执行层（Execution Layer）的职责简化，主要负责状态转换功能（State Transition Function）。
+- 共识层（Consensus Layer）接管了区块排序、重组（reorgs）等任务，执行层仅需验证区块的有效性并生成新的状态。
+- 执行层通过 `process_execution_payload` 函数与共识层交互，返回区块是否有效的布尔值。
+- 验证区块头（Header）的合法性，包括父哈希、时间戳、Gas Limit（需符合1/1024调整规则）、Base Fee计算等。
+- 执行层调用 `state_transition` 函数，逐笔执行交易并更新状态数据库（State DB）。
+- 若交易执行失败（如Gas不足或无效Nonce），整个区块会被标记为无效。
+
+##### 2 区块构建
+
+```go
+func build(env Environment, pool txpool.Pool, state state.StateDB) (types.Block, state.StateDB, error){
+    var (
+    	gasUsed = 0 // 定义一个变量 gasUsed，初始值为 0，用来累计已消耗的 Gas。
+        txs []types.Transactions // 定义一个交易列表 txs，用于存放从交易池中挑选并执行成功的交易。
+    )
+    // 循环条件是“当已消耗的 gas 小于环境设置的 GasLimit 或者交易池非空时”（注意：这里的条件写成“||”，即只要有一个条件满足就继续循环）。
+    for ; gasUsed < env.GasLimit || ! pool.Empty(); {
+        tx := pool.Pop() // 在每次循环中，从交易池中弹出一笔交易（tx := pool.Pop()）。
+        // 调用 vm.Run(env, tx, state) 在虚拟机中执行这笔交易。该函数返回三个值：
+        // res：执行后的新状态；
+        // gas：该笔交易实际消耗的 gas 数量；
+        // err：执行过程中产生的错误（如果交易无效，则返回错误）。
+        // 如果执行过程中出错（例如交易无效），则跳过这笔交易（continue），不把它加入区块中。
+        res, gas, err := vm.Run(env, tx, state)
+        if err != nil {
+            // tx invalid
+            continue
+        }
+        // 如果交易执行成功，则将该交易消耗的 gas 累加到 gasUsed 上。
+        // 将这笔交易添加到交易列表 txs 中。
+        // 更新状态 state 为这笔交易执行后的结果 res。
+        gasUsed += gas
+        txs = append(txs, tx)
+        state = res
+    }
+    // 循环结束后，调用 core.Finalize(env, txs, state) 对交易列表和状态进行最终处理，生成一个完整的区块，并返回该区块、最终状态和可能的错误。
+    return core.Finalize(env, txs, state)
+}
+```
+
+- 交易池（Transaction Pool）按Gas价格排序交易，优先选择高Gas费的交易填充区块。
+- 通过循环执行交易，累积Gas使用量，直到达到区块Gas上限（如30M）。
+- 最终调用 `Finalize` 函数生成完整的区块，包含交易哈希、收据哈希等默克尔根。
+
+##### 3 状态转换函数
+
+代码见go-ethereum
+
+- 状态转换函数的核心是逐笔执行交易，通过EVM（以太坊虚拟机）更新状态。
+- EVM执行时需传入区块上下文（如Coinbase、时间戳）和交易上下文（如Gas Price）。
+- 交易执行失败（如合约回滚）仅消耗Gas，不影响区块有效性，但无效交易会导致区块被拒绝。
+
+##### 4 EVM工作原理与指令示例
+
+- EVM是基于栈的虚拟机，指令包括算术运算（ADD）、存储操作（SSTORE）、环境指令（COINBASE）等。
+- 示例：通过 `MSTORE` 将数据写入内存，`RETURN` 返回结果。
+- 每个EVM调用帧（Call Frame）包含独立的栈、内存和Gas计数器。
+
+##### 5 点对点（P2P）协议与数据同步
+
+- DevP2P协议负责广播交易、同步区块头和状态数据（通过 `eth/68` 和 `snap` 协议）。
+- 交易广播采用“平方根广播”策略，减少带宽消耗。
+- Snap Sync分两阶段：连续状态下载（Contiguous Retrieval）和状态修复（Healing），依赖默克尔证明验证数据完整性。
+
+### 2025.02.09
+
+#### Study Group 2024 week3 学习
+
+#### 学习内容
+
+观看Ethereum Consensus Layer | Alex Stokes | Week 3视频
+
+#### 视频主要内容
+
+##### 1 区块链与数字稀缺性
+
+- 区块链的核心价值是创造“数字稀缺性”，解决数字世界中无法复制的资源问题（如货币、数字资产）。
+- 传统中心化系统的缺陷：依赖单一信任方，易受攻击或操纵。
+- 分布式共识的目标：通过多节点协作实现去信任化，确保协议规则自动执行。
+
+##### 2 拜占庭容错（BFT）与共识机制
+
+- 拜占庭容错（BFT）是分布式系统的核心问题，需保证即使部分节点故障或作恶，系统仍能达成一致。
+- 传统BFT协议（如PBFT）的局限性：节点数量受限，消息复杂度高。
+- 比特币的PoW创新：通过工作量证明实现开放网络的共识，但存在能源浪费和激励机制单一的问题。
+
+##### 3 以太坊的权益证明（PoS）机制
+
+- **PoS的核心设计**：验证者需质押32 ETH参与共识，通过经济惩罚（Slashing）增强安全性。
+- **Slot与Epoch**：
+  - Slot：12秒为一个时间单元，每个Slot由随机选出的验证者提议区块。
+  - Epoch：32个Slot（约6.4分钟），用于批量处理验证者奖惩、状态更新等。
+- **随机性（RANDAO）**：通过链上随机数生成验证者分配，确保公平性。
+
+##### 4 以太坊共识协议（Gasper）
+
+- **Gasper协议**：结合FFG（Friendly Finality Gadget）和LMD GHOST算法，实现动态可用性与最终性。
+- **最终性（Finality）**：需2/3验证者投票确认的区块不可逆转，防止分叉。
+- **分片与动态委员会**：通过随机分片降低单个验证者的负载，提升网络吞吐量。
+
+##### 5 未来改进方向
+
+- **单槽最终性（SSF）**：缩短最终性确认时间至单个Slot（12秒），减少攻击窗口。
+- **提议者-构建者分离（PBS）**：分离区块提议与构建角色，降低MEV（最大可提取价值）对去中心化的影响。
+- **验证者优化**：探索更高质押门槛（如2048 ETH）以减少节点数量，提升效率。
 
 <!-- Content_END -->
