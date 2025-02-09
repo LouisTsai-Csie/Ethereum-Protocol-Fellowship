@@ -97,6 +97,8 @@ user ---(User API)>>> execution engine ---(Engine API)>>> beacon node ---(Beacon
 - On Sep 15th, 2022, EIP-3675: Upgrade consensus to Proof-of-Stake, was live
 - New proof-of-stake consensus has been implemented in its own layer with a separate p2p network and logic, also know as Beacon Chain. The Beacon Chain has been running and achieving consensus since December 1st, 2020. After a prolonged period of consistent performance without any failures, it was deemed ready to become Ethereum's consensus provider. The Merge gets its name from the union of the two networks
 
+### 2025.02.09
+
 #### Execution Layer Spec
 
 - The Execution Layer focuses exclusively on executing the state transition function (STF). This role addresses two primary questions:
@@ -109,7 +111,9 @@ user ---(User API)>>> execution engine ---(Engine API)>>> beacon node ---(Beacon
 - The state transition function includes the following steps:
   1. Retrieve the Header: Obtain the header of the most recent block added to the chain, referred to as the parent block
   2. Excess Blob Gas Validation
-  3. Header Validation: Compare and validate the current block's header against that of the parent block
+  3. Header Validation: Compare and validate the current block's header against that of the parent block. Performing header checks early allows the State Transition Function (STF) to potentially return an "Invalid Payload" message to the Consensus Layer (CL) without proceeding to the computationally intensive stage of block/transaction execution
+  - Minimum Gas Limit: A minimum gas limit of 5,000 ensures a basic level of transaction processing capacity
+  - Economic Model Compliance: e.g. EIP-1559
   4. Ommers Field Check: Verify that the ommers field in the current block is empty. Note: "ommers" is the gender-neutral term that replaces the previously used term "uncles."
   5. Block Execution: Execute the transactions within the block, which yields the following outputs:
   - Gas Used
