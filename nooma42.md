@@ -7,6 +7,7 @@ timezone: Asia/Taipei
 1. 自我介绍：大家好，我是 Nooma。之前一直沒有好好學習過協議層，希望能夠更瞭解以太坊的底層架構。
 2. 你認為你會完成這次的殘酷學習嗎？Yes
 
+<!-- Content_START -->
 ## Notes
 
 ### 2025.02.06
@@ -34,3 +35,5 @@ curl -X POST \
  https://virginia.rpc.blxrbdn.com
 {"jsonrpc":"2.0","id":1,"error":{"code":-32601,"message":"the method rpc_methods does not exist/is not available"}}
 ```
+
+<!-- Content_END -->
