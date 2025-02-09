@@ -238,4 +238,8 @@ Blob 交易(blob-carrying transactions)是在 EIP-4844 中引入的一种全新�
 ---
 ```
 
+### 2025.02.09
+
+今天通过 AI 快速把剩余的内容了解了一遍，总体来说没什么感兴趣的点，加上大量的公式就更没兴趣了，准备阅读下 [布拉格升级](https://k0mkpk5019.feishu.cn/docx/WnqKdRxIZohucvxomfhcXxjbn0k) 文档里的内容。
+
 <!-- Content_END -->
