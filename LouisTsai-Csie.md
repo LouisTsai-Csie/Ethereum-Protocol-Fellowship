@@ -25,4 +25,7 @@ Today I learn the protocol overview and the protocol introduction in protocol wi
 ### 2025.02.08
 Read the week2 recording on the study group wiki and read the content regarding the execution layer. Complete the EL Specs part!
 
+### 2025.02.09
+Today, start learning some fundamentals for Pectra's next upgrade, which will include the EOF updates. The changes are documented in EIP-7692. This upgrade significantly impacts the execution layer, so it includes a large number of EIPs!
+
 <!-- Content_END -->
