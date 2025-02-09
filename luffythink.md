@@ -61,4 +61,20 @@ EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成�
 - ![](img/blobs_workflow.png)
   
 
+### 2025.02.09
+
+**学习主题：Protocol Design Philosophy**
+五个核心原则及其具体指导：
+* Simplicity 简洁
+    * Managing Complexity (sandwich model complexity & encapsulated complexity)
+* Universality 通用基础
+    * Generalization
+    * We have no features 
+
+* Modularity 模块
+* Non-discrimination 无歧视性
+    * Freedom 类似中立性
+* Agility 敏捷
+
+
 <!-- Content_END -->
