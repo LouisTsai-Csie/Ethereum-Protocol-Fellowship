@@ -37,4 +37,13 @@ Yes.
 - Other serialization schemes have a probabilistic nature.
 - Inefficient for fixed-length data types like bool and integers.
 
+### 2025.02.09
+- After discovering peers through [DHT](https://app.tana.inc?nodeid=EqOaJe-Z-ZPD) , peers use [gossip protocol](https://app.tana.inc?nodeid=ego5h76AG3BI) to disseminate the block throughout the network.
+- To find different peers.
+- Using a [DHT](https://app.tana.inc?nodeid=EqOaJe-Z-ZPD) 
+  - To find different peers.
+  - After discovering peers through [DHT](https://app.tana.inc?nodeid=EqOaJe-Z-ZPD) , peers use [gossip protocol](https://app.tana.inc?nodeid=ego5h76AG3BI) to disseminate the block throughout the network.
+- Hunt for [Finality](https://app.tana.inc?nodeid=2UKh-XoVVM8r) 
+
+
 <!-- Content_END -->
