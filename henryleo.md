@@ -138,6 +138,20 @@ Proof of Work (PoW) 工作量证明是一种方法，其核心理念是**“信�
 
 ### 2025.02.09
 
+#### P2P、分布式网络和BitTorrent
+##### P2P和分布式网络
+P2P（peer to peer）区别于“服务器-客户端”模型，传统互联网需要一个中心机构储存、管理和分发数据，而P2P网络中的每一个计算机（被称为Node 节点）拥有数据的多个相同副本，这有助于防止数据操纵和控制行为的发生。
+
+因此，P2P网络属于一种分布式网络，区块链也构筑在P2P网络的基础上。
+
+##### BitTorrent 
+BitTorrent 旨在解决依赖中心化服务器下载大文件导致的网络堵塞问题，通过将大文件切分成小块，每个用户理论上拥有一个小块，互相之间形成一个网络的全连接图，从而可以分享文件并减少网络负载。
+
+另一个好处是对于家庭网络而言，上传带宽往往小于下载带宽，这称为“上传下载的不对称性”。因此当只有一位用户为另一位用户提供资源时速度是很慢的，这是由于上传带宽不足。而BitTorrent支持多个用户为一个用户提供资源，这使得上传带宽得以共享，在带宽资源有限的情况下提升了效能。
+
+##### Refs
+- [What is BitTorrent? | internet-class](https://www.youtube.com/watch?v=xH00ikD1oDo)
+- [What is a Peer to Peer Network? Blockchain P2P Networks Explained | Lisk](https://www.youtube.com/watch?v=ie-qRQIQT4I)
 
 
 <!-- Content_END -->
