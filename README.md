@@ -122,7 +122,7 @@ Telegram：https://t.me/ETHPandaOrg/5427
 | HeliosLz | ⭕️ | ⭕️ | ✅ | ✅ | | | | | | | | | | | | | | | | | | | |   |   |
 | lllapland | ✅ | ✅ | ⭕️ |   | | | | | | | | | | | | | | | | | | | |   |   |
 | passer-byzhang | ⭕️ | ⭕️ | ❌ | | | | | | | | | | | | | | | | | | | | | | |
-| StillFantastic | ⭕️ | ✅ | ⭕️ |   | | | | | | | | | | | | | | | | | | | |   |   |
+| StillFantastic | ⭕️ | ✅ | ⭕️ | ✅ | | | | | | | | | | | | | | | | | | | |   |   |
 | debugzhao | ✅ | ⭕️ | ⭕️ |   | | | | | | | | | | | | | | | | | | | |   |   |
 | StarryDeserts | ✅ | ✅ | ✅ | ✅ | | | | | | | | | | | | | | | | | | | |   |   |
 | KieSun | ✅ | ✅ | ✅ | ✅ | | | | | | | | | | | | | | | | | | | |   |   |
@@ -191,6 +191,7 @@ Telegram：https://t.me/ETHPandaOrg/5427
 | pillowtalk-Qy | ⭕️ | ⭕️ | ❌ | | | | | | | | | | | | | | | | | | | | | | |
 | yoona333 | ⭕️ | ⭕️ | ❌ | | | | | | | | | | | | | | | | | | | | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
