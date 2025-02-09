@@ -87,4 +87,41 @@ Hi, 我是国内一名理科研究生，会一些编程语言，平时科研主�
   - `eth_sendTransaction`
   - `eth_subscribe`
 
+### 2025.02.08
+
+###  主题：Ethereum 共识层（Consensus Layer, CL）
+
+####  主要内容
+今天的学习重点是 **Ethereum 共识层（Consensus Layer, CL）**，它负责以太坊网络的安全性、数据一致性以及区块共识机制。主要涉及以下方面：
+
+#### 共识层概述
+- 区块链保证了 **数字稀缺性（Digital Scarcity）**，但需要 **安全性** 来确保其完整性。
+- 分布式网络需要 **拜占庭容错（Byzantine Fault Tolerance, BFT）** 来应对恶意节点。
+- **比特币（Bitcoin）** 通过 **工作量证明（Proof-of-Work, PoW）** 解决了 BFT 问题。
+- **以太坊（Ethereum）** 通过 **权益证明（Proof-of-Stake, PoS）** 作为新共识机制。
+
+#### PoS 机制
+- PoS 由 **信标链（Beacon Chain）** 管理，并使用 **验证者（Validators）** 进行区块提议和投票。
+- **从 PoW 转向 PoS 的关键变化：**
+  - 由 **计算能力（哈希算力）** 转向 **代币抵押（Stake）** 作为 **反女巫攻击（Sybil Protection）** 机制。
+  - 通过 **BFT 机制** 确保网络达成一致。
+  - 参与 PoS 需要 **质押 32 ETH**，被选中的验证者负责出块和投票。
+
+#### 拜占庭容错与 Slashing
+- 以太坊 PoS 采用 **拜占庭容错（BFT Majority）** 来决定链的状态。
+- 如果验证者行为异常或恶意，则会触发 **Slashing（削减惩罚）**：
+  - **部分 Slash**：轻微违规，如错误投票，扣除部分质押。
+  - **完全 Slash**：严重违规，如双重签名，导致全部 ETH 被销毁并被逐出网络。
+
+#### Fork Choice Rule: LMD-GHOST
+- 以太坊 PoS 使用 **LMD-GHOST（Latest Message Driven - Greedy Heaviest Observed Subtree）** 作为 **分叉选择规则（Fork Choice Rule）**：
+  - **最新投票驱动**（Latest Message Driven）：最新投票更具权重。
+  - **贪心最重子树**（Greedy Heaviest Observed Subtree）：选择投票最多的链作为主链。
+  - **保证活跃性（Liveness）**：结合 **Casper FFG** 确保网络不会停滞。
+
+#### 以太坊的加密经济安全性
+- **Casper** 提供了更强的经济安全性：
+  - 质押 ETH 提供了 **经济安全保证**，攻击者必须承担高额成本。
+  - **双重签名 = 资金被 Slash**，确保验证者不会作恶。
+
 <!-- Content_END -->

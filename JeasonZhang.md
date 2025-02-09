@@ -152,8 +152,6 @@
   - [以太坊基础知识测验](https://ethereum.org/quizzes)
   - 编写简单智能合约并通过[执行层测试](https://github.com/ethereum/execution-spec-tests)验证
 
-笔记内容
-
 ### 2024.02.07
 
 #### **I. 核心学习目标**
@@ -245,6 +243,96 @@
 2. **网络模拟**：使用[devp2p工具包](https://github.com/ethereum/devp2p)模拟P2P交易广播
 3. **RPC实验**：通过Postman调用JSON-RPC接口获取链上数据
 
-### 2025.02.08
+### 2025.02.09
+
+#### **I. 核心学习目标**
+
+**主题**: 以太坊共识层（Consensus Layer）技术解析
+ **目标**: 掌握权益证明（PoS）机制、Gasper协议架构及信标链安全模型。
+
+------
+
+#### **II. 课程大纲重点**
+
+##### **1. 共识机制基础**
+
+- 拜占庭容错（BFT）：
+  - 区块链通过分布式网络实现数字稀缺性，需解决节点作恶问题
+  - 比特币通过工作量证明（PoW）首次实现BFT
+- PoS机制创新：
+  - 以太坊转向权益证明，使用内生经济信号（质押ETH）实现女巫攻击防护
+  - 通过**罚没（Slashing）**机制惩罚拜占庭行为
+
+##### **2. Gasper协议架构**
+
+- 混合共识机制：
+  - **LMD-GHOST分叉选择规则**：基于最新消息（Latest Message Driven）确定主链
+  - **Casper FFG**：负责最终性确认（Finality），确保链活性（Liveness）
+- 关键特性：
+  - 每32个区块（Epoch）进行最终性确认
+  - 支持动态验证者集合调整
+
+##### **3. 信标链安全模型**
+
+- 密码经济学保障：
+  - 验证者需质押32 ETH，作恶将面临罚没
+  - 罚没条件：双重签名、违反分叉规则等
+- 抗攻击能力：
+  - 1/3质押量攻击可导致链暂停
+  - 2/3质押量攻击可导致链重组
+
+------
+
+#### **III. 核心学习资源**
+
+##### **必读材料**：
+
+- [Gasper协议白皮书](https://arxiv.org/pdf/2003.03052.pdf)
+- [LMD-GHOST优化解析](https://medium.com/@aditya.asgaonkar/bitwise-lmd-ghost-an-efficient-cbc-casper-fork-choice-rule-6db924e57d1f)
+- [Eth2规范注释版](https://eth2book.info/)（技术细节宝典）
+
+##### **深度分析**：
+
+- [Slashing场景详解](https://dankradfeist.de/ethereum/2022/03/24/run-the-majority-client-at-your-own-peril.html)（Dankrad Feist）
+- [信标链设计反思](https://www.youtube.com/watch?v=10Ym34y3Eoo)（Justin Drake演讲）
+
+------
+
+#### **IV. 实践建议**
+
+1. **客户端运行**：
+
+   - 组合运行执行层（如Geth）与共识层客户端（如Lighthouse）
+   - 观察日志中的`attestation`（见证）与`proposal`（区块提议）流程
+
+2. **时隙分析**：
+
+   - 研究
+
+     时隙解剖视频
+
+     ，理解12秒时隙内的操作序列：
+
+     - 区块提议 → 见证打包 → 最终性投票
+
+3. **安全实验**：
+
+   - 在测试网模拟双重签名场景，观察罚没机制触发过程
+
+------
+
+#### **V. 关键概念对照表**
+
+| 英文术语       | 中文解释   |
+| -------------- | ---------- |
+| Finality       | 最终性     |
+| Justification  | 合理性证明 |
+| Checkpoint     | 检查点     |
+| Attestation    | 见证       |
+| Sync Committee | 同步委员会 |
+
+### 2025.02.10
+
+内容
 
 <!-- Content_END -->
