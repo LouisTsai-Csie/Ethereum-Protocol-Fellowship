@@ -88,16 +88,16 @@ build(env: Environment, pool: TransactionPool, state: State): [Block, State, Err
 
 ### 2025.02.09
 
-### Execution Layer
+#### Execution Layer
 
-#### Uncle Blocks
+##### Uncle Blocks
 - valid blocks that were mined but not included in the canonical chain ( usually due to network delays or simultaneous block production by multiple miners)
   - Why exist?
     - for miners to include uncle blocks in new blocks and receive **additional rewards**
     - to improve security and reduce centralization by compensating **valid but orphaned blocks**
 
 
-#### Modern Ethereum Execution Clients
+##### Modern Ethereum Execution Clients
 
 | **Client**     | **Language** | **Why Chosen?**                                      |
 |---------------|-------------|------------------------------------------------------|
@@ -108,7 +108,7 @@ build(env: Environment, pool: TransactionPool, state: State): [Block, State, Err
 | **Reth**      | Rust 💡       | High performance, memory safety                     |
 
 
-#### Consensus Layer vs. Execution Layer
+##### Consensus Layer vs. Execution Layer
 
 | **Comparison**      | **Execution Layer (EL)**            | **Consensus Layer (CL)**       |
 |---------------------|----------------------------------|----------------------------------|
@@ -119,20 +119,20 @@ build(env: Environment, pool: TransactionPool, state: State): [Block, State, Err
 | **Client Examples** | Geth, Erigon, Nethermind | Prysm, Lighthouse, Teku, Nimbus |
 | **Stored Data**     | Account balances, smart contracts, transaction history | Validator registry, voting data, finality information |
 
-#### Why Did Ethereum Split CL and EL?
+##### Why Did Ethereum Split CL and EL?
 
 Before **The Merge**, Ethereum used a **PoW (Proof of Work) + Execution Layer** model, where a single client handled both **consensus (mining) and transaction execution**, leading to several issues:
 
-- **High computational cost** (electricity).  
-- **Slow blockchain synchronization** (the continuously growing state increased sync time).  
-- **Inefficient consensus mechanism** (PoW was difficult to optimize).  
+- High computational cost (electricity).  
+- Slow blockchain synchronization (the continuously growing state increased sync time).  
+- Inefficient consensus mechanism (PoW was difficult to optimize).  
 
 After **The Merge**, Ethereum split into **Execution Layer (EL) + Consensus Layer (CL)**, offering key advantages:  
 - Execution Clients focus on **transaction execution and performance optimization**
 - Consensus Clients handle **PoS rules**, improving **security and decentralization**
 - EL and CL can be upgraded **independently**, enhancing **flexibility** 🌟
 
-#### How Do CL and EL Communicate?
+##### How Do CL and EL Communicate?
 
 via the **Engine API**, 
 
@@ -140,7 +140,7 @@ via the **Engine API**,
 2. **EL** executes the block and returns the execution result
 3. **CL** decides whether to accept the new block through validator voting.  
 
-#### EVM
+##### EVM
 ![EVM](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*a4cYYJZLlObtCGMIDiQeKQ.png)
 
 - arithmetic (add, mod, etc.)
@@ -151,7 +151,7 @@ via the **Engine API**,
 - stack (push, pop, etc.)
 - memory (load, store, etc.)
 
-#### p2p
+##### p2p
 - Execution layer operates** on devp2p (ethereum's p2p protocol).
   - **devp2p** allows nodes to support different **sub-protocols**:
     - **eth/68, eth/69** – for transaction and state synchronization.
