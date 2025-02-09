@@ -86,6 +86,10 @@ https://github.com/prysmaticlabs/prysm/blob/develop/beacon-chain/slasher/service
 
 接下来的计划，还是搞清楚 prysm 和 geth 之间的通信接口，该看一看 geth 的代码了。
 
+首先回到wiki的architecture，beacon 和 execution 中间有个 Engine API，找了一些资料 https://hackmd.io/@danielrachi/engine_api 。
+我的理解是，如果共识选中了 validator ，新的区块是在 beacon 中创建的，前面我们提到过 builder service。
+如果交易计算出来的状态就对不上，beacon 作恶广播了不合法的区块，那么非常容易被验证出来并丢弃区块。PoS 共识主要保护的是区块的选择，一个 validator 不能投两票，这些会被 slash 掉质押。
+
 ### 2025.02.10
 
 <!-- Content_END -->
