@@ -88,6 +88,7 @@ build(env: Environment, pool: TransactionPool, state: State): [Block, State, Err
 
 ### 2025.02.09
 
+### Execution Layer
 
 #### Uncle Blocks
 - valid blocks that were mined but not included in the canonical chain ( usually due to network delays or simultaneous block production by multiple miners)
