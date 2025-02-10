@@ -119,7 +119,7 @@ timezone: Europe/Berlin
         - Different testing tools for state transition testing, fuzzing, shadow forks, RPC tests, client unit tests and CI/CD, etc.
     - Coordination
 
-### 2025.02.08
+### 2025.02.10
 - Protocol architecture
     - graph: https://epf.wiki/#/wiki/protocol/architecture
     - What's user APIs and beacon APIs
