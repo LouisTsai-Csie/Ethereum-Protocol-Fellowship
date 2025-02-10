@@ -122,7 +122,57 @@ Merkle Tree 是不包含数据的，而是对数据进行 hash 然后链接起�
 
 trie 是一种类型的 tree，包括 prefix tree 等，带有一些特殊逻辑的 tree。
 
-TODO 还没看完。
+# 2025.02.10
+
+对于 radix tree 而言，通过 root hash 的存储查询，是会通过 key-value 的方式，将序列化节点数据存储到了某个地方，这样可以查出来整个树。拿到的节点数据反序列化，例如 Ethereum 的 RLP，然后可以拿到根节点对应的完整结构，包括子节点、前缀信息等。然后继续递归调用查询子节点数据，直到目标的叶子节点。感觉如果树的层级太深会比较麻烦，所以尽量扁平，然后每个树叶子节点也不要太多。
+
+```
+   def update(node_hash, path, value):
+        curnode = db.get(node_hash) if node_hash else [ NULL ] * 17
+        newnode = curnode.copy()
+        if path == '':
+            newnode[-1] = value
+        else:
+            newindex = update(curnode[path[0]], path[1:], value)
+            newnode[path[0]] = newindex
+        db.put(hash(newnode), newnode)
+        return hash(newnode)
+```
+
+更新 radix 树的操作，就是递归调用遍历 `[i_0, i_1 ... i_n, value]` 这个结构，然后对最后的一个 value 进行更新，同时返回将整个链路的 hash index 更新。
+
+MPT
+
+Radix tries 不够高效，比如 Ethereum EOA 64 characters 长度的地址，每次 lookup 或者 delete 都需要 64 steps。所以 Patricia Trie 引用了下面的办法来解决问题：
+
+A node in a Merkle Patricia trie is one of the following:
+
+- NULL (represented as the empty string)
+- branch A 17-item node [ v0 ... v15, vt ]
+- leaf A 2-item node [ encodedPath, value ]
+- extension A 2-item node [ encodedPath, key ]
+
+由于地址比较长，所以中间或者某段结构，可能并不需要挨个字符进行下降，所以通过 encodedPath 进行存储路径快速下降。
+
+Tries in Ethereum
+
+State Trie
+
+There is one global state trie, and it is updated every time a client processes a block. 路径是 keccak256(ethereumAddress) 然后值是 rlp(ethereumAccount)。具体一点 account 是 `[nonce,balance,storageRoot,codeHash]` 这四个 item。
+
+Storage Trie
+
+Storage trie is where all contract data lives. There is a separate storage trie for each account.
+
+Transactions Trie
+
+路径是 rlp(transactionIndex)。There is a separate transactions trie for every block, again storing (key, value) pairs.
+
+Receipts Trie
+
+Every block has its own Receipts trie. A path here is: rlp(transactionIndex).
+
+TODO 提取一下上面这些 Trie 的原始数据结构，进行解码看看。
 
 
 
