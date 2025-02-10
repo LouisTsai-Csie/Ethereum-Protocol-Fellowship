@@ -37,7 +37,8 @@ timezone: Asia/Shanghai
 ### 2025.02.09
 > 周日
 
-笔记内容
+- [/] 第4周 [Ethereum Tests — Ethereum Tests 0.2 documentation](https://ethereum-tests.readthedocs.io/en/latest/)
+- [x] [Ethereum Execution Spec Tests](https://ethereum.github.io/execution-spec-tests/main/)
 
 ### 2025.02.10
 > 周一

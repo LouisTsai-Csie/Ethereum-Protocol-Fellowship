@@ -78,4 +78,28 @@ https://github.com/prysmaticlabs/prysm/blob/develop/beacon-chain/slasher/service
 
 ### 2025.02.09
 
+简单查看了一下 ETH 的 staking 合约 https://etherscan.io/address/0x00000000219ab540356cBB839Cbe05303d7705Fa#code 并不复杂。
+
+兴趣驱使，发现了用 Nim 语言编写的以太坊，感觉比 rust 更有前途，另外还有个语言 Zig 也挺有意思。
+  * https://github.com/status-im/nimbus-eth1
+  * https://github.com/status-im/nimbus-eth2
+
+接下来的计划，还是搞清楚 prysm 和 geth 之间的通信接口，该看一看 geth 的代码了。
+
+首先回到wiki的architecture，beacon 和 execution 中间有个 Engine API，找了一些资料 https://hackmd.io/@danielrachi/engine_api 。
+我的理解是，如果共识选中了 validator ，新的区块是在 beacon 中创建的，前面我们提到过 builder service。
+如果交易计算出来的状态就对不上，beacon 作恶广播了不合法的区块，那么非常容易被验证出来并丢弃区块。PoS 共识主要保护的是区块的选择，一个 validator 不能投两票，这些会被 slash 掉质押。
+
+### 2025.02.10
+
+目前基本上理清了 geth 和 prysm 的结构，对于开发者使用也很友好。如果仅仅需要一个本地全节点而不参与共识，运行 geth 节点即可。如果需要质押，运行 prysm 成为 validator。如果需要参与安全，则需要同时运行 geth 和 prysm 并成为 beacon 节点，prysm 是连接 geth 的 execute api 的。
+
+回到我之前在以太坊 research 论坛上的提案 https://ethresear.ch/t/l1-improvement-based-on-minus-theory/21494 ，我们认为 Minus Theory 应用在 POS 以太坊上是完全可能的。但是需要硬分叉，将交易共识和执行解耦。
+
+最大的挑战在于，以太坊的区块 header 中需要三棵树的默克尔根，由于减法理论需要先共识交易输入，再执行 EVM 更新全局状态，所以这一大改就迫使我们需要把全局状态和回执树的默克尔树根设置为0。这应该是一个不可能完成的任务。如果小V有志于改进以太坊 L1，亲自推动也会遇到很大的阻力，毕竟如果 L1 达到上万 TPS，将会直接影响 L2 的利益。
+
+如果有幸实现了，那么在 geth 和 prysm 之外我们需要增加一个新的节点，需要把 geth 切分成两个节点，一个用于存储所有历史交易，另一个用于执行和保存全局状态。Prysm 应该链接到交易节点，当 beacon 选到 validator 的时候，从交易节点选择 tx 构建交易树根。同时 Prysm 也需要链接到执行节点，访问全局状态，这些信息中可以看到质押情况。由于在减法理论中，执行是延迟的，所以这部分工程实现上还是相当有挑战的，甚至有必要重新设计质押的机制。
+
+所以，在这次学习之后，我们还是要重点发展我们的 Python VM 执行器 https://zentra.gitbook.io ，它可以和以太 L1 以及 L2s 工作，甚至可以和所有的 L1s 配合。我们应该可以在比较短期实现可以向全世界 demo 的成果。或许能反向推动以太 L1 的发展。
+
 <!-- Content_END -->

@@ -157,7 +157,89 @@ $$
 - *priority fee* is a value set by the user as a tip to the validator.
 
 ### 2025.02.09
+An overview of Week2
+
+> See also: https://ethereum.org/en/developers/docs/nodes-and-clients/
+
+#### Node
+> $\mathcal{def}$: A **node** is any instance of Ethereum client software that is connected to other computers also running Ethereum software, forming a network.
+
+**Node type**:  
+- light: only download block headers
+- full: 
+    - Stores full blockchain data (although this is periodically pruned so a full node does not store all state data back to genesis)
+    - Participates in block validation, verifies all blocks and states.
+    - All states can be either retrieved from local storage or regenerated from 'snapshots' by a full node.
+    - Serves the network and provides data on request.
+- archive: full nodes that verify every block from genesis and never delete any of the downloaded data.
+
+#### An Overview of the Ethereum Execution Layer
+> https://www.youtube.com/watch?v=7sxBjSfmROc
+
+**The Ethereum system**
+- The Ethereum System is divided into EL(execution layer Or compute layer) and CL(beacon chain)
+- By`notify_new_payload(payload)`, CL do nothing! CL just sends the execution payloads(State updating query) to the EL.
+![](https://files.catbox.moe/crd2ea.png)
+
+---
+**Ethereum compute layer: the EVM**
+> The EVM is just the core of the EL, EL include the [other parts](# "Mempool, State Storage, interface client").
+- Two types of accounts:
+    - *EOA*: the people's accounts.
+    - *contracts*: the "bot".
+
+![](https://files.catbox.moe/dwcric.png)
+
+**Data associated with an account**
+![](https://files.catbox.moe/zw9qh7.png)
+
+**Account state: persistent storage**
+
+- Only valid in the *contract*.
+- The all data mentioned above is stored as an array(`S[]`)
+- These array collectively define the status of the account and are stored in the *Ethereum state tree* through a *Merkle tree* structure.
+- *Ethereum state tree* only calc the non-zero cells.
+
+![](https://files.catbox.moe/cq6xbq.png)
+
+### 2025.02.10
+
+**State transitions: Tx and messages**
+
+- Simply, the Txs can be divided into four types, here is just an analog:
+    - 人 to 人
+    - 人 to bot
+    - bot to 人
+    - bot to bot
+- In the final analysis, the Txs only happen btw owned(people) and owned(people).
+contract is called by owned as well.
+
+> If it's just a Txs btw bots, then it's meaningless, isn't it?
+
+![](https://files.catbox.moe/znbpck.png)
+
+**State transitions: Tx and messages**
+
+- When Tx to a "0" address of target, a new account will be created.
+- nonce: prevent replay attacks, every transaction must have a nonce
+    > there are two types of nonce, the Account nonce and Proof of work nonce  
+See more: https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending
 
 
+![](https://files.catbox.moe/8w0tc0.png)
+
+**The Ethereum blockchain: abstractly**
+
+- accts: Accounts, the world state is a snapshot of the status of all accounts in the world
+- Tx: The Tx actions
+- log massages: show some characters about what the contract has done or what 
+happened about Tx.
+
+![](https://files.catbox.moe/5fztyz.png)
+
+### 2025.02.11
+
+
+### 2025.02.12
 
 <!-- Content_END -->

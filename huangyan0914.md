@@ -33,4 +33,16 @@ youtube：https://www.youtube.com/@ethprotocolfellows
 
 Prehistory of Ethereum
 
+### 2025.02.09
+
+2024 study group week 1
+
+The main high level components of Ethereum are execution and consensus layer. These are 2 networks which are connected and dependent on each other. Execution layer provides the execution engine, handles user transaction and all state (address, contract data) while consensus implements the proof-of-stake mechanism ensuring security and fault tolerance.
+
+To test your knowledge about the very basics of Ethereum, try a quiz: https://ethereum.org/quizzes
+
+To explore various parts of the Ethereum protocol, check out what people have been working on within EPF: https://github.com/eth-protocol-fellows/cohort-three/tree/master/projects https://github.com/eth-protocol-fellows/cohort-four/tree/master/projects
+
+
+
 <!-- Content_END -->

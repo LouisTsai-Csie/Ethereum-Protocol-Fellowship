@@ -104,5 +104,76 @@ discv5 是一个 Ethereum 使用的 discovery protocol，使用 kademlia based D
 - Homestead 在 2016 年 3 月 14 日上线。是一个更加成熟稳定的平台，包括 EIP-2、EIP-7、EIP-8 等升级
 - The Merge 在 2022 年 9 月 15 日上线，将共识层机制切换为 PoS。然后 PoS 共识层分开放在了一个新的 Beacon Chain Layer，有自己的 p2p 网络和逻辑。Beacon Chain 从 2020 年 12 月 1 号就开始运行和测试，没有发现什么问题。
 
+# 2025.02.09
+
+开始学习去年 EPFsg 的资料：https://epf.wiki/#/eps/week0
+
+## Week0
+
+[Merkle Tress](https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/)
+
+所有以太坊目前的数据包括 all accounts、balances 和 smart contracts（？合约是怎么用 Merkle Tree 存储的）使用了 Merkle Tree 进行编码。主要好处是一个 root value 可以用于验证数据。
+
+以太坊数据结构是 modified Merkle-Patricia Trie，使用了 PATRICIA 来实现高效数据读取。“Patricia”部分主要是为了减少节点高度、节省存储空间，将重复前缀合并到同一个路径上。
+
+Merkle Tree 是不包含数据的，而是对数据进行 hash 然后链接起来成为一棵树，然后通过提交从叶子节点到根节点的一条 hash 路径来生成或者验证一个数据是否存在或者被篡改。
+
+在以太坊中，用 MPT 来保存“世界状态（全局账户的余额、合约存储等）”。每次状态更新都会导致相应的 MPT 变化，从而生成一个新的根哈希（state root）。
+
+trie 是一种类型的 tree，包括 prefix tree 等，带有一些特殊逻辑的 tree。
+
+# 2025.02.10
+
+对于 radix tree 而言，通过 root hash 的存储查询，是会通过 key-value 的方式，将序列化节点数据存储到了某个地方，这样可以查出来整个树。拿到的节点数据反序列化，例如 Ethereum 的 RLP，然后可以拿到根节点对应的完整结构，包括子节点、前缀信息等。然后继续递归调用查询子节点数据，直到目标的叶子节点。感觉如果树的层级太深会比较麻烦，所以尽量扁平，然后每个树叶子节点也不要太多。
+
+```
+   def update(node_hash, path, value):
+        curnode = db.get(node_hash) if node_hash else [ NULL ] * 17
+        newnode = curnode.copy()
+        if path == '':
+            newnode[-1] = value
+        else:
+            newindex = update(curnode[path[0]], path[1:], value)
+            newnode[path[0]] = newindex
+        db.put(hash(newnode), newnode)
+        return hash(newnode)
+```
+
+更新 radix 树的操作，就是递归调用遍历 `[i_0, i_1 ... i_n, value]` 这个结构，然后对最后的一个 value 进行更新，同时返回将整个链路的 hash index 更新。
+
+MPT
+
+Radix tries 不够高效，比如 Ethereum EOA 64 characters 长度的地址，每次 lookup 或者 delete 都需要 64 steps。所以 Patricia Trie 引用了下面的办法来解决问题：
+
+A node in a Merkle Patricia trie is one of the following:
+
+- NULL (represented as the empty string)
+- branch A 17-item node [ v0 ... v15, vt ]
+- leaf A 2-item node [ encodedPath, value ]
+- extension A 2-item node [ encodedPath, key ]
+
+由于地址比较长，所以中间或者某段结构，可能并不需要挨个字符进行下降，所以通过 encodedPath 进行存储路径快速下降。
+
+Tries in Ethereum
+
+State Trie
+
+There is one global state trie, and it is updated every time a client processes a block. 路径是 keccak256(ethereumAddress) 然后值是 rlp(ethereumAccount)。具体一点 account 是 `[nonce,balance,storageRoot,codeHash]` 这四个 item。
+
+Storage Trie
+
+Storage trie is where all contract data lives. There is a separate storage trie for each account.
+
+Transactions Trie
+
+路径是 rlp(transactionIndex)。There is a separate transactions trie for every block, again storing (key, value) pairs.
+
+Receipts Trie
+
+Every block has its own Receipts trie. A path here is: rlp(transactionIndex).
+
+TODO 提取一下上面这些 Trie 的原始数据结构，进行解码看看。
+
+
 
 <!-- Content_END -->

@@ -76,4 +76,25 @@ Picked up/strengthened some key concepts
 - Proto-Danksharding and Danksharing
 - validator --(Beacon APIs)-- Consensus layer --(Engine API)-- Execution layer --(JSON-RPC API)-- User/Web3
 
+### 2025.02.09
+Finished week2 Pre-readings
+
+Picked up/strengthened some key concepts
+- Patricia Merkle Tries
+- Archival nodes (13TB in Feb. 2023)
+- Front running attack awareness
+- MSTORE/LOAD: 3gas, SSTORE: 20k, 5k, -15k
+
+Further study:
+- Transaction Fee Mechanism Design (About EIP1559)
+
+### 2025.02.10
+Finished week2
+
+Picked up/strengthened some key concepts
+- No more uncle blocks after the Merge
+- The withdrawal functionality in the Beacon Chain allows stakers (validators) to receive their staking rewards (interest) automatically when blocks are finalized.
+- p2p protocol broadcast tx to square root of peers
+- snap sync protocol: contrast to full sync
+
 <!-- Content_END -->
