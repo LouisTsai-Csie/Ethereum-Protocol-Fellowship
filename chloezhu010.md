@@ -121,7 +121,7 @@ timezone: Europe/Berlin
 
 ### 2025.02.10
 - Protocol architecture
-    - graph: https://epf.wiki/#/wiki/protocol/architecture
+    - Graph: https://epf.wiki/#/wiki/protocol/architecture
     - What's user APIs and beacon APIs
         - User API (aka JSON-RPC API)
             - primary interface for interacting with the EL
