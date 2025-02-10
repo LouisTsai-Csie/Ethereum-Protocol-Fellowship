@@ -57,4 +57,39 @@ It is not due to the block reward as it is not proportional to the txs they incl
 gas fee right felt like a spam preventing mechanism rather than a fee market which pricing different resources.
 
 encrypted mempool: total gas case has to be unencrypted. Cosmos has encrypted mempool. general idea is no complete solution available yet
+
+### 2025.02.10
+
+A epoch has 32 slots.
+
+A validator will be randomly selected to be a proposer for a slot. so the validator is the proposer. 
+
+1 slot has 3 phases and a block:
+
+propagation (broadcast)
+attestation aggregation (fork for a block (not sure if this is only rely to fork rule or other rules))
+aggre propagration: broadcast the voted block
+
+finality
+
+first justifiy a block which mean 2/3 has pass the checkpoint ( what is checkpoint cmp to block? ) for it
+then the last justified block is the finalized block.
+
+12s for a slot is based on the block time of PoW ETH
+
+why have a slot instead of a block?
+
+#### MEV
+
+proposer can reorder txs in a slot. so I guess other validators has no way to verify the order of txs in a block when they attest to it. I guess this is why validators only follow the fork-choice rule
+
+given the deadline for attesetion is 4 seconds, so that give you some idea on how much MEV it can take place on the time dimension.
+
+#### spam txs
+
+actually once is a validator is chosen to be a proposer, it can know therefore it can start to spam txs.
+
+https://www.paradigm.xyz/2023/04/mev-boost-ethereum-consensus
+https://epf.wiki/#/eps/week3
+
 <!-- Content_END -->
