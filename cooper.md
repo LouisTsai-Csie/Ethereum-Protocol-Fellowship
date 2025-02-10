@@ -230,7 +230,56 @@ TODO: 需要结合代码才能确认。
 ### 2025.02.10
 > 周一
 
-笔记内容
+#### 学习内容总结
+
+**什么是EVM?**
+> 当 EVM 处理交易时，它会改变以太坊的整体状态。从这个角度来看，以太坊可以被视为一个状态机。
+
+以太坊整体上可以看作是一个基于交易的状态机。它接收交易作为输入并转换到新状态。以太坊的当前状态称为世界状态。
+
+![状态转换示例](https://epf.wiki/images/evm/ethereum-state-machine.gif)
+
+在以太坊中，世界状态本质上是 20 字节地址到账户状态的映射。
+
+![以太坊世界状态](https://epf.wiki/images/evm/ethereum-world-state.jpg)
+
+![三个重要的Trie](https://epf.wiki/images/tries.png)
+
+每个账户状态由存储、代码、余额等数据等各种组件组成，并与特定地址相关联。
+
+以太坊有两种账户：
+
+外部账户：由关联私钥和空的 EVM 代码控制的账户。
+合约账户：由关联的非空 EVM 代码控制的账户。作为此类账户一部分的 EVM 代码俗称智能合约。
+
+下面这两个图对于虚拟机所带来的层级优化展示的很好：
+![1](https://epf.wiki/images/evm/platform-dependent-execution.jpg)
+![2](https://epf.wiki/images/evm/virtual-machine-paradigm.jpg)
+
+这提供了两个关键好处：可移植性（字节码可以在不同平台上运行而无需重新编译）和抽象性（将硬件复杂性与软件分开）。因此，开发人员可以为单个虚拟机编写代码：
+
+在计算机体系结构中，word是指 CPU 可以一次处理的固定大小的数据单元。EVM 的word size为 32 字节。
+
+![alt text](https://epf.wiki/images/evm/evm-anatomy.jpg)
+
+EVM 是以太坊状态机的状态转换函数。它根据 input （transactions） 和 current state 的 intent 值。它作为虚拟机实现，因此它可以在任何平台上运行，独立于底层硬件。
+
+**EVM 字节码**
+EVM 字节码是程序的字节序列（8 位）的表示。字节码中的每个字节都是：
+* 称为 OpCode 的指令，or指令。
+* input 传递给称为 operand 的操作码。
+
+![EVM 字节码格式](https://epf.wiki/images/evm/opcode-binary.jpg)
+
+为简洁起见，EVM 字节码通常用十六进制表示法表示：
+![EVM 字节码十六进制](https://epf.wiki/images/evm/opcode-hex.jpg)
+
+
+为了进一步增强理解能力，作码具有人类可读的助记词。这种简化的字节码称为 EVM 汇编，是 EVM 代码的最低人类可读形式：
+![EVM 汇编](https://epf.wiki/images/evm/opcode-assembly.jpg)
+
+从作数中识别作码非常简单。目前，只有 PUSH*作码具有作数（这可能会随 EOF 而改变）。PUSHX 定义作数长度（PUSH 后的 X 字节）。
+
 
 ### 2025.02.11
 > 周二
