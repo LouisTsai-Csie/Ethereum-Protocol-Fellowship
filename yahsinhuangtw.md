@@ -41,14 +41,13 @@ https://youtu.be/UihMqcj-cqc?si=MqL3ac9Xg30LPJmE
 <img width="666" alt="Screenshot 2025-02-08 at 11 36 48 PM" src="https://github.com/user-attachments/assets/2c9dbd0f-ae2a-400d-b334-1ff23da9d45a" />
 
 
-### 2025.02.09
-今日殘酷學習看完了 v 老師深入淺出認識以太坊系列演講，這個三十分鐘以太坊言講主題每年都會講一次，這場有幾張簡報更新。接近尾聲的地方有提到美國電腦科學家 Ralph C. Merkle 老師。根據 v 老師的演講說法，這位七十歲電腦科學家近期可能有在忙人體冷凍技術 cryonics 的東西。
+### 2025.02.10
+今日下午殘酷學習時間，看完了後半段的 v 老師 2022 年深入淺出認識以太坊系列演講。老師三十分鐘以太坊言講主題每年都會講一次，這場有幾張簡報更新。接近尾聲的地方有提到美國電腦科學家 Ralph C. Merkle 老師。根據 v 老師的演講說法，這位七十歲電腦科學家近期可能有在忙人體冷凍技術 cryonics 的東西。
 
 <img width="665" alt="Screenshot 2025-02-10 at 6 07 39 PM" src="https://github.com/user-attachments/assets/d0a772a2-c45b-4c18-96b7-dd099159ad8e" />
 
-這裡要強調的重點是，merkle tree 在以太坊驗證資料上持續扮演重要角色。以太坊技術底層中到處都有使用到 merkle tree，主要用途是在以太坊的驗證資料方面。你要驗證有龐大的 40 gb 的 state 資料的某一塊小小的資料時，你不需要全部 40 gb 都撈出來驗證，只要一小塊 tree 的某些節點資料拿出來就可以驗證。
-
 <img width="642" alt="Screenshot 2025-02-10 at 6 15 23 PM" src="https://github.com/user-attachments/assets/e5673106-519c-45cd-b85f-474cc5c6b4e0" />
 
+這裡要強調的重點是，merkle tree 在以太坊驗證資料上持續扮演重要角色。以太坊技術底層中到處都有使用到 merkle tree，主要用途是在以太坊的驗證資料方面。你要驗證有龐大的 40 gb 的 state 資料的某一塊小小的資料時，你不需要全部 40 gb 都撈出來驗證，只要一小塊 tree 的某些節點資料拿出來就可以驗證。
 
 <!-- Content_END -->
