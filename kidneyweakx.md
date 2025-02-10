@@ -57,4 +57,8 @@ EL 的關鍵: State Transition Function
 8. 刪除舊區塊
 9. error handle
 
+# 2025.02.09
+gas 算式挺複雜的，看了一陣子
+以太坊在 EIP-1559 後的 gas 計算功能，這有再用以太的應該都挺熟的，Base Fee 的經濟估算我明天會和 Blob 一起看
+
 <!-- Content_END -->

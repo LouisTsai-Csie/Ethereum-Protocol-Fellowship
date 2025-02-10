@@ -40,4 +40,15 @@ create2:keccak256(deployer_address ++ salt ++ keccak256(init_code))
 
 ### 2024.02.08
 
+### 2024.02.09
+学习了以太坊的合约升级方法，一般合约升级有两种通用的做法
+Data separation
+即逻辑合约和数据合约进行分离，然后有一个代理合约调用逻辑合约，升级的时候只要将逻辑合约升级，同时更新代理合约中的地址即可。
+Delegatecall-base proxies
+detegatecall即委托调用，即当前合约委托其他合约调用自己，delegatecall请求访问的数据是当前合约的数据
+该方法升级的思路是让数据合约使用delegatecall来委托调用逻辑合约，当逻辑合约升级后，只要在数据合约中调用升级之后的逻辑合约即可
+
+
+### 2024.02.10
+
 <!-- Content_END -->

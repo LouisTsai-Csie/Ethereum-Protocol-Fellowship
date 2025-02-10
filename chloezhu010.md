@@ -119,8 +119,24 @@ timezone: Europe/Berlin
         - Different testing tools for state transition testing, fuzzing, shadow forks, RPC tests, client unit tests and CI/CD, etc.
     - Coordination
 
-### 2025.02.08
-
+### 2025.02.10
+- Protocol architecture
+    - Graph: https://epf.wiki/#/wiki/protocol/architecture
+    - What's user APIs and beacon APIs
+        - User API (aka JSON-RPC API)
+            - primary interface for interacting with the EL
+            - used by wallet, dapps etc.
+            - Key features
+                - JSON-RPC protocol: a lightweight remote procedure call (RPC) protocol, that allows clients to send & receive response in JSON format
+                - Common use: send tx, query blockchain data (eg. balance, contract states), deploy & interact with smart conracts, listen for events (logs emitted by smart contract)
+                - Endpoints: expose endpoints eg. eth_sendTransaction, eth_getBalance, eth_call, eth_getLogs
+        - Beacon API
+            - interface to interact with the beacon chain, which coordinate validators and achieve consensus
+            - Key features
+                - RESTful interface
+                - Common use: query info about the beacon chain (block headers, validator status), submmit attestations & block proposals from validators, monitor the status of the beacon network
+                - Endpoints: eg. /eth/v1/beacon/blocks (retrive beacon chain blocks), /eth/v1/validator/attestation (submit an attestation from a validator)
+                - Staking pools & monitor tools use the api to track validator performance and network health
 
 
 

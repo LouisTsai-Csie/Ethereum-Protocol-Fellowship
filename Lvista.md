@@ -201,6 +201,45 @@ An overview of Week2
 - *Ethereum state tree* only calc the non-zero cells.
 
 ![](https://files.catbox.moe/cq6xbq.png)
+
 ### 2025.02.10
+
+**State transitions: Tx and messages**
+
+- Simply, the Txs can be divided into four types, here is just an analog:
+    - 人 to 人
+    - 人 to bot
+    - bot to 人
+    - bot to bot
+- In the final analysis, the Txs only happen btw owned(people) and owned(people).
+contract is called by owned as well.
+
+> If it's just a Txs btw bots, then it's meaningless, isn't it?
+
+![](https://files.catbox.moe/znbpck.png)
+
+**State transitions: Tx and messages**
+
+- When Tx to a "0" address of target, a new account will be created.
+- nonce: prevent replay attacks, every transaction must have a nonce
+    > there are two types of nonce, the Account nonce and Proof of work nonce  
+See more: https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending
+
+
+![](https://files.catbox.moe/8w0tc0.png)
+
+**The Ethereum blockchain: abstractly**
+
+- accts: Accounts, the world state is a snapshot of the status of all accounts in the world
+- Tx: The Tx actions
+- log massages: show some characters about what the contract has done or what 
+happened about Tx.
+
+![](https://files.catbox.moe/5fztyz.png)
+
+### 2025.02.11
+
+
+### 2025.02.12
 
 <!-- Content_END -->
