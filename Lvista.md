@@ -221,7 +221,10 @@ contract is called by owned as well.
 **State transitions: Tx and messages**
 
 - When Tx to a "0" address of target, a new account will be created.
-- nonce: Just take effect in PoW, but is discarded in PoS.
+- nonce: prevent replay attacks, every transaction must have a nonce
+    > there are two types of nonce, the Account nonce and Proof of work nonce  
+See more: https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending
+
 
 ![](https://files.catbox.moe/8w0tc0.png)
 
@@ -233,6 +236,10 @@ contract is called by owned as well.
 happened about Tx.
 
 ![](https://files.catbox.moe/5fztyz.png)
+
 ### 2025.02.11
+
+
+### 2025.02.12
 
 <!-- Content_END -->
