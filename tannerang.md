@@ -31,4 +31,14 @@ EIP-1559
 - 當一區塊 gas 的使用程度超過 50%，baseFee 將上升，反之則下降，最大漲跌為 12.5%，其中，若新的區塊持續保持最大使用量，將在 200 block 達到 baseFee = 1 Ether
 - baseFee 將被 burn 掉，而不是支付給驗證者，燃燒可以減少總供應量，藉此降低通膨壓力
 
+### 2025.02.10
+
+看 Week2 影片部分內容
+瀏覽 EL Spec 的 Transaction Execution
+其中，當 MessageType 是創建合約：
+- 新建立的合約地址會是 `address = keccak256(rlp.encode([sender_address, sender_nonce]))[12:]`
+- 新合約 Nonce 等於 1，Balance 等於 pre-existingValue + msg.value​​ `σ∗[newAccount]≡(Nonce=1,Balance=preexistingValue+Tvalue​​,Storage=TRIE(∅)​,CodeHash=KEC(())​))`
+
+
+
 <!-- Content_END -->
