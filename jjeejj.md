@@ -82,4 +82,17 @@ timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
    2. Ethereum 协议的设计最初来源 V 神的 blog, 灵感来自 BTC 把 ETH 设计为一个通用的 区块链计算平台
    3. https://ethereum.org/en/quizzes/ 这个地址可以测试对 以太坊资料的了解程度
 
+### 2025.02.10
+
+1. Week2: 以太坊 执行层 EL
+   1. Block validation
+      1. 处理相关状态状态的过渡
+      2. 每个交易都有 执行层客户端 验证、执行 保存结果到状态树里面
+      3. 新的节点节点接入 还必须丝滑，提供了有效的同步机制引导
+   2. Block building
+      1. 根据网络中的交易，创建交易快
+      2. p2p tx pool
+2. JSON-RPC
+   1. 远景是所有的客户端提供相同的 api, 用户可以运行他们选择的任意客户端，并于所有工具完美集成
+
 <!-- Content_END -->
