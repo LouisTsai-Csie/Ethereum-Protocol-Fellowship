@@ -16,11 +16,13 @@ timezone: Asia/Shanghai
 - EPFsg has been designed to guide and grow the next generation of Ethereum core developers and provide a deep understanding of Ethereum's internal mechanics. 
 - EPF Wiki 是一个关于以太坊协议的技术资源中心。focused on a general overview of the underlying structure of Ethereum. 此 Wiki 的范围仅限于以太坊核心协议基础设施的技术资源。
 
-EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成。第一阶段，每周将有一节 90 分钟的课程，重点介绍以太坊底层结构的一般概述。在后期阶段，学生将选择研究或开发方向（或两者）。深入研究的主题包括：
-- Protocol design 
-- Execution and Consensus layer architecture, specs, and implementations 执行和共识层架构、规范和实现
-- Testing methods and tools 
-- Current research and roadmap items: 
+EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成。
+- 第一阶段，每周将有一节 90 分钟的课程，重点介绍以太坊底层结构的一般概述。
+- 在后期阶段，学生将选择研究或开发方向（或两者）。深入研究的主题包括：
+  - Protocol design 
+  - Execution and Consensus layer architecture, specs, and implementations 执行和共识层架构、规范和实现
+  - Testing methods and tools 
+  - Current research and roadmap items: 当前的研究和路线图项目
     - Verkle trees
     - Sharding
     - MEV
@@ -37,13 +39,13 @@ EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成�
 
 - 密码朋克寻求一种密码学上安全的数字货币，从而促成了 DigiCash、B-money 和 BitGold 等尝试。 虽然这些努力没有成功，但它们为比特币的设计提供了信息。 
 
-👍 比特币也是世界上有史以来最大的社会经济实验。中本聪于 2009 年 1 月首次启动比特币区块链时，他同时引入了两个激进且未经测试的概念。 第一个是“比特币”，一种去中心化的点对点在线货币，无需任何支持、内在价值或中央发行机构即可维持价值。 另一个同样重要的部分是：基于工作量证明的区块链的概念，以允许公众对交易顺序达成一致。
+👍 比特币也是世界上有史以来`最大的社会经济实验`。==中本聪于 2009 年 1 月首次启动比特币区块链时，他同时引入了两个激进且未经测试的概念==。 第一个是“比特币”，一种去中心化的点对点在线货币，无需任何支持、内在价值或中央发行机构即可维持价值。 另一个同样重要的部分是：基于工作量证明的区块链的概念，以允许公众对交易顺序达成一致。
 - 中本聪的比特币引入了一种去中心化的点对点电子现金系统，但其在应用程序开发方面的局限性导致了以太坊的出现。
 
-- Bitcoin Magazine 的联合创始人 Vitalik Buterin 认识到比特币的局限性，并提出了一个更通用的平台。 在 Gavin Wood 的帮助下，以太坊的设计得以正式确定，并于 2015 年 7 月 30 启动，旨在构建一个自主的数字经济。On July 30, 2015, Ethereum went live as a platform aimed at building tools for a self-sovereign economy using digital currency. 其目标是构建一个无国界、自我主权的数字经济生态。
+- Bitcoin Magazine 的联合创始人 Vitalik Buterin 认识到比特币的局限性，并提出了一个更通用的平台。 在 Gavin Wood 的帮助下，以太坊的设计得以正式确定，并于 `2015 年 7 月 30` 启动，旨在构建一个自主的数字经济。On July 30, 2015, Ethereum went live as a platform aimed at building tools for a self-sovereign economy using digital currency. 其目标是构建一个无国界、自我主权的数字经济生态。
 
 ### 2025.02.08
-学习了解 ETH 协议架构 epf.wiki/#/wiki/protocol/architecture
+**学习了解 ETH 协议架构 epf.wiki/#/wiki/protocol/architecture**
 
 **协议发展与目前构架：**
 - 当前的协议架构是多年发展的成果。该协议由两个主要部分组成 - 执行层和共识层。
@@ -56,7 +58,7 @@ EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成�
 - Engine API 充当桥梁，使两层可以协同工作以维护安全且一致的区块链。
 
 **扩展学习：Blobs**
-- 一种“半链下”解决方案，可在成本效率和数据安全性/可用性之间取得平衡。虽然 blobs 不是以与交易数据或状态数据相同的方式直接存储在以太坊区块链上，但它们是由以太坊网络管理和保证 的。
+- 一种“半链下”解决方案，可在成本效率和数据安全性/可用性之间取得平衡。虽然 blobs 不是以与交易数据或状态数据相同的方式直接存储在以太坊区块链上，但它们是由以太坊网络管理和保证的。
 - 在 AI 辅助下梳理 Blobs workflow 图：仅供参考
 - ![](img/blobs_workflow.png)
   
@@ -76,5 +78,22 @@ EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成�
     * Freedom 类似中立性
 * Agility 敏捷
 
+### 2025.02.10
+
+**学习主题：Blockchain level protocol**
+- Accounts over UTXOs 跟踪区块链上谁拥有什么代币的不同方式
+- Merkle Patricia Trie (MPT)  vs Verkle trees 以太坊如何以高效且可验证的方式存储数据。
+  - Verkle 树有可能在未来取代 MPT。 它们旨在实现更小的“证明大小”，这对于使以太坊更具可扩展性并使轻客户端更容易使用至关重要。
+  - 目标是迁移到“无状态”客户端，这些客户端不需要存储整个以太坊状态。
+- RLP / SSZ 以一致且有效的方式编码数据以进行存储和传输的方式。
+  -  SSZ 解决了 RLP 无法高效支持 Merkle 化的缺点，为无状态客户端的实现提供了支持。
+- In Ethereum's proof-of-stake based consensus mechanisms, finality refers to the guarantee that a block cannot be altered or removed from the blockchain without burning at least 33% of the total staked ETH. 
+  - 了解 33 % 的原因：在以太坊的权益证明 (PoS) 系统中，选择 33% 作为最终性的阈值，特别是在 Casper FFG 的背景下，这是一个根植于拜占庭容错 (BFT) 理论的设计决策。
+  - Pos 核心共识：Casper FFG / LMD-GHOST ：确保对区块链状态达成一致并防止攻击。
+    - Casper FFG 通过叠加在区块提议机制之上的方式运行，通过投票选择代表规范交易账本的唯一链，并通过 Slashing 机制来惩罚恶意行为。
+    - 在 PoS 中，LMD-GHOST 依靠验证者对区块的投票来选择。
+- Using a DHT 一种在以太坊网络上查找其他节点（对等节点）的方法。
+  - Nonce： 防止帐户模型（以太坊的数据结构方式）中的重放攻击。
+  - Hash： 确保数据完整性、将区块链中的区块链接在一起以及保护整个系统。
 
 <!-- Content_END -->
