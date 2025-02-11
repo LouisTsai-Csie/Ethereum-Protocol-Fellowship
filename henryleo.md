@@ -167,12 +167,19 @@ BitTorrent 旨在解决依赖中心化服务器下载大文件导致的网络堵
 
 以太坊坚持去中心化来实现无需许可、可信中立和抗审查，这并不意味着要求绝对的透明和排斥商业或其他组织，合约或者协议可以有不透明的部分，但规则和退出机制必须透明（个人理解）。要求和排斥是控制，以太坊不要控制，要**通过技术**构筑“无限花园”，这一点承接密码朋克的核心信念之一：“that the power of technology often creates new political realities.”。
 
-
-#### Refs
+###### Refs
 - [A Prehistory of the Ethereum Protocol | vitalik.eth.limo](https://vitalik.eth.limo/general/2017/09/14/prehistory.html)
 - [Inevitable Ethereum - World Computer](https://inevitableeth.com/home/ethereum/world-computer)
 - [密码朋克 | 以太坊协议的史前史](https://epf.wiki/#/wiki/protocol/prehistory?id=cypherpunks-write-code)
 
 
+### 2025.02.11
+
+#### 以太坊的组成
+
+以太坊通过三个Part 组件致力于实现通用计算平台：
+- EVM Ethereum Virtual Machine 以太坊虚拟机
+- Ethereum Blockchain 以太坊区块链
+- Ethereum Network 以太坊网络
 
 <!-- Content_END -->
