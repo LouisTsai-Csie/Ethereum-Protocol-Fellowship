@@ -174,6 +174,27 @@ Every block has its own Receipts trie. A path here is: rlp(transactionIndex).
 
 TODO 提取一下上面这些 Trie 的原始数据结构，进行解码看看。
 
+# 2025.02.11
+
+## https://medium.com/coinmonks/ethereum-data-transaction-trie-simplified-795483ff3929
+
+![image](https://github.com/user-attachments/assets/1cf70c09-1a4a-48d7-b2c8-52e751b38c89)
+
+Light clients are nodes that do not contain entire blockchain data. Instead, they download only the chain of block headers. They cannot take part in block validation however they can access the blockchain in a similar way as the full node does.
+
+![image](https://github.com/user-attachments/assets/2ccae255-5dfd-4268-a2a3-4de3e51c7898)
+
+轻客户端通过读取对应 block 的 txs 然后自己计算 hashes 来对比 root hash 是不是一样的。通过 merkle tree 来实现的话，然后并不需要全部的 tx 就可以，只需要选择几个就可以了。
+
+![image](https://github.com/user-attachments/assets/3c001a97-fe90-47f5-a39c-b6070cea17dd)
+
+选择要验证的 tx 的相关 hash 即可，因为上层的 hash 节点都是计算生成的。
+
+TODO https://epf.wiki/#/eps/week1
+
+
+
+
 
 
 <!-- Content_END -->
