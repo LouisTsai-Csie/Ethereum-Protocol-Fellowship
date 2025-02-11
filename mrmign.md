@@ -112,8 +112,83 @@ Learn [Inevitable Ethereum - World Computer](https://inevitableeth.com/home/ethe
 		- 执行层的软件实现（如 **Geth**、**Nethermind**、**Besu**），负责处理交易、运行 EVM、维护状态等。
 
 ### 2025.02.10
+- wiki的知识点感觉有点零散，读《Absolute Essentials of Ethereum》梳理下整体脉络。
+- **Ch2. Execution Layer**
+	- Ethereum address are 42-character hexadecimal identifiers derived from the last 20 bytes of the public key with 0x prefix.
+		- more intuitive and user-friendly account experience called **Account Abstraction**
+	- EOA
+		- address + associated account state
+		- contains two fields:
+			- **Nonce**, is an increasing number showing how many transactions an account has made and how many contracts it has created. It is used to determine the order of transactions in the same slot.
+			- **Balance**, how much ETH is holding.
+	- Contract Accounts
+		- are smart contracts that have been deployed on Ethereum and are controlled by their own internal code.
+		- Ethereum address + associated account state
+		- contain a state of four fields:
+			- **Nounce**, incremeting number showing how many contracts the contract account has created ??
+			- **Balance**, how much ETH the contract account is holding
+			- **Code**, is the smart contract code contained in the account
+			- **Storage**, maps the contents of the contract account. When a transaction involving a contract account is processed, the changes are recorded permanantly in the contract's Storage.
+	- Transactions (two types)
+		- Message Call
+			- Value, ETH
+			- Input Data
+				- EOA-EOA, arbitrary Data, perhaps to send a message or tag a transaction. *Usually is left empty*
+				- EOA-contract, contract-contract, includes the contract's Code  to be invoked and any proposed changes to Storage.
+		- Contract Creation
+			- request a new contract account to be added to the Ethereum world state.
+			- sent to an empty address since there's no recipient
+			- once initialised, are a combination of the sender's address and the last Nonce from the sender's account
+	-
 
 ### 2025.02.11
+- 《Absolute Essentials of Ethereum》Ch2 **Execution Layer**
+	- **Ether & Transaction Fees**
+		- Gwei is used to denominate transaction fees.
+		- **gas cost** and **gas fees**. In Ethereum, computational cycles are calculated in a unit call gas. A gas unit is not a currency unit. Gas cost relates only to how many computational cycles are needed.
+		- *Every computational instruction(an Opcode) in a transaction has an associated gas cost.*
+		- The Gas Limit included in a transaction is the maximum amount of gas that a user is willing to pay for.
+		- Gas fees have two forms.
+			- **base fee**, refers to the algorithmically dynamic cost of gwei in the Ethereum network
+			- **priority fee**, get transaction accepted faster
+		- Transaction fees = gas cost * (base fee + priority fee)
+		- The above is pre-2021 situtaion(London Upgrade/EIP-1559)
+		- The base fee is burnt and removed from circulation.
+		- The priority fee is paied to the users called validators.
+	- **Transaction Structure**
+        | Field | comment |
+        |---|---|
+        | From | sending address |
+        | To | receiving address |
+        | Digital Signature | a signature produced using the private key of the sender |
+        | Nonce | show how many transactions an account has made |
+        | Value | the ETH to be transfered |
+        | Input Data | Input data(message call) ; Initialise(contract creation) |
+        | Gas Limit | limit on gas |
+        | Max Priority Fee | maximum priority fee you will pay |
+        | Max Fee | maximum overall fee you will pay |
+    - **Ethereum Virtual Machine(EVM)**
+		- the most important field is the **Input Data**, because it contains the function we want to call and the arguments we want to pass.
+		- it follows Application Binary Interface(ABI) format.
+		- functions are identified in the ABI specification by the reference MethodID.
+		- `transfer(address to, uint256 value)`
+			- MethodID: `0xa9059cbb`
+			- ByteCode: `0xa9059cbb00000000000000000000009f11260cb6427c20a019780d99d3a2d7ffe9a25300000000000000000000000000000000000000000000000000002c8650c0`
+		- The EVM interprets and executes the Input Data field using the following:
+			- **Virtual Read-Only Memory(ROM)**: Reads the code of an involved contract account
+			- a temporary state for processing the transactions:
+				- **Program Counter**: The program counter tracks what instructions from the contract code need to be processed next
+				- **The Stack**: The EVM uses a stack-based model for executing code
+				- **EVM Memory**: Temporary memory used within the machine state to track changes
+				- **Gas counter**: Tracks the gas used. Reverts if no more gas is available and undoes the proposed state changes.
+			- **Storage**: changes are recorded permanently to reflect the new world state that emerges from the temporary machine state.
+	- **ERC-20**
+		- The ERC-20 token standard creates fungible tokens.
+	- **ERC-721**
+		- ERC-721 is designed to create Non-Fungible Tokens(NFT). *ERC-721 tokens are unique.*
+		- usually an NFT smart contract builds a collection of items that are a similar type, but with unique differences.
+	- **Decentralised Application(dApps)**
+		- In an Ethereum context, a dApp refers to the smart contract plus the non-blockchain technologies it combines with to aid the user experience.
 
 ### 2025.02.12
 

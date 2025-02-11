@@ -102,4 +102,14 @@ https://github.com/prysmaticlabs/prysm/blob/develop/beacon-chain/slasher/service
 
 所以，在这次学习之后，我们还是要重点发展我们的 Python VM 执行器 https://zentra.gitbook.io ，它可以和以太 L1 以及 L2s 工作，甚至可以和所有的 L1s 配合。我们应该可以在比较短期实现可以向全世界 demo 的成果。或许能反向推动以太 L1 的发展。
 
+
+### 2025.02.11
+
+今天不知道学啥了, 关注了一下 dajuguan 的 RANDAO 的 python 实现，感兴趣的可以玩玩https://github.com/dajuguan/lab/blob/main/eth/randao.py
+N年前研究 POW 的同时，我也瞎写过 POS https://github.com/kernel1983/simple_pos/blob/master/pos.py
+
+顺便也看到了 megaETH 在 MPT 方向的探索，我在推特上提了一句我们当年直接扔掉 MPT 树的工作 https://foresightnews.pro/article/detail/45335 在这里分享一下。
+
+摸鱼为主。
+
 <!-- Content_END -->

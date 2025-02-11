@@ -87,6 +87,9 @@ build(env: Environment, pool: TransactionPool, state: State): [Block, State, Err
 
 
 ### 2025.02.09
+https://epf.wiki/#/eps/week2
+
+
 
 #### Execution Layer
 
@@ -182,6 +185,35 @@ via the **Engine API**,
 
     
 
+
+### 2025.02.10
+https://epf.wiki/#/eps/week3
   
+- how to make digital scarcity?
+  - solution: don't have a single trusted operator
+- how to remove single trusted operator?
+  - solution: consensus via "state machine replication"
+- BFT: byzantine fault tolerance
+  - 2PC: two-phase commit protocol
+      1. **prepare phase** (each participant submit a binary vote for **commit** or **abort**)
+      2. **commit phase** (if all participants vote commit, then execute the command)
+
+  - PBFT: practical byzantine fault tolerance
+    - utilizes **message signatures** and **multiple rounds of voting** to reach consensus.
+
+
+| **Feature**            | **PBFT (Practical Byzantine Fault Tolerance)** | **2PC (Two-Phase Commit)** |
+|------------------------|-----------------------------------------------|----------------------------|
+| **Objective**         | tolerates malicious nodes | ensures **all** databases either commit or rollback a transaction consistently |
+| **Fault Tolerance Model** | **Byzantine Fault Tolerance (BFT)**, capable of handling malicious nodes | **Crash Fault Tolerance (CFT)**, only handles node crashes but cannot tolerate malicious behavior |
+| **Applicable Scenarios** 🌟 | **Blockchain** (Hyperledger, Tendermint, HotStuff, etc.) | **Distributed Databases & Transaction Management** (MySQL, PostgreSQL, distributed storage) |
+| **Voting Mechanism**   | **Voting + Signature Authentication**, consensus is reached if more than **2/3 agree** | **Unanimous Agreement Required**, if **any** participant votes `"abort"`, the transaction is rolled back |
+| **Communication Complexity** | **O(n²)** -> multiple rounds of message exchanges, where each node broadcasts messages to all other nodes 🌟| **O(n)** |
+
+
+----
+
+TBC
+
 
 <!-- Content_END -->

@@ -154,4 +154,25 @@ BitTorrent 旨在解决依赖中心化服务器下载大文件导致的网络堵
 - [What is a Peer to Peer Network? Blockchain P2P Networks Explained | Lisk](https://www.youtube.com/watch?v=ie-qRQIQT4I)
 
 
+### 2025.02.10
+
+#### 为什么要有以太坊？
+
+以太坊之所以创立是因为比特币网络的保守性，难以开发相对复杂的应用程序以支持现代金融和其他应用方式。
+
+#### 以太坊是什么？
+
+##### 以太坊的愿景
+以太坊的愿景是“世界计算机”，我认为更好理解一点的说法是一个通用的计算平台，而不是可编程货币的平台，这在Vitalik的博客中“Gavin对以太坊的微妙愿景转变做出的贡献”有所提及。
+
+以太坊坚持去中心化来实现无需许可、可信中立和抗审查，这并不意味着要求绝对的透明和排斥商业或其他组织，合约或者协议可以有不透明的部分，但规则和退出机制必须透明（个人理解）。要求和排斥是控制，以太坊不要控制，要**通过技术**构筑“无限花园”，这一点承接密码朋克的核心信念之一：“that the power of technology often creates new political realities.”。
+
+
+#### Refs
+- [A Prehistory of the Ethereum Protocol | vitalik.eth.limo](https://vitalik.eth.limo/general/2017/09/14/prehistory.html)
+- [Inevitable Ethereum - World Computer](https://inevitableeth.com/home/ethereum/world-computer)
+- [密码朋克 | 以太坊协议的史前史](https://epf.wiki/#/wiki/protocol/prehistory?id=cypherpunks-write-code)
+
+
+
 <!-- Content_END -->

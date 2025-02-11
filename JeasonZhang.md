@@ -11,10 +11,12 @@
 
 今天是残酷共学的第一天，参加了 chloe 主持的第一周周会，会后看了一下[ epf wiki ](https://epf.wiki/#/eps/week1)中的内容，并用 deepseek - R1 总结了一下内容如下：
 
+#### **EPF WIKI WEEK1**
+
 #### **I. 核心学习目标**
 
 **主题**：以太坊协议基础与研发生态全景
- **目标**：理解以太坊设计哲学、技术架构、开发流程及社区协作模式。
+**目标**：理解以太坊设计哲学、技术架构、开发流程及社区协作模式。
 
 ------
 
@@ -154,10 +156,12 @@
 
 ### 2024.02.07
 
+#### **EPF WIKI WEEK2**
+
 #### **I. 核心学习目标**
 
 **主题**: 以太坊执行层（Execution Layer）深度解析
- **目标**: 掌握执行层节点架构、状态转换机制、EVM运行原理及网络通信协议。
+**目标**: 掌握执行层节点架构、状态转换机制、EVM运行原理及网络通信协议。
 
 ------
 
@@ -245,10 +249,12 @@
 
 ### 2025.02.09
 
+#### **EPF WIKI WEEK3**
+
 #### **I. 核心学习目标**
 
 **主题**: 以太坊共识层（Consensus Layer）技术解析
- **目标**: 掌握权益证明（PoS）机制、Gasper协议架构及信标链安全模型。
+**目标**: 掌握权益证明（PoS）机制、Gasper协议架构及信标链安全模型。
 
 ------
 
@@ -332,6 +338,108 @@
 | Sync Committee | 同步委员会 |
 
 ### 2025.02.10
+
+#### **EPF WIKI WEEK4**
+
+#### **I. 核心学习目标**
+
+**主题**: 以太坊测试框架与安全实践
+**目标**: 掌握以太坊核心测试工具链、安全漏洞发现方法及网络升级测试流程。
+
+------
+
+#### **II. 课程大纲重点**
+
+##### **1. 核心测试工具链**
+
+- **执行层测试套件**：
+  - **[ethereum/tests](https://github.com/ethereum/tests)**: 标准状态转换测试集
+  - **[execution-spec-tests](https://github.com/ethereum/execution-spec-tests)**: 执行层规范验证测试
+  - **[retesteth](https://github.com/ethereum/retesteth)**: 动态测试生成与执行工具
+- **网络仿真工具**：
+  - **[Hive](https://github.com/ethereum/hive)**: 多客户端测试框架，支持创建定制化测试网
+  - **[Kurtosis](https://github.com/kurtosis-tech/kurtosis)**: 分布式测试环境编排平台
+- **模糊测试工具**：
+  - **[FuzzyVM](https://github.com/MariusVanDerWijden/FuzzyVM)**: EVM字节码模糊测试器
+  - **[tx-fuzz](https://github.com/MariusVanDerWijden/tx-fuzz)**: 交易生成与异常检测工具
+
+##### **2. 安全测试实践**
+
+- 合并测试经验：
+  - 通过影子分叉（Shadow Fork）模拟主网环境
+  - 使用**[eth_tools](https://github.com/marioevz/eth_tools)**监控网络异常
+- 漏洞挖掘案例：
+  - 共识层分叉规则漏洞（如LMD-GHOST边缘场景）
+  - 客户端同步协议缺陷（如LibP2P消息处理）
+
+##### **3. 测试方法论**
+
+- 分层测试策略：
+  - **单元测试**：验证单个功能模块
+  - **集成测试**：多客户端交互验证
+  - **压力测试**：高负载场景模拟（如Dencun升级的blob处理）
+- 自动化流水线：
+  - 持续集成（CI）触发测试套件
+  - 测试结果可视化与回归分析
+
+------
+
+#### **III. 关键学习资源**
+
+##### **必读材料**：
+
+- [以太坊测试文档](https://ethereum-tests.readthedocs.io/)：测试类型与执行指南
+- [执行层规范测试说明](https://ethereum.github.io/execution-spec-tests/)：测试用例设计原则
+
+##### **深度实践**：
+
+- **[RPC测试生成器](https://github.com/lightclient/rpctestgen)**：自动化生成JSON-RPC接口测试
+- **[Dencun测试教程](https://www.youtube.com/watch?v=88tZticGbTo)**：分片blob处理测试案例
+
+##### **经典案例研究**：
+
+- [The Merge测试回顾](https://archive.devcon.org/archive/watch/6/quest-for-the-best-tests-a-retrospective-on-testingthemerge/)（Devcon6演讲）
+- [Layer1共识漏洞挖掘](https://archive.devcon.org/archive/watch/6/killing-eth-finding-consensus-issues-on-layer-1/)（Marius Van Der Wijden）
+
+------
+
+#### **IV. 实践建议**
+
+1. 本地测试环境搭建：
+
+   ```bash
+   # 使用Hive创建多客户端测试网
+   hive --client=geth,lighthouse --sim=eth2/merge
+   ```
+
+2. 模糊测试执行：
+
+   ```bash
+   # 运行FuzzyVM检测EVM异常
+   go run ./cmd/fuzzy --test=evm_opcodes
+   ```
+
+3. 自定义测试开发：
+
+   - 在`ethereum/tests`中新增状态转换测试用例
+   - 通过`retesteth`验证客户端兼容性
+
+------
+
+#### **V. 测试类型对照表**
+
+| 测试类型     | 工具示例   | 检测目标           |
+| ------------ | ---------- | ------------------ |
+| 状态转换测试 | retesteth  | 区块处理逻辑正确性 |
+| 网络协议测试 | Hive       | P2P消息兼容性      |
+| 模糊测试     | FuzzyVM    | EVM执行边界条件    |
+| RPC接口测试  | rpctestgen | JSON-RPC规范符合性 |
+
+------
+
+通过本课程的系统学习，开发者将掌握以太坊核心测试框架的运作机制，具备参与网络升级测试和安全审计的能力。建议从[标准测试集](https://github.com/ethereum/tests)入手，逐步深入定制化测试开发。
+
+### 2025.02.11
 
 内容
 

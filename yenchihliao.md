@@ -87,4 +87,14 @@ Picked up/strengthened some key concepts
 
 Further study:
 - Transaction Fee Mechanism Design (About EIP1559)
+
+### 2025.02.10
+Finished week2
+
+Picked up/strengthened some key concepts
+- No more uncle blocks after the Merge
+- The withdrawal functionality in the Beacon Chain allows stakers (validators) to receive their staking rewards (interest) automatically when blocks are finalized.
+- p2p protocol broadcast tx to square root of peers
+- snap sync protocol: contrast to full sync
+
 <!-- Content_END -->

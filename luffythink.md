@@ -96,4 +96,15 @@ EPF 学习小组是一个实时网络研讨会式项目，由两个阶段组成�
   - Nonce： 防止帐户模型（以太坊的数据结构方式）中的重放攻击。
   - Hash： 确保数据完整性、将区块链中的区块链接在一起以及保护整个系统。
 
+
+### 2025.02.11
+
+**学习主题：Evolution**
+以太坊的核心架构和历史演变:
+- Frontier (2015-07-30): Beta Release, Dev Focus
+- Homestead (2016-03-14): EIP-2 Fixes、EIP-7 DELEGATECALL、EIP-8 Forward Compat.
+- The Merge (2022-09-15): EIP-3675, PoS Transition
+
+理解从 PoW 到 PoS（其中信标链充当以太坊的“共识提供者”）的转变。
+
 <!-- Content_END -->
