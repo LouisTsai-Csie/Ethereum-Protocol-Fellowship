@@ -50,19 +50,27 @@ timezone: Asia/Shanghai
 ### 2025.02.10
 
 今天深入学习第二部分 以太坊虚拟机EVM的内容:
-* 预编译合约
-* 以太坊状态机: state machine
-* 虚拟机范式: virtual machine paradigm
+* 以太坊状态机(state machine)
+* 虚拟机范式(virtual machine paradigm)
 * EVM 和 EVM bytecode
-* 栈(Stack) 和 程序计数器(program counter)
+* 程序计数器(program counter)
 * Gas
+* 栈(Stack)
 * 内存(Memory)
 * Storage
 * Wrapping up
 * EVM upgrades
 * EVM实现: Go(Geth), Rust(revm), Python(py-evm), C++(EVMONE)
+* 预编译合约
 
 ### 2025.02.11
+
+今天继续学习第二部分以太坊虚拟机的细节:
+* 数据结构MPT: Merkle Patricia Trie
+* Transaction剖析
+* JSON-RPC API
+* 数据序列化RLP
+* 区块构建
 
 ### 2025.02.12
 
