@@ -441,6 +441,98 @@
 
 ### 2025.02.11
 
-内容
+##### **EPF WIKI WEEK5**
+
+#### **I. 核心学习目标**
+
+**主题**: 以太坊研究生态与路线图演进
+**目标**: 掌握以太坊六大发展阶段（Merge/Surge/Scourge/Verge/Purge/Splurge）的技术规划及当前研究热点。
+
+------
+
+#### **II. 以太坊路线图解析**
+
+##### **1. 六大发展阶段**
+
+| 阶段        | 核心目标         | 关键技术                                                     |
+| ----------- | ---------------- | ------------------------------------------------------------ |
+| **Merge**   | PoS共识完善      | 单槽最终性（SSF）、秘密领导者选举（SLE）、提款机制优化       |
+| **Surge**   | 扩容与数据可用性 | EIP-4844（Blob交易）、数据可用性采样（DAS）、ZK Rollup互操作性 |
+| **Scourge** | MEV治理与抗审查  | ePBS（Enshrined PBS）、MEV销毁、质押上限机制                 |
+| **Verge**   | 状态验证效率提升 | Verkle树、SNARK化（信标链状态转换、EVM验证）                 |
+| **Purge**   | 协议简化         | EIP-4444（历史数据修剪）、状态过期机制                       |
+| **Splurge** | 用户体验优化     | 账户抽象（ERC-4337）、EIP-1559最终形态、深度密码学整合       |
+
+------
+
+#### **III. 当前研究热点**
+
+##### **1. 密码学前沿**
+
+- **KZG多项式承诺**：用于Blob数据验证（[KZG仪式](https://scroll.io/blog/kzg)）
+- **Verkle树结构**：替代Merkle Patricia Trie，提升状态证明效率（[Vitalik解析](https://vitalik.eth.limo/general/2021/06/18/verkle.html)）
+
+##### **2. 扩容技术**
+
+- **数据可用性采样（DAS）**：通过随机抽样验证数据可用性
+- **跨Rollup互操作**：标准化跨链消息协议
+
+##### **3. 抗MEV机制**
+
+- **包含列表（Inclusion Lists）**：防止交易审查
+- **MEV-Burn**：通过协议内拍卖销毁MEV收益
+
+------
+
+#### **IV. 关键升级进展**
+
+##### **1. 近期里程碑**
+
+- **Dencun升级**：EIP-4844实施，降低Layer2成本
+- **Pectra升级**：Verkle树预编译合约部署
+
+##### **2. 开发者工具**
+
+- **Helios轻客户端**：Rust实现的快速同步客户端（[构建指南](https://a16zcrypto.com/posts/article/building-helios-ethereum-light-client/)）
+- **EVM对象格式（EOF）**：优化合约代码存储结构
+
+------
+
+#### **V. 学习资源推荐**
+
+##### **必读材料**
+
+- [以太坊终极形态](https://vitalik.eth.limo/general/2021/12/06/endgame.html)（Vitalik长文）
+- [Blob空间经济学](https://domothy.com/blobspace/)（Domothy分析）
+- [以太坊数据结构演进](https://arxiv.org/pdf/2108.05513.pdf)（学术论文）
+
+##### **实践指南**
+
+- [EthRoadmap.com](https://ethroadmap.com/)：交互式路线图可视化
+- [执行票据提案](https://ethresear.ch/t/execution-tickets/17944)：参与协议改进讨论
+
+------
+
+#### **VI. 技术术语对照**
+
+| 英文术语                   | 中文解释                |
+| -------------------------- | ----------------------- |
+| Single Slot Finality       | 单槽最终性              |
+| Data Availability Sampling | 数据可用性采样          |
+| Enshrined PBS              | 协议内提议者-构建者分离 |
+| Verkle Proofs              | Verkle树证明            |
+| MEV Burn                   | MEV销毁机制             |
+
+------
+
+通过本课程的系统学习，开发者可全面把握以太坊技术演进的宏观框架，深入参与核心协议研究。建议结合[Ethresear.ch论坛](https://ethresear.ch/)跟踪最新提案，通过节点工作坊实践客户端运维。
+
+### 2025.02.12
+
+##### **EPF WIKI WEEK6**
+
+### 2025.02.13
+
+##### **EPF WIKI WEEK7**
 
 <!-- Content_END -->
