@@ -112,6 +112,34 @@ Learn [Inevitable Ethereum - World Computer](https://inevitableeth.com/home/ethe
 		- 执行层的软件实现（如 **Geth**、**Nethermind**、**Besu**），负责处理交易、运行 EVM、维护状态等。
 
 ### 2025.02.10
+- wiki的知识点感觉有点零散，读《Absolute Essentials of Ethereum》梳理下整体脉络。
+- **Ch2. Execution Layer**
+	- Ethereum address are 42-character hexadecimal identifiers derived from the last 20 bytes of the public key with 0x prefix.
+		- more intuitive and user-friendly account experience called **Account Abstraction**
+	- EOA
+		- address + associated account state
+		- contains two fields:
+			- **Nonce**, is an increasing number showing how many transactions an account has made and how many contracts it has created. It is used to determine the order of transactions in the same slot.
+			- **Balance**, how much ETH is holding.
+	- Contract Accounts
+		- are smart contracts that have been deployed on Ethereum and are controlled by their own internal code.
+		- Ethereum address + associated account state
+		- contain a state of four fields:
+			- **Nounce**, incremeting number showing how many contracts the contract account has created ??
+			- **Balance**, how much ETH the contract account is holding
+			- **Code**, is the smart contract code contained in the account
+			- **Storage**, maps the contents of the contract account. When a transaction involving a contract account is processed, the changes are recorded permanantly in the contract's Storage.
+	- Transactions (two types)
+		- Message Call
+			- Value, ETH
+			- Input Data
+				- EOA-EOA, arbitrary Data, perhaps to send a message or tag a transaction. *Usually is left empty*
+				- EOA-contract, contract-contract, includes the contract's Code  to be invoked and any proposed changes to Storage.
+		- Contract Creation
+			- request a new contract account to be added to the Ethereum world state.
+			- sent to an empty address since there's no recipient
+			- once initialised, are a combination of the sender's address and the last Nonce from the sender's account
+	-
 
 ### 2025.02.11
 

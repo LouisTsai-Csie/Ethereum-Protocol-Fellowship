@@ -43,7 +43,9 @@ timezone: Asia/Shanghai
 ### 2025.02.10
 > 周一
 
-笔记内容
+- [x] [以太坊路线图](https://ethereum.org/zh/roadmap/)
+- [/] [Annotated Ethereum Roadmap](https://domothy.com/roadmap/)
+- [x]  https://vitalik.eth.limo/general/2021/12/06/endgame.html
 
 ### 2025.02.11
 > 周二

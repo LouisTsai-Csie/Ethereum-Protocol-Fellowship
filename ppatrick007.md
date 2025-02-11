@@ -129,7 +129,7 @@ Hi, 我是国内一名理科研究生，会一些编程语言，平时科研主�
 ### 主题：开发和测试（Development and Testing）
 
 #### 主要内容
-本周的重点是以太坊的 **开发和测试**，包括如何进行节点的开发与测试、如何确保系统的稳定性和安全性等。
+今天的重点是以太坊的 **开发和测试**，包括如何进行节点的开发与测试、如何确保系统的稳定性和安全性等。
 
 #### 开发概述
 - **开发环境设置**：确保每个参与者的开发环境一致是关键，使用容器化（如 Docker）或虚拟机（VM）来模拟以太坊节点环境。
@@ -147,5 +147,45 @@ Hi, 我是国内一名理科研究生，会一些编程语言，平时科研主�
 #### 测试实例
 - **覆盖率测试**：测试合约的各个功能，确保所有可能的路径都被测试覆盖。
 - **模拟真实场景**：使用 **测试网（Testnets）** 和 **正式网（Mainnet）** 的相同配置和行为来模拟真实场景，确保应用程序的稳定性。
+
+### 2025.02.10
+
+### 主题：以太坊研究现状与路线图（Ethereum Research and Roadmap）
+
+#### 主要内容
+今天的重点是 **以太坊当前的研究方向和未来发展路线图**，以及涉及 **节点工作坊（Node Workshop）** 相关的内容。
+
+#### 以太坊合并（Merge）
+- **Altair 升级**：引入 **轻客户端协议（Light Client Protocol）**，让资源受限的设备能够更轻松地访问以太坊网络。
+- **合并（Merge）和提款（Withdrawals）**：主网从 PoW 迁移到 PoS，允许验证者提款。
+- **单 Slot Finality（SSF）**：研究提高以太坊区块最终性（Finality）的方法，以减少重组风险。
+
+#### 扩展性（Surge）
+- **ZK Rollups & Optimistic Rollups**：两种 Layer 2 方案，提升以太坊吞吐量。
+- **KZG 仪式（KZG Ceremony）**：为 **EIP-4844（Proto-Danksharding）** 提供可信设置，提高数据可用性。
+- **数据可用性采样（Data Availability Sampling, DAS）**：用于保证 rollup 交易数据的可访问性。
+- **跨 Rollup 互操作性（Cross-rollup Interop）**：确保不同 Rollup 之间可以安全交互。
+
+#### 以太坊去中心化 & MEV 研究（Scourge）
+- **最小可提取价值（MEV）**：研究如何降低矿工/验证者可提取的额外收益，以减少网络中心化风险。
+- **ePBS（加密投票区块提案）**：改善区块提议机制，减少 MEV 操作带来的负面影响。
+- **MEV Burn**：类似于 **EIP-1559** 机制，销毁部分 MEV 以减少市场操控。
+
+#### 以太坊状态优化（Verge）
+- **Verkle Trees**：提高以太坊存储效率，使状态存储更加轻量化。
+- **SNARKify（零知识证明）**：使用 SNARK 进行状态过渡，提高隐私性和同步速度。
+  - **信标链快速同步（Beacon Fast Sync）**。
+  - **信标链状态转换（Beacon State Transition）**。
+  - **Verkle 证明（Verkle Proofs）**。
+
+#### 以太坊协议简化（Purge）
+- **EIP-4444**：删除历史状态存储，减少全节点的存储需求，提高同步效率。
+- **协议精简（Protocol Simplifications）**：降低协议复杂度，使以太坊更易维护和升级。
+
+#### 以太坊未来创新（Splurge）
+- **EIP-1559 终局（Endgame）**：优化交易费用市场，提高用户体验。
+- **账户抽象（Account Abstraction, AA）**：减少对 EOA（Externally Owned Accounts）的依赖，使智能合约钱包成为主流。
+- **深度加密（Deep Cryptography）**：研究更高效的加密方法，以提高隐私性和安全性。
+
 
 <!-- Content_END -->

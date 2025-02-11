@@ -45,8 +45,27 @@ timezone: Asia/Shanghai
 1. 执行层的核心功能
 2. 执行客户端架构
     * 常用的执行客户端
-    * EVM
+    * 以太坊虚拟机EVM
 
 ### 2025.02.10
+
+今天深入学习第二部分 以太坊虚拟机EVM的内容:
+* 预编译合约
+* 以太坊状态机: state machine
+* 虚拟机范式: virtual machine paradigm
+* EVM 和 EVM bytecode
+* 栈(Stack) 和 程序计数器(program counter)
+* Gas
+* 内存(Memory)
+* Storage
+* Wrapping up
+* EVM upgrades
+* EVM实现: Go(Geth), Rust(revm), Python(py-evm), C++(EVMONE)
+
+### 2025.02.11
+
+### 2025.02.12
+
+### 2025.02.13
 
 <!-- Content_END -->

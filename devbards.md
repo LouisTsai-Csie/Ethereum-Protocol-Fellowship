@@ -43,6 +43,7 @@ Week 3 covered consensus mechanisms, but to be honest, I didn’t fully grasp ev
 Week 5's content is much more complex than I expected. It seems like I need to fully understand and integrate the concepts from the first four weeks before I can make sense of it… So, I’ve decided to spend more time reviewing the previous weeks.
 
 ### 2025.02.10
+I realized that my fundamental knowledge of cryptocurrencies is too limited, and jumping straight into BFT feels like taking on a boss fight way beyond my level—everything just seems vague and confusing. So, I’ve decided to borrow some introductory books on cryptocurrencies to build a stronger foundation. Additionally, I noticed that writing notes in English might not be as helpful for the Chinese-speaking community. Therefore, once I have a more complete understanding, the recording style would change somehow.
 
 ### 2025.02.11
 

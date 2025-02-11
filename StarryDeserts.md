@@ -313,6 +313,48 @@ timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
 
 
 
+### 2025.02.10
+
+#### 以太坊执行层规范（第2天）
+
+##### **经济模型与Gas动态**
+
+- **EIP-1559机制**：
+
+  - **基础费用调整公式**：
+    $$\nu = 
+    \begin{cases}
+    \left\lfloor \frac{P(H)_{\text{baseFeePerGas}} \times (\tau - P(H)_{\text{gasUsed}})}{\tau \times \xi} \right\rfloor & \text{if } P(H)_{\text{gasUsed}} < \tau \\
+    \max\left(\left\lfloor \frac{P(H)_{\text{baseFeePerGas}} \times (P(H)_{\text{gasUsed}} - \tau)}{\tau \times \xi} \right\rfloor, 1\right) & \text{if } P(H)_{\text{gasUsed}} > \tau
+    \end{cases}$$
+    - $$\xi= 8$$（控制基础费用最大变化率）
+  
+- **模拟分析**：
+  - 基础费用在目标附近呈线性变化（见下图）：
+    <img src=".starrydeserts_image/gasused-basefee.png" alt="gasused-basefee" style="zoom: 67%;" />
+
+------
+
+##### **Blob Gas定价机制**
+
+- **超额Blob Gas计算**：
+  
+  $$\text{CalcExcessBlobGas}(P(H)) = 
+  \begin{cases}
+  0 & \text{if } P(H)_{\text{blobGasUsed}} < \text{TargetBlobGasPerBlock} \\
+  P(H)_{\text{blobGasUsed}} - \text{TargetBlobGasPerBlock} & \text{otherwise}
+  \end{cases}$$
+  
+  - $$\text{TargetBlobGasPerBlock} = 393,216$$
+  
+- **Blob Gas价格公式**：
+  $$\text{BlobGasPrice} = \text{fake\_exponential}\left(1, \frac{\text{excessBlobGas}}{3,338,477}\right)$$
+
+  - 模拟显示持续超额时价格指数上升（见下图）：
+    ![blob-gas-and-price](.starrydeserts_image/blob-gas-and-price.png)
+
+
+
 
 
 <!-- Content_END -->

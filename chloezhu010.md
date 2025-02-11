@@ -137,7 +137,26 @@ timezone: Europe/Berlin
                 - Common use: query info about the beacon chain (block headers, validator status), submmit attestations & block proposals from validators, monitor the status of the beacon network
                 - Endpoints: eg. /eth/v1/beacon/blocks (retrive beacon chain blocks), /eth/v1/validator/attestation (submit an attestation from a validator)
                 - Staking pools & monitor tools use the api to track validator performance and network health
-
+    - Issue with JSON RPC api
+        - Centralization
+            - rely on centralized infra provider (eg. infura, alchemy, quicknode) to access Ethereum nodes via json rpc. These service act as intermediaries, reducing the need for developers to run their own nodes
+            - barrier to run full nodes: it requires significiant resources (storage, bandwidth, computation power) to run a full node, so many devs opt for centralized service instread
+        - Scalability
+            - high load on nodes: can lead to performance bottlenecks and increased cost for node operators
+            - inefficient data retrieval: not optimized for querying large amounts of data, can result in slow response time and high latency
+        - Security
+            - json-rpc endpoints can expose sensitive info if not properly secured (eg. account balance, tx history)
+            - public json-rpc endpoints are often targeted by DDoS attacks
+            - by default json-rpc don't require authentication, making it easy for unauthorized user to access node data
+        - Lack of modern features
+            - No RESTful design
+            - limited tool: lack support for features like filtering, sorting etc.
+            - verbose and complex
+        - Potential Alternative/ Solution
+            - Decentralized node infra: eg. the Graph, EPNS
+            - Light clients and stateless: reduce the resource required for running nodes
+            - RESTful api: eg. Besu
+            - Improved json-rpc: add support for batch request, better error handling etc.
 
 
 <!-- Content_END -->
