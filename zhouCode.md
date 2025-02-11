@@ -538,4 +538,43 @@ func build(env Environment, pool txpool.Pool, state state.StateDB) (types.Block,
 - 由于能源需求低，发行较少的以太币就可以激励大家参与
 - 与工作量证明相比，对不当行为的经济处罚让 51% 攻击的代价变得更高。
 - 如果 51% 攻击是为了攻破加密经济的防御，那么社区可以求助于诚实链的社交恢复。
+
+### 2025.02.11
+
+#### Study Group 2024 week3 学习
+
+#### 以太坊测试与安全
+
+##### 测试的核心
+
+- **预状态（Pre-state）**：测试前的区块链状态（合约代码、存储、余额等）。
+- **环境（Environment）**：区块参数（时间戳、燃料限制、基础费用、分叉激活时间）。
+- **交易（Transactions）**：触发特定EVM操作的输入数据。
+- **后状态（Post-state）**：测试后预期的区块链状态（存储变更、状态根等）。
+- **测试生成（Test Filling）**：通过工具（如Go Ethereum的`evm`模块）将测试定义转换为可执行的测试夹具（Fixture）。
+
+##### **测试工具与框架**
+
+- **执行规范测试库（Ethereum Execution Spec Tests）**：
+  - 使用Python编写，支持复杂参数化测试（如不同分叉规则）。
+  - 依赖Go Ethereum生成测试夹具，未来计划通过[EELS](https://github.com/ethereum/execution-specs)实现独立验证。
+- **Hive框架**：
+  - 用于跨层端到端测试，模拟共识层与执行层的交互（如Engine API调用）。
+  - 支持并行测试多客户端（如Geth、Nethermind）的兼容性。
+
+##### **共识层测试**
+
+- **共识规范测试（Consensus Spec Tests）**：
+  - 将规范与测试代码合并，覆盖信标链状态转换、分片逻辑等。
+  - 生成多种格式的测试夹具（如区块有效性、质押操作）。
+
+##### **安全漏洞与披露**
+
+- **潜在风险**：
+  - 客户端错误验证有效/无效区块可能导致网络分叉。
+  - 不同层（执行层/共识层）的客户端兼容性问题。
+- **漏洞披露流程**：
+  - 发现漏洞后通过[以太坊漏洞赏金计划](https://bounty.ethereum.org/)提交，最高可获得25万美元奖励。
+  - 公开披露需在修复后进行（参考[历史案例库](https://github.com/ethereum/eth-sec)）。
+
 <!-- Content_END -->
