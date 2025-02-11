@@ -192,7 +192,7 @@ Light clients are nodes that do not contain entire blockchain data. Instead, the
 
 TODO https://epf.wiki/#/eps/week1
 
-
+TODO 跑一下代码 https://github.com/dajuguan/lab/blob/main/eth/randao.py
 
 
 
