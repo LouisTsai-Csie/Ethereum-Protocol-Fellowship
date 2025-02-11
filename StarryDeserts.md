@@ -355,6 +355,72 @@ timezone: Pacific/Auckland # 新西兰标准时间 (UTC+12)
 
 
 
+### 2025.02.11
 
+#### 以太坊执行层规范（第3天）
+
+------
+
+##### **交易执行与EVM机制**
+
+- **执行阶段**：
+
+  1. **检查点状态（$$\sigma_0$$）**：
+     $$\sigma_0 \equiv \sigma \quad \text{except:} \quad 
+     \begin{cases}
+     \sigma_0[\text{Sender}]_{\text{balance}} = \sigma[\text{Sender}]_{\text{balance}} - \text{upfrontCost} \\
+     \sigma_0[\text{Sender}]_{\text{nonce}} = \sigma[\text{Sender}]_{\text{nonce}} + 1
+     \end{cases}$$
+
+- **EVM状态机**：
+  - **寄存器定义**：
+    $$\mu \equiv (\mu_{\text{gasAvailable}}, \mu_{\text{programCounter}}, \mu_{\text{memoryContents}}, \mu_{\text{activeWordsInMemory}}, \mu_{\text{stackContents}})$$
+
+------
+
+##### **合约创建流程**
+
+1. **地址生成**：
+   $$\text{地址} = \text{KEC}(\text{RLP}([\text{Sender}_{\text{address}}, \text{Sender}_{\text{nonce}} - 1]))[-20:]$$
+
+2. **账户初始化**：
+   $$\sigma^*[\text{newAccount}] \equiv (\text{Nonce}=1, \text{Balance}=T_{\text{value}}, \text{Storage}=\text{TRIE}(\emptyset), \text{CodeHash}=\text{KEC}(()))$$
+
+------
+
+##### **Gas计算模型**
+
+- **内存扩展成本**：
+  $$\text{MemoryExpansionCost} = 3 \times \Delta_{\text{expansion}} + \left\lfloor \frac{\Delta_{\text{expansion}}^2}{512} \right\rfloor$$
+  - $$\Delta_{\text{expansion}}$$：新增内存块数
+
+------
+
+##### **代码示例**
+
+### **R代码：基础费用模拟**
+
+```R
+calculate_base_fee_per_gas <- function(
+  parent_gas_limit, parent_gas_used, parent_base_fee_per_gas,
+  max_change_denom = 8, elasticity_multiplier = 2
+) {
+  parent_gas_target <- parent_gas_limit %/% elasticity_multiplier
+  if (parent_gas_used == parent_gas_target) {
+    parent_base_fee_per_gas
+  } else if (parent_gas_used > parent_gas_target) {
+    gas_used_delta <- parent_gas_used - parent_gas_target
+    base_fee_per_gas_delta <- max(
+      (parent_base_fee_per_gas * gas_used_delta %/% parent_gas_target) %/% max_change_denom,
+      1
+    )
+    parent_base_fee_per_gas + base_fee_per_gas_delta
+  } else {
+    gas_used_delta <- parent_gas_target - parent_gas_used
+    base_fee_per_gas_delta <- (parent_base_fee_per_gas * gas_used_delta %/% parent_gas_target) %/% max_change_denom
+    parent_base_fee_per_gas - base_fee_per_gas_delta
+  }
+}
+```
 
 <!-- Content_END -->
