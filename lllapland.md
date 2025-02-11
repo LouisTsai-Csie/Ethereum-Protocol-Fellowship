@@ -211,9 +211,28 @@ https://epf.wiki/#/eps/week3
 | **Communication Complexity** | **O(n²)** -> multiple rounds of message exchanges, where each node broadcasts messages to all other nodes 🌟| **O(n)** |
 
 
-----
 
-TBC
+### 2025.02.11
+https://epf.wiki/#/eps/week3
+
+- PoS
+  - in-protocol signal allow for **penalties**, not just rewards (compared to PoW)
+    - scenarios:
+      - double signing
+      - going offline
+      - equivocation -> voting for multiple competing blocks at the same height
+    - how?
+      - **slashing**: cutting validator's stake for malicious behavior
+      - **inactivity leak**: gradual stake reduction for being offline to maintain network liveness
+    - benefits:
+      - reduce attack surface
+      - less resource intensive
+- attestation: a validator's vote to confirm a block is valid
+  - TBC
+
+
+ 
+
 
 
 <!-- Content_END -->
