@@ -229,7 +229,7 @@ https://epf.wiki/#/eps/week3
 
 | Mechanism | Purpose | Consensus Type | Key Features |
 |-----------|---------|---------------|--------------|
-| **GHOST** | **fork-choice rule** to determine the canonical chain | **PoW & PoS** | • usually considers the entire tree of blocks (special case: LMD-GHOST looks at validators' latest messages)<br>• chooses the **heaviest** subtree<br>• prevents short-chain attacks |
+| **GHOST** | **fork-choice rule** to determine the canonical chain | **PoW & PoS** | • usually considers the **entire tree of blocks** (special case: LMD-GHOST looks at validators' **latest messages**)<br>• chooses the **heaviest** subtree<br>• prevents short-chain attacks |
 | **Casper FFG** | **finality gadget** for PoS consensus | **PoS** | • checkpoint-based finalization<br>• uses validator voting<br>• provides economic finality through slashing |
 
 
@@ -242,14 +242,14 @@ https://epf.wiki/#/eps/week3
     - epoch -> **a time unit** used to **organize validator duties** and **finalize** blocks efficiently
       - **1 epoch = 32 slots** (Each slot is **12 seconds**)
       - **1 slot** = opportunity to **propose a block**
-      - How to?
-        1. **a validator is selected** to propose a block in **each slot**
-        2. **other validators attest** using **BLS signatures** (aggregating hundreds of signatures into a single signature)
-           - validators are assigned to different **committees**
-           - each committee is responsible for validating **specific shards**
-        3. **attestations are aggregated** and included in the next block
-        4. **epoch ends after 32 slots** (~6.4 min).
-        5. **If 2/3 validators agree, finalization occurs**
+    - How to?
+      1. **a validator is selected** to propose a block in **each slot**
+      2. **other validators attest** using **BLS signatures** (aggregating hundreds of signatures into a single signature)
+         - validators are assigned to different **committees**
+         - each committee is responsible for validating **specific shards**
+      3. **attestations are aggregated** and included in the next block
+      4. **epoch ends after 32 slots** (~6.4 min)
+      5. **If 2/3 validators agree, finalization occurs**
   - EAS: Ethereum Attestation Service 🔥 [tutorial](https://youtu.be/DMGj5GNll0k?si=LFfMfwQp7LqfNyCV&t=967)
     - [usage cases / ideas](https://docs.attest.org/docs/category/example-use-cases)
       - identity
