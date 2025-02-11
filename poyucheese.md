@@ -55,4 +55,20 @@ timezone: Asia/Shanghai
 
 今天沒時間看新的東西，簡單複習消化 week 2 的內容，看其他人的筆記也能收穫很多不同觀點的看法。
 
+### 2025.02.11
+
+#### [SGweek3](https://epf.wiki/#/eps/week3)
+
+今天看了 week 3 的內容，是關於以太坊的共識，包含爲什麼需要共識機制——因為要做到去中心化，此類共識機制如何解決拜占庭問題（確保惡意節點難以攻擊）：
+
+- **PoW (Bitcoin)** 使創建區塊難度提升，攻擊成本大
+- **PoW + GHOST (Ethereum1.0)** 以太坊的出塊時間比 bitcoin 短，所以容易出現分叉 (新創建的區塊來不及被廣播)，使用 GHOST 協議和獎勵接受沒成為最長鏈的叔塊，也保護礦工的權益
+- **PoS + Casper FFG + LMD GHOST (Ethereum2.0)** 
+    - **Casper FFG (Friendly Finality Gadget)**
+
+        >採用投票機制，驗證者透過 質押 ETH 來表決哪個區塊應該成為最終區塊。惡意驗證者若投票錯誤，將面臨懲罰。
+    - **LMD GHOST (Latest Message Driven Greediest Heaviest Observed Subtree)**
+
+        >透過權重最大（最多驗證者投票的）的子樹來決定主鏈，確保惡意節點無法輕易影響共識。
+
 <!-- Content_END -->
