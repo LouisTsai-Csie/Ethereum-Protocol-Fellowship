@@ -157,6 +157,23 @@ timezone: Europe/Berlin
             - Light clients and stateless: reduce the resource required for running nodes
             - RESTful api: eg. Besu
             - Improved json-rpc: add support for batch request, better error handling etc.
-
+### 2025.02.11
+- Blockchain level protocol
+    - reference link: https://epf.wiki/#/wiki/protocol/design-rationale
+  - Accounts over UTXOs
+      - UTXO (unspent tx output)
+      - Account
+      - What's the pros/ cons of account vs UTXO? Why Ethereum chooses account-based model?
+  - Merkle patricia trie
+      - a modified MPT
+      - deterministic and cryptographically verifiable
+  - Verkle tree
+      - vector commitments allow for much smaller proofs (aka witness)
+  - RLP (recursive length prefix)
+  - SSZ (simple serialize)
+  - Hunt for finality: Casper FFG + LMD GHOST
+  - Discv5: the discovery protocol
+      - a kademlia based DHT to store ENR records
+      - ENR (ethereum node record) contain routing info to establish connections between peers
 
 <!-- Content_END -->
