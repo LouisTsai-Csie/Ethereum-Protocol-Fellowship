@@ -33,5 +33,8 @@ https://epf.wiki/#/wiki/protocol/design-rationale
 ### 2025.02.10
 今天学习协议更新进化迭代，每次软分叉添加了哪些eip
 https://epf.wiki/#/wiki/protocol/history
+### 2025.02.11
+今天学习执行层数据规范最初被指定是根据黄皮书来设计的
+https://epf.wiki/#/wiki/EL/el-specs
 
 <!-- Content_END -->
