@@ -239,6 +239,92 @@ happened about Tx.
 
 ### 2025.02.11
 
+**An Example contract: NameSystem**
+
+A name system on Eth: [uniswap -> addr]
+> is a simplified ENS, like DNS
+
+Need to support three operations:
+- `Name.new`(OwnerAddr, Name): intent to register
+- `Name.update`(Name, newVal, newOwner)
+- `Name.lookup`(Name)
+
+``` solidity
+contract nameSys{
+    struct nameEntry{
+        address owner;
+        bytes32 value;
+    }
+    mapping(bytes32=> nameEntry) data;
+
+    function nameNew(bytes32 name){
+        //registration fee is 100 Wei
+        if(data[name]==0 && msg.value >=100){
+            data[name].owner = msg.sender
+            emit Register(msg.sender, name)
+        }
+    }
+
+    function nameUpdate(bytes32 name, 
+                        bytes32 newValue, 
+                        address newOwner) {
+        // check if message is from domain owner,
+        // and update cost of 10 Wei is paid
+        if (data[name].owner == msg.sender && msg.value >= 10) {
+            data[name].value = newValue; // record new value
+            data[name].owner = newOwner; // record new owner
+        }
+    }
+
+    function nameLookup(bytes32 name) {
+        return data[name];
+    }
+}
+
+```
+1. ⚠️ Here the `nameNew`func is unsafe, Anyone can use this function to peek into the database or steal certain names and resell them.
+2. The `nameLookup` is used by contracts, humans do not need this.(use etherscan.io)
+
+**EVM mechanics: execution environment**
+
+- The EVM is **Ethereum’s execution engine**, ensuring that smart contracts run **securely, in a decentralized, and deterministic manner**, making it the backbone of DeFi, NFTs, and DApps.
+- EVM is compiled to bytecode
+
+| Function | Description |
+|----------|------------|
+| Running Smart Contracts | Interprets and executes Solidity, Vyper-based contracts |
+| Decentralized Computing | Executes on all Ethereum nodes, ensuring consistency |
+| Transaction Processing | Verifies transactions, updates balances and contract states |
+| Maintaining Blockchain State | Manages contract storage, account data, and logs |
+| Gas Fee Management | Prevents excessive computation, incentivizes validators |
+| Security & Isolation | Runs contracts in a safe environment to prevent exploits |
+
+**Gas**
+
+- Every instruction costs gas.
+- Different instruction costs different gas.(See https://www.evm.codes/)
+    > eg. SLOAD, SSTORE VS MLOAD, MSTORE, the former operate on blockchain(like disk), and the latter operate for single Tx(like RAM)
+- Tx fees (gas) prevents submitting Tx that runs for many steps.
+- During high load: block proposer chooses Tx from mempool
+that maximize its income.
+- Reducing on chain storage is advocated
+    ![](https://files.catbox.moe/pcntjb.png)
+
+**Gas prices spike during congestion**
+
+**Congestion** can result in an increase in gas prices, which can bring 
+more income for those block proposer.
+
+![](https://files.catbox.moe/k63zc7.png)
+
+**EIP1559: How to figure out this congestion issue?**
+
+> EIP1559, since8/2021, goal: 
+> - users incentivized to bid their true utility for posting Tx,
+> - block proposer incentivized to not create fake Tx, and
+> - disincentivize off chain agreements.
+
+a solution: [ Transaction Fee Mechanism Design, by T. Roughgarden, 2021 ]
 
 ### 2025.02.12
 

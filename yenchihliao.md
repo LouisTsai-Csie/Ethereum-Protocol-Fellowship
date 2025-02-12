@@ -97,4 +97,18 @@ Picked up/strengthened some key concepts
 - p2p protocol broadcast tx to square root of peers
 - snap sync protocol: contrast to full sync
 
+### 2025.02.11
+Finished week3
+
+Picked up/strengthened some key concepts
+- Each "slot" has a block unless a validator failed/missed to propose
+- Every blocks have a bunch of "attestation"
+- Attestations of a block are included into the next block
+- Every 32 slots forms a "Epoch" (for mainnet)
+- Slashes and rewards are evaluated at the end of every epoch
+- The full validator set is randomly shuffled and distributed to one of slots in a epoch
+- Each validator only verifies once in a epoch
+- Justification: 2/3 of validators attested
+- Finialize: Justifying a justified block
+
 <!-- Content_END -->

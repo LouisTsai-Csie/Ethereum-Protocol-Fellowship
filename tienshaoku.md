@@ -99,6 +99,8 @@ user ---(User API)>>> execution engine ---(Engine API)>>> beacon node ---(Beacon
 
 ### 2025.02.09
 
+### 2025.02.10
+
 #### Execution Layer Spec
 
 - The Execution Layer focuses exclusively on executing the state transition function (STF). This role addresses two primary questions:
