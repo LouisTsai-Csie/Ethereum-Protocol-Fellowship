@@ -35,7 +35,7 @@ timezone: Asia/Shanghai
 - 一笔交易大概需要21000 gas unit，每个block 的 gas limit 目前大概 30m gas unit，base fee是 gwei / gas unit
 - 晕了 EL Spec 很难读下去，暂时跳过吧
 
-### 2024.02.11
+### 2025.02.11
 State Trasition Function:
 ```
 func stf(parent types.Block, block types.Block, state state.StateDB) (state.StateDB, error) { //1
@@ -56,7 +56,7 @@ func stf(parent types.Block, block types.Block, state state.StateDB) (state.Stat
 ```
 问题: what exactly does a 'state' contains? what are the tries?
 
-### 2024.02.12
+### 2025.02.12
 Ethereum state is stored in four different modified merkle patricia tries (MMPTs):
 - Transaction Trie
 - Receipt Trie
