@@ -190,9 +190,41 @@ Light clients are nodes that do not contain entire blockchain data. Instead, the
 
 选择要验证的 tx 的相关 hash 即可，因为上层的 hash 节点都是计算生成的。
 
-TODO https://epf.wiki/#/eps/week1
-
 TODO 跑一下代码 https://github.com/dajuguan/lab/blob/main/eth/randao.py
+
+# 2025.02.12
+
+## https://epf.wiki/#/eps/week1
+
+![image](https://github.com/user-attachments/assets/3635c3a4-c051-4557-a8cb-0621a5b84467)
+
+The Merge 的过程，其实是构建了一个平行的 Beacon Chain 一直在运行和检测，之后把 execution layer 接过来。
+
+As hinted above, the main high level components of Ethereum are execution and consensus layer. These are 2 networks which are connected and dependent on each other. Execution layer provides the execution engine, handles user transaction and all state (address, contract data) while consensus implements the proof-of-stake mechanism ensuring security and fault tolerance.
+
+The traditional development cycle for new features or changes is Idea - Research - Development - Testing - Adoption. However, problems might arise at any moment of this cycle resulting in iterating again from the beginning.
+
+The coordination mainly happens via regular calls which are scheduled in the PM repo.
+
+The ideas and proposed changes from the community are coordinated using EIP process. Additionally, there are a few discussion forums. The biggest one discussing core upgrades is https://ethresear.ch. Another forum which is connected to the EIP process and serves for discussion about specific proposals is Ethereum Magicians. Lots of important discussion is also happening on the R&D Discord server (ping us in EPFsg discord to get an invite) and in client team groups. There are also offsites or workshops where many core developers meet in person to speed up the process face to face.
+
+通过 https://github.com/ethereum/pm 学习到的社区协调和管理经验：
+
+1. 通过创建 issues + tag 来放议题、会议链接等信息，例如 https://github.com/ethereum/pm/issues/1253 包括全部的会议，不仅仅是 ACDE ACDC
+2. 提供了一个 Google Calendar 来快速添加，但是目前不知道是自动还是人工维护的
+3. 欢迎大家通过评论的方式，添加议题等
+4. 写清楚了议题如何添加、谁能参加、谁主持等
+5. ECH 提供了字幕稿，然后下面有个大表单，可以看到每次会议的录屏、notes、讨论等等
+
+对 LXDAO 的启发：
+
+- 可以考虑将会议集中在这里管理，避免在论坛占用大家的注意力
+- 提供会议的速记和内容稿，作为社区周报的内容，而非比较制式的，重点在于引导大家讨论
+
+TODO https://notes.ethereum.org/@mikeneuder/rcr2vmsvftv
+
+TODO https://epf.wiki/#/eps/week2
+
 
 
 

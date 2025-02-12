@@ -34,6 +34,28 @@ timezone: Asia/Shanghai
 - 1e = 1 billion gwei
 - 一笔交易大概需要21000 gas unit，每个block 的 gas limit 目前大概 30m gas unit，base fee是 gwei / gas unit
 - 晕了 EL Spec 很难读下去，暂时跳过吧
-- 
+
+### 2024.02.11
+State Trasition Function:
+```
+func stf(parent types.Block, block types.Block, state state.StateDB) (state.StateDB, error) { //1
+    if err := core.VerifyHeaders(parent, block); err != nil { //2
+            // header error detected
+            return nil, err
+  }
+  for _, tx := range block.Transactions() { //3
+      res, err := vm.Run(block.header(), tx, state)
+      if err != nil {
+              // transaction invalid, block is invalid
+              return nil, err
+      }
+      state = res
+  }
+  return state, nil
+}
+```
+问题: what exactly does a 'state' contains? what are the tries?
+
+
 
 <!-- Content_END -->

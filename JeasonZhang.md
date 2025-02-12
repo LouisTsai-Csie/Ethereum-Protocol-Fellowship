@@ -529,10 +529,183 @@
 
 ### 2025.02.12
 
-##### **EPF WIKI WEEK6**
+##### **EPF WIKI Node Workshop**
+
+#### **I. 核心学习目标**
+
+**主题**: 以太坊客户端实践操作
+**目标**: 掌握执行层（EL）与共识层（CL）客户端的部署、配置及运维技能。
+
+------
+
+#### **II. 环境准备**
+
+##### **1. 系统要求**
+
+- **推荐系统**: Debian 12（支持Ubuntu/macOS，建议使用虚拟机统一环境）
+
+- **硬件配置**: 测试网节点无需高性能硬件（2核CPU/4GB RAM/50GB存储）
+
+- 基础工具安装:
+
+  ```bash
+  sudo apt update && sudo apt install -y curl git gpg docker.io build-essential
+  ```
+
+##### **2. 前置知识**
+
+- **客户端架构**: 复习[节点架构文档](https://ethereum.org/en/developers/docs/nodes-and-clients/node-architecture/)
+- **Linux基础**: 掌握[基础命令行操作](https://ubuntu.com/tutorials/command-line-for-beginners)
+
+------
+
+#### **III. 客户端部署流程**
+
+##### **1. 客户端选择与获取**
+
+- **推荐组合**: Geth（EL） + Lighthouse（CL）
+
+- 二进制验证（以Geth为例）:
+
+  ```bash
+  # 下载签名文件
+  curl -O https://geth.ethereum.org/geth-linux-amd64-1.13.0-6c74b4e6.sig
+  # 验证签名
+  gpg --verify geth-linux-amd64-1.13.0-6c74b4e6.sig
+  ```
+
+##### **2. Docker快速部署**
+
+```bash
+# 启动Geth测试网节点
+docker run -d -p 8545:8545 -v /data/geth:/root/.ethereum \
+  ethereum/client-go --goerli --http --http.addr 0.0.0.0
+
+# 启动Lighthouse共识客户端
+docker run -d -p 9000:9000 -p 9001:9001 -v /data/lighthouse:/root/.lighthouse \
+  sigp/lighthouse lighthouse beacon --network holesky
+```
+
+##### **3. 测试网配置**
+
+- Holesky测试网:
+
+  ```bash
+  geth --holesky --syncmode snap --http
+  lighthouse beacon --network holesky
+  ```
+
+- Ephemery自定义创世块:
+
+  ```bash
+  geth init --datadir ./ephemery ephemery-genesis.json
+  ```
+
+------
+
+#### **IV. 节点运维实践**
+
+##### **1. RPC接口使用**
+
+- 基础访问:
+
+  ```bash
+  curl -X POST -H "Content-Type: application/json" \
+    --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' \
+    http://localhost:8545
+  ```
+
+- 控制台交互:
+
+  ```bash
+  geth attach http://localhost:8545
+  > eth.syncing
+  ```
+
+##### **2. 验证者管理**
+
+- 质押存款:
+
+  ```bash
+  lighthouse account validator deposit \
+    --network holesky \
+    --keystore ./validator_keys \
+    --deposit-value 32
+  ```
+
+##### **3. 系统服务配置**
+
+- systemd服务文件示例（Geth）:
+
+  ```ini
+  [Unit]
+  Description=Geth Execution Client
+  After=network.target
+  
+  [Service]
+  ExecStart=/usr/bin/geth --http --syncmode snap --cache 2048
+  Restart=always
+  User=geth
+  
+  [Install]
+  WantedBy=multi-user.target
+  ```
+
+------
+
+#### **V. 进阶实践建议**
+
+##### **1. 节点监控**
+
+- Prometheus+Grafana方案:
+
+  ```bash
+  # 安装Prometheus
+  docker run -d -p 9090:9090 -v /prometheus-data:/prometheus prom/prometheus
+  # 配置Grafana仪表盘（参考Coincashew指南）
+  ```
+
+##### **2. 网络诊断**
+
+- P2P网络分析:
+
+  ```bash
+  # 使用devp2p工具检查节点连接
+  devp2p discv5 nodes -bootnodes enr://...
+  ```
+
+##### **3. 客户端切换实验**
+
+- 执行层切换
+
+  （Geth → Erigon）:
+
+  ```bash
+  erigon --chain holesky --datadir ./erigon-data --http
+  ```
+
+- 共识层切换
+
+  （Lighthouse → Nimbus）:
+
+  ```bash
+  nimbus_beacon_node --network=holesky --web3-url=http://localhost:8545
+  ```
+
+------
+
+#### **VI. 关键资源推荐**
+
+- **节点维护指南**: [EthStaker Holesky指南](https://github.com/eth-educators/ethstaker-guides)
+- **验证者监控**: [Grafana仪表板配置](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/monitoring-your-validator-with-grafana-and-prometheus)
+- **故障排查**: [合并后节点FAQ](https://notes.ethereum.org/@launchpad/node-faq-merge)
+
+------
+
+通过本工作坊的系统实践，开发者将具备独立部署和维护以太坊全节点的能力，为参与网络验证或协议开发奠定基础。建议从测试网开始，逐步过渡到主网节点运维。
 
 ### 2025.02.13
 
-##### **EPF WIKI WEEK7**
+##### **EPF WIKI WEEK6**
 
 <!-- Content_END -->

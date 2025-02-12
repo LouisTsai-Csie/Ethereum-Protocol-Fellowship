@@ -27,24 +27,14 @@ https://epf.wiki/#/eps/week1
   - **FOSS (Free & Open Source Software)**: Software that respects users' freedom and community
   - **GNU**: Foundation for open-source software, influencing Ethereum's development principles. GNU stands for "GNU's Not Unix"
 - Cryptography
-  - **Key Usage**  
-    - Symmetric: Same key for encryption & decryption  
-    - Asymmetric: Uses a public/private key pair  
-  - **Security**  
-    - Symmetric: Less secure if the key is exposed  
-    - Asymmetric: More secure; only the private key must be kept secret  
-  - **Speed**  
-    - Symmetric: Faster (simpler computation)  
-    - Asymmetric: Slower (complex mathematical operations)  
-  - **Key Distribution**  
-    - Symmetric: Requires secure key exchange  
-    - Asymmetric: Public key can be shared openly  
-  - **Common Algorithms**  
-    - Symmetric: AES, DES, RC4  
-    - Asymmetric: RSA, ECC, Diffie-Hellman  
-  - **Use Cases**  
-    - Symmetric: Encrypting files, database security  
-    - Asymmetric: Digital signatures, 🌟 **blockchain**, secure communication (TLS, PGP)  
+  | **Characteristic** | **Symmetric Encryption** | **Asymmetric Encryption** |
+  |-------------------|-------------------------|--------------------------|
+  | **Key Usage** | same key for encryption & decryption | public/private key pair |
+  | **Security** | less secure if key is exposed | more secure; only private key must be kept secret |
+  | **Speed** | faster (simpler computation) | slower (complex mathematical operations) |
+  | **Key Distribution** | requires secure key exchange | public key can be shared openly |
+  | **Common Algorithms** | AES, DES, RC4 | RSA, ECC, Diffie-Hellman |
+  | **Use Cases** | encrypting files, database security | digital signatures, 🌟 **blockchain**, secure communication (TLS, PGP) |
 
 
 #### Implementations and Development
@@ -211,9 +201,65 @@ https://epf.wiki/#/eps/week3
 | **Communication Complexity** | **O(n²)** -> multiple rounds of message exchanges, where each node broadcasts messages to all other nodes 🌟| **O(n)** |
 
 
-----
 
-TBC
+### 2025.02.11
+https://epf.wiki/#/eps/week3
+
+- PoS
+  - in-protocol signal allow for **penalties**, not just rewards (compared to PoW)
+    - scenarios:
+      - double signing
+      - going offline
+      - equivocation -> voting for multiple **competing blocks** at the same height [💡](https://youtu.be/5gfNUVmX3Es?si=z7ba-EZ48kbH4I5V)
+    - how?
+      - **slashing**: cutting validator's stake for malicious behavior (up to 32 ETH)
+      - **inactivity leak**: gradual stake reduction for being offline to maintain network liveness
+    - benefits:
+      - reduce attack surface
+      - less resource intensive
+-  Bribe attacks -> attackers influence validator behavior through **economic incentives**
+     - examples:
+       - paying validators to vote for specific blocks
+       - bribing validators to stay offline
+     - mitigations:
+       - slashing penalties make bribe acceptance **more costly than potential gains**
+       - withdrawal delays increase the cost of malicious behavior 
+- GHOST vs. Casper
+  - ethereum 2.0's consensus mechanism uses a modified version of **GHOST** combined with **Casper FFG** (Finality Gadget)
+
+| Mechanism | Purpose | Consensus Type | Key Features |
+|-----------|---------|---------------|--------------|
+| **GHOST** | **fork-choice rule** to determine the canonical chain | **PoW & PoS** | • usually considers the **entire tree of blocks** (special case: LMD-GHOST looks at validators' **latest messages**)<br>• chooses the **heaviest** subtree<br>• prevents short-chain attacks |
+| **Casper FFG** | **finality gadget** for PoS consensus | **PoS** | • checkpoint-based finalization<br>• uses validator voting<br>• provides economic finality through slashing |
+
+
+
+### 2025.02.12
+https://epf.wiki/#/eps/week3
+
+- Attestation: statement or proof of a certain fact
+  - Ethereum's PoS consensus [tutorial](https://youtu.be/5gfNUVmX3Es?si=_fkMJ6mn3LQGAE4V&t=83)
+    - epoch -> **a time unit** used to **organize validator duties** and **finalize** blocks efficiently
+      - **1 epoch = 32 slots** (Each slot is **12 seconds**)
+      - **1 slot** = opportunity to **propose a block**
+    - How to?
+      1. **a validator is selected** to propose a block in **each slot**
+      2. **other validators attest** using **BLS signatures** (aggregating hundreds of signatures into a single signature)
+         - validators are assigned to different **committees**
+         - each committee is responsible for validating **specific shards**
+      3. **attestations are aggregated** and included in the next block
+      4. **epoch ends after 32 slots** (~6.4 min)
+      5. **If 2/3 validators agree, finalization occurs**
+  - EAS: Ethereum Attestation Service 🔥 [tutorial](https://youtu.be/DMGj5GNll0k?si=LFfMfwQp7LqfNyCV&t=967)
+    - [usage cases / ideas](https://docs.attest.org/docs/category/example-use-cases)
+      - identity
+      - statements
+      - etc.
+
+
+
+ 
+
 
 
 <!-- Content_END -->
