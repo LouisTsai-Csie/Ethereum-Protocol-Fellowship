@@ -92,7 +92,7 @@ actually once is a validator is chosen to be a proposer, it can know therefore i
 https://www.paradigm.xyz/2023/04/mev-boost-ethereum-consensus
 https://epf.wiki/#/eps/week3
 
-<!-- Content_END -->
+
 
 ### 2025.02.11
 
@@ -103,3 +103,9 @@ still not sure why a committe concept is needed after watch all these video
 
 PoW consensus use economic (hash power) to reach consensus which looks a lot simpler. Through it does give entity who has most computing power an advantage so it is more close to "real" economy where PoS could at certain time depeg from real economy power. As long as stakeholder/token holder has a little real world economy power(pay for server and bandwdith). (eth will have price but it is less impact by commodity price such as electricity
  ) it is easier to develop as independent set of stakerholders on its own economy compare to Bitcoin i.e. if someone is very good at investing/trading, he or she could acquire ether at lower price. But you alway need to pay for a market price for electricity. PoW resets the game each time but does make bitcoin's opeartion more close to "real world"
+
+### 2025.02.12
+
+fork choice rule == LMD GHOST 
+
+<!-- Content_END -->
