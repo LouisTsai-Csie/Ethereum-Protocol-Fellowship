@@ -175,5 +175,30 @@ timezone: Europe/Berlin
   - Discv5: the discovery protocol
       - a kademlia based DHT to store ENR records
       - ENR (ethereum node record) contain routing info to establish connections between peers
+### 2025.02.12
+- Pros Cons of Account vs UTXO
+    - Account: How it works in high level
+        - the blockchain maintains a global state composed of accounts
+        - each account has a balance (in smart contract, storage and code)
+        - tx directly modify the state of these accounts
+    - UTXO: How it works in high level
+        - the blockchain tracks unspent tx outputs
+        - a UTXO represents a chunk of crypto that has been created as an output of a tx, but has not yet been spent
+        - tx consume existing UTXO and create new ones
+    - Comparison
+    |         | Account-based | UTXO-based |
+    | -------- | ------- | ------- |
+    | state representation | global state of accounts & balances   | set of unspent tx outputs    |
+    | tx logic  | directly modify account balance   | consume UTXOs and create new ones    |
+    | complexity  | easier for dev, esp. for smart contractss   | more complex for devs, esp. for advanced logic   |
+    | parallelizability  | limited, as txs modifying the same account must be processed sequentially   | high, as independent UTXOs can be processed in parallel    |
+
+- Why MTP then Verkle tree
+- What's RLP? What's its purpose?
+- What's SSZ? What's its purpose?
+    - What's union?
+    - What's ephemeral header?
+- What's discv5?
+- 
 
 <!-- Content_END -->
