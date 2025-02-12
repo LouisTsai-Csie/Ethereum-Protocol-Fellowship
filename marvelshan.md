@@ -588,6 +588,77 @@ EELS 則是構建在執行層上的規範，可以用於運行測試，驗證新
 
 ### 2025.02.12
 
+#### Besu
+- **私密交易**：僅限於部署或調用智能合約，無法進行 Ether 轉帳。
+- **私密智能合約**：只有指定的參與方節點可以讀取和寫入合約內容。
+- **應用場景**：適用於聯盟鏈中，特定企業之間的隱私保護需求，例如投票系統。
+
+- 基本知識
+	- **Ethereum 智能合約**：智能合約是可編程的區塊鏈協議，用於執行合約條款。
+	- **Ballot 智能合約**：一個投票合約範例，包含投票權分配、投票、查看結果等功能。
+	- **Besu 私密智能合約**：與一般智能合約的區別在於，只有參與方節點可以操作合約。
+
+- Besu 私密交易參數設定
+	- **PrivateFrom**：發起方的公鑰。
+	- **PrivateFor**：參與方的公鑰列表。
+	- **Payload**：智能合約的操作數據，編碼為 16 進位字串。
+	- **GasLimit**：交易所需的 Gas 上限。
+	- **Nonce**：交易序號，確保交易唯一性。
+
+- 發佈私密智能合約
+	- **步驟**：
+	  1. **定義候選人名單**：例如 `["Alice", "Bob", "Kevin"]`。
+	  2. **型態轉換**：將候選人名單轉換為智能合約所需的 `[32]byte` 格式。
+	  3. **參數打包**：使用 ABI 打包合約的建構函數參數。
+	  4. **產生 Payload**：將合約的 Bytecode 與打包後的參數結合。
+	  5. **產生 Private Raw Transaction**：使用 `NewContractCreation` 創建交易。
+	  6. **發佈合約**：透過 `eea_sendRawTransaction` 發佈合約，並取得合約地址。
+
+- 寫入私密智能合約
+	- **賦予投票權**：
+	  - 使用 `giveRightToVote` 函數，賦予特定帳戶投票權。
+	  - 打包參數並產生 Payload，發送私密交易。
+	- **投票**：
+	  - 使用 `vote` 函數，進行投票。
+	  - 打包參數並產生 Payload，發送私密交易。
+
+- 讀取私密智能合約
+	- **查看投票結果**：
+	  - 使用 `winnerName` 函數，查看當前最高票的候選人。
+	  - 透過 `priv_call` RPC 方法讀取合約數據。
+---
+#### Reth
+
+1. **Reth 使用 MDBX 作為主要的資料庫**
+   - MDBX（Lightning Memory-Mapped Database Extended）是一個高效能、低開銷的鍵值存儲系統，專門設計來處理高並發讀寫操作。  
+   - Reth 透過一層 **抽象（abstraction）**，讓底層存儲層具有靈活性，未來若要更換 MDBX，變更的成本可以降到最低。  
+
+2. **Codecs（編碼/解碼）**
+   - Reth 透過 **Compact Trait** 來進行數據壓縮，比如：  
+     - 壓縮 **無符號整數（unsigned integers）** 的前導 0  
+     - 優化存儲 **區塊頭（headers）、訪問列表（access-lists）** 等數據  
+
+3. **DB Abstractions（資料庫抽象層）**
+   - **Database Trait**  
+     - 提供 **唯讀** 或 **讀寫** 交易的基本 API，讓 Reth 操作底層數據時不需要直接依賴 MDBX，而是透過這一層抽象來與資料庫交互。  
+
+   - **Cursor（游標）**  
+     - 用於 **遍歷資料庫**，提高查詢和計算效率。  
+     - **特點**：
+       - 適用於 **Merkle Root 計算**，因為連續存取數據比隨機讀取快得多。  
+       - 在寫入大量數據時，**先排序再寫入** 會大幅提升性能，游標可以幫助我們更有效地管理這個過程。  
+
+**Reth執行擴展（ExEx）：**
+
+Reth引入了執行擴展（Execution Extensions，簡稱ExEx），這是一個框架，用於構建高性能和複雜的鏈下基礎設施作為執行後掛鉤。可用於實現Rollup、索引器、MEV機器人等，與現有方法相比，代碼量減少了10倍以上。這使得開發人員能夠以標準化的方式構建可重用的ExEx，類似於Cosmos SDK模組或Substrate Pallets的工作方式。
+
+參考：
+
+[如何透過 Private Transaction 操作 Hyperledger Besu 私密智能合約](https://medium.com/bsos-taiwan/how-to-use-besu-private-smart-contract-51e33c5b6d62)
+
+[Paradigm：介紹 Reth 執行擴充（ExEx），建構高效能的鏈下基礎設施](https://web3caff.com/zh_tc/archives/103079)
+
+### 2025.02.13
 
 
 <!-- Content_END -->
