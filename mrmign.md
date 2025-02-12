@@ -191,7 +191,36 @@ Learn [Inevitable Ethereum - World Computer](https://inevitableeth.com/home/ethe
 		- In an Ethereum context, a dApp refers to the smart contract plus the non-blockchain technologies it combines with to aid the user experience.
 
 ### 2025.02.12
-
+- The Concensus Layer(CL)
+	- Proof of Staking(PoS) or Staking
+		- 2015~2022 PoW
+		- The Merge: transitioned to staking from mining in September 2022
+	- Validators
+		- superphiz.eth is a well-known staker
+		- 32ETH deposited to the *deposit contract*( a list of participating validators)
+		- The first task , the head of the blockchain, is decided using a **Latest Message Driven Greedy Heaviest-Observe Sub-Tree(LMD GHOST)** vote.
+		- The second task, to finalise blocks, is decided using a **Casper the Friendly Finality Gadget(Casper-FFG)** vote.
+			- justification
+			- finalisation
+		- Validators work within a timeframe split up into slots and epochs.
+			- **LMD GHOST** vote happens in a slot
+			- **Gasper-FFG** vote happens across epochs
+		- A slot = 12 seconds
+		- An epoch = 32 slots ≈ 6.4 minutes
+		- Slots and LMD GHOST
+			- In every slot , a block proposer is randomly selected as the leader. Only one validator is assigned as the block proposer for a slot.
+			- Block proposers are chosen in advance using a pseudo-random algorithm called **RANDAO**.
+			- The block proposer's job:
+				- look back at the last slot and find the previous block with the most attestations, the "heaviest" block
+				  logseq.order-list-type:: number
+				- construct a new Beacon block with contextual information, such as entering and exiting validators, penalties for misbehaving validators, that transitions Ethereum to a new Beacon state.
+				  logseq.order-list-type:: number
+				- in their execution layer, transition the world state by gathering transactions from the mempool, execution them in the EVM, and producing the execution payload, in the form of an execution block
+				  logseq.order-list-type:: number
+				- sign the block and then present it to the validators to attest to. Don't present it to the entire validator set.
+				  logseq.order-list-type:: number
+				- The other validators are involved in attestation.
+		-
 ### 2025.02.13
 
 ### 2025.02.14
