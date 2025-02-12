@@ -194,7 +194,21 @@ timezone: Europe/Berlin
     | complexity  | easier for dev, esp. for smart contractss   | more complex for devs, esp. for advanced logic   |
     | parallelizability  | limited, as txs modifying the same account must be processed sequentially   | high, as independent UTXOs can be processed in parallel    |
 
-- Why MTP then Verkle tree
+- Why MPT then Verkle tree
+    - MPT
+        - a data structure, that combines merkle tree (provide cryptographic proofs to verify the data integrity) and patricia trie (a compressed trie that stores key-value pairs)
+    - Verkle tree
+        - more advanced data structure to address the issue of MPT
+        - vector commitment + merkle tree, it uses vector commitment (eg. polynomial commitments) to create smaller & more efficient proofs
+    - Comparison
+ 
+    |         | MPT | Verkle tree |
+    | -------- | ------- | ------- |
+    | proof size | large (scale with tree depth)   | small (constant or logarithmic)   |
+    | efficiency | less efficient for deep trees   | more efficient for deep trees   |
+    | stateless clients | inefficient due to large proof   | efficient due to compact proof   |
+    | scalability | limited by proof size & depth   | better scalability for large states   |
+    | cryptographic basis | merkle proof (hash-based)   | vector commitment (eg. polynomial)   |
 - What's RLP? What's its purpose?
 - What's SSZ? What's its purpose?
     - What's union?
