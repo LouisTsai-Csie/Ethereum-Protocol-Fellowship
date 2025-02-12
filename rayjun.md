@@ -209,5 +209,28 @@ EVM 中有一些关键的组件：
             - 应用：Celo 
 - 在以太坊协议中，节点和验证者是共识系统的参与者，slot 和 epoch 控制共识时间，Block 和 Attestations 是共识系统中的核心要素，达成共识需要依赖这些数据
 
-
+### 2025.02.12
+- 以太坊从 PoW 转成 PoS 的核心原因：能耗高且扩展性有限
+    - 以太坊当前的共识协议：LMD GHOST + Casper FFG = Gasper
+    - PoW 和 PoS 本身不是共识协议，而是一线共识协议的机制，主要作用是用来抵抗 Sybil 攻击，让参与网络有一定的成本
+    - PoW 和 PoS 都是通过分叉选择来选择链的方向：
+        - PoW：依据完成的总计算量
+        - PoS：依据特定链的总质押价值
+- The Merge 在升级的时候使用的是 TTD 而不是区块高度， TTD 其实就是每个区块难度的累加，之所以不使用区块高度，是为了方式有人恶意加速或者减缓 The Merge 升级的进度 
+- 以太坊的共识层称之为 Beacon Chain，它负责监督提出和证明新区块的验证者，确保网络的完整性和安全性。
+    - Validator 的限制
+        - 当前需要质押 32 个 ETH 才能成为 Validator
+        - Block Proposer 的选择过程依赖 RANDAO 和 VDF 来保证随机性
+        - Validator 会被分成多个委员会，负责区块提议和证明
+        - 如果 Validator 作恶，那么他们的资金就会面临处罚
+    - slot 和 epoch：每个 slot 12 秒，一个 epoch 为 32 个 slot，每个 slot 都需要指定一名 validator 来提议区块，而验证委员会者证明该区块的有效性
+        - Block Proposer 由 RANDAO 选出，选择的过程中，会加权计算 Validator 的余额
+        - Validator 可以同时成为 Block Proposer 和 Committees 成员，这种情况很少，概率为 1/32
+    - Validator 和 Attestations：Blocker Proposer 时被伪随机（因为缺乏真正的随机院）选择来构建区块的验证者，大多数情况下，验证者时对区块进行投票的 asstester，这些投票记录在信标链中
+    - Committees：委员会至少由 128 名验证者组成，在一个 epoch 中，每个 slot 都会分配至少一个 Committees，也就是说在一个 epoch 中，validator 只会存在一个 Committees 中，所以这里也就说明了为什么一个 Validator 在一个 slot 中 同时为 Block Proposer 和 Committees 成员的概率很小
+        - Committees 中 Validator 的数量至少要有 128 个
+        - 如果网络的 Validator 少于 8192 个，那么就会有一些 slot 的委员会人数不足，如果 Validator 的数量超过 8192 ，那么每个 slot 都至少有两个完整的委员会
+        - 如果委员会的规则不足 128，整个网络的 validator 人数少于 4096 时，网络的安全性就会很低
+    - Blob 中的数据实际存储在共识层，执行层只存储 blob 的 KZG commitments
+     
 <!-- Content_END -->
