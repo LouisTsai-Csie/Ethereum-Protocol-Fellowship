@@ -186,6 +186,7 @@ timezone: Europe/Berlin
         - a UTXO represents a chunk of crypto that has been created as an output of a tx, but has not yet been spent
         - tx consume existing UTXO and create new ones
     - Comparison
+  
     |         | Account-based | UTXO-based |
     | -------- | ------- | ------- |
     | state representation | global state of accounts & balances   | set of unspent tx outputs    |
