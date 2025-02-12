@@ -39,6 +39,9 @@ EIP-1559
 - 新建立的合約地址會是 `address = keccak256(rlp.encode([sender_address, sender_nonce]))[12:]`
 - 新合約 Nonce 等於 1，Balance 等於 pre-existingValue + msg.value​​ `σ∗[newAccount]≡(Nonce=1,Balance=preexistingValue+Tvalue​​,Storage=TRIE(∅)​,CodeHash=KEC(())​))`
 
+### 2025.02.11
+
+把 Week2 影片看完，筆記明日補上
 
 
 <!-- Content_END -->

@@ -207,4 +207,51 @@ PoS 提供了一种不同于 PoW 的安全保证：
 
 - [ ] 分片深入
 
+### 2025.02.11
+[week4](https://epf.wiki/#/eps/week4?id=pre-reading)
+
+如何确保智能合约在复杂网络环境中的可靠性？
+
+EVM测试方法论
+- 字节码级模拟测试：通过EVM模拟器对合约字节码进行逐指令调试
+- Gas消耗追踪矩阵：建立不同操作码的Gas消耗基准值（如：SSTORE=20000 Gas）
+- 状态树差异对比：记录每个交易前后的存储树哈希变化
+
+```js
+// 示例：网络层与合约层的集成测试用例
+describe("跨层事务测试", () => {
+  it("应正确处理网络延迟下的合约调用", async () => {
+    // 模拟300ms网络延迟
+    network.setLatency(300); 
+    const txReceipt = await contract.execute();
+    expect(txReceipt.status).to.equal(1);
+  });
+});
+```
+
+如何在开发环境中构建真实攻击场景？
+```shell
+ganache-cli \
+  --fork https://mainnet.infura.io/v3/YOUR_PROJECT_ID@15890350 \
+  --networkId 5777 \
+  --gasLimit 12000000 \
+  --allowUnlimitedContractSize
+
+```
+- 主网分叉测试：捕获真实链上攻击模式
+- 内存泄漏压力测试：持续运行72小时观察内存占用曲线
+
+如何构建抗DDoS的测试网络架构？
+1. 节点负载均衡策略
+   - 于交易Gas的优先级队列
+   - 动态调整的P2P连接池（最大连接数 = √(节点总数)*10）
+2. 容错测试矩阵
+```python
+# 网络故障注入测试示例
+for fault_type in ['packet_loss', 'latency_spike', 'partition']:
+    with NetworkFault(fault_type, duration=60):
+        assert consensus_algorithm.recovery_time < 15
+
+```
+
 <!-- Content_END -->

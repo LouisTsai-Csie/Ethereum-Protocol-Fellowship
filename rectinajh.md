@@ -37,4 +37,7 @@ https://epf.wiki/#/wiki/protocol/history
 今天学习执行层数据规范最初被指定是根据黄皮书来设计的
 https://epf.wiki/#/wiki/EL/el-specs
 
+### 2025.02.12
+今天学习执行层客户端的架构设计
+https://epf.wiki/#/wiki/EL/el-architecture
 <!-- Content_END -->

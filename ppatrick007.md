@@ -188,4 +188,19 @@ Hi, 我是国内一名理科研究生，会一些编程语言，平时科研主�
 - **深度加密（Deep Cryptography）**：研究更高效的加密方法，以提高隐私性和安全性。
 
 
+### 2025.02.11
+
+### 主题：共识层与执行层规范（Consensus and Execution Spec）
+
+#### 主要内容
+今天学习的重点是深入了解 **共识层（Consensus Layer）** 和 **执行层（Execution Layer）** 的规范。
+
+#### 共识层规范（Consensus Specs）
+- **Hsiao-Wei Wang 的讲座**：介绍了以太坊 **共识规范（Consensus Spec）**，包括其架构、工作原理以及如何在不同的客户端实现。
+- **Pyspec**：通过 Python 编写的以太坊共识规范实现，适用于验证共识规则。ß
+
+#### 执行层规范（Execution Layer Specs）
+- **Sam Wilson 的讲座**：讨论了 **执行层规范（EELS）**，重点是执行引擎与智能合约执行过程的规范定义。
+- 通过演示，Sam 展示了如何通过修改执行层规范来添加新的 **EVM 操作码（Opcode）**。
+
 <!-- Content_END -->
