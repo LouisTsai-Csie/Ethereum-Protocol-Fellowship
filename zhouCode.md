@@ -541,7 +541,7 @@ func build(env Environment, pool txpool.Pool, state state.StateDB) (types.Block,
 
 ### 2025.02.11
 
-#### Study Group 2024 week3 学习
+#### Study Group 2024 week4 学习
 
 #### 以太坊测试与安全
 
@@ -577,4 +577,62 @@ func build(env Environment, pool txpool.Pool, state state.StateDB) (types.Block,
   - 发现漏洞后通过[以太坊漏洞赏金计划](https://bounty.ethereum.org/)提交，最高可获得25万美元奖励。
   - 公开披露需在修复后进行（参考[历史案例库](https://github.com/ethereum/eth-sec)）。
 
+### 2025.02.12
+
+#### Study Group 2024 week5 学习
+
+#### **合并（The Merge）**
+
+- 以太坊从工作量证明（PoW）转向权益证明（PoS）的重要性，信标链（Beacon Chain）的启动与合并后的经济安全性提升。
+- 最终性（Finality）概念的引入（12.6分钟完成区块最终确认）。
+- 签名聚合（Signature Aggregation）和秘密领导者选举（Whisk协议）的研究进展。
+
+#### **激增（The Surge）**
+
+- **数据可用性采样（DAS）**: 通过多项式承诺（如KZG）实现高效数据验证，支持Rollup扩展。
+- **EIP-4844（Proto-Danksharding）**: 引入“Blob”存储结构，降低Rollup数据成本，已上线主网。
+- **Rollup分类**: 乐观Rollup与零知识Rollup的对比，强调数据可用性对挑战机制的重要性。
+
+#### **The Scourge**
+
+- **提议者-构建者分离（PBS）**: 减少验证者中心化风险，通过MEV-Boost临时方案过渡到协议内实现。
+- **最大有效余额（Max EB）**: 从32 ETH提升至2048 ETH，优化验证者效率。
+- **流动性质押（Liquid Staking）**: 探索降低罚没风险的新机制（如质押上限）。
+
+#### **验证（The Verge）**
+
+- **Verkle树**: 取代Merkle树，实现更高效的轻客户端验证和状态证明，支持无状态验证。
+- **ZK化（ZK-SNARKs）**: 未来将共识层和执行层交易验证集成零知识证明，提升可扩展性。
+
+#### **清洗（The Purge）**
+
+- **历史过期（EIP-4444）**: 节点不再存储超过1年的历史数据，依赖Portal Network等去中心化存储方案。
+- **状态简化**: 移除旧版协议支持（如RLP序列化），向SSZ过渡。
+
+#### **挥霍（The Splurge）**
+
+- **账户抽象（ERC-4337）**: 支持智能合约钱包，实现社交恢复、批量交易等高级功能。
+- **EVM优化（EOF）**: 提升EVM兼容性，支持模块化升级。
+- **加密创新**: 全同态加密（FHE）、一次性签名（One-Shot Signatures）等前沿研究。
+
+#### 其他关键讨论
+
+- **量子抗性**: 长期规划中替换BLS签名，采用抗量子算法（如STARKs）。
+- **路线图复杂性**: 未来可能面临协议僵化（Ossification）风险，需平衡创新与稳定性。
+
+### 2025.02.13
+
+##### Study Group Week 5 | Using Ethereum clients
+
+##### **客户端选择与安装**
+
+- **客户端多样性**：建议根据开发语言偏好（如Java开发者可选Besu）或生态贡献需求选择客户端。
+- **签名验证**：通过PGP验证客户端二进制文件的安全性。
+- **编译客户端**：演示从源码编译Geth的过程。
+
+##### **节点配置与运行**
+
+- **数据目录与网络配置**：指定数据存储路径及网络参数（如`--datadir`和`--network`）
+- **同步模式**：解释全同步（Full Sync）与快照同步（Snap Sync）的区别
+- **JWT认证**：配置执行层与共识层通信的JWT密钥
 <!-- Content_END -->

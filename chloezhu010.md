@@ -175,5 +175,45 @@ timezone: Europe/Berlin
   - Discv5: the discovery protocol
       - a kademlia based DHT to store ENR records
       - ENR (ethereum node record) contain routing info to establish connections between peers
+### 2025.02.12
+- Pros Cons of Account vs UTXO
+    - Account: How it works in high level
+        - the blockchain maintains a global state composed of accounts
+        - each account has a balance (in smart contract, storage and code)
+        - tx directly modify the state of these accounts
+    - UTXO: How it works in high level
+        - the blockchain tracks unspent tx outputs
+        - a UTXO represents a chunk of crypto that has been created as an output of a tx, but has not yet been spent
+        - tx consume existing UTXO and create new ones
+    - Comparison
+  
+    |         | Account-based | UTXO-based |
+    | -------- | ------- | ------- |
+    | state representation | global state of accounts & balances   | set of unspent tx outputs    |
+    | tx logic  | directly modify account balance   | consume UTXOs and create new ones    |
+    | complexity  | easier for dev, esp. for smart contractss   | more complex for devs, esp. for advanced logic   |
+    | parallelizability  | limited, as txs modifying the same account must be processed sequentially   | high, as independent UTXOs can be processed in parallel    |
+
+- Why MPT then Verkle tree
+    - MPT
+        - a data structure, that combines merkle tree (provide cryptographic proofs to verify the data integrity) and patricia trie (a compressed trie that stores key-value pairs)
+    - Verkle tree
+        - more advanced data structure to address the issue of MPT
+        - vector commitment + merkle tree, it uses vector commitment (eg. polynomial commitments) to create smaller & more efficient proofs
+    - Comparison
+ 
+    |         | MPT | Verkle tree |
+    | -------- | ------- | ------- |
+    | proof size | large (scale with tree depth)   | small (constant or logarithmic)   |
+    | efficiency | less efficient for deep trees   | more efficient for deep trees   |
+    | stateless clients | inefficient due to large proof   | efficient due to compact proof   |
+    | scalability | limited by proof size & depth   | better scalability for large states   |
+    | cryptographic basis | merkle proof (hash-based)   | vector commitment (eg. polynomial)   |
+- What's RLP? What's its purpose?
+- What's SSZ? What's its purpose?
+    - What's union?
+    - What's ephemeral header?
+- What's discv5?
+- 
 
 <!-- Content_END -->
