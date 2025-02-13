@@ -167,12 +167,44 @@ BitTorrent 旨在解决依赖中心化服务器下载大文件导致的网络堵
 
 以太坊坚持去中心化来实现无需许可、可信中立和抗审查，这并不意味着要求绝对的透明和排斥商业或其他组织，合约或者协议可以有不透明的部分，但规则和退出机制必须透明（个人理解）。要求和排斥是控制，以太坊不要控制，要**通过技术**构筑“无限花园”，这一点承接密码朋克的核心信念之一：“that the power of technology often creates new political realities.”。
 
-
-#### Refs
+###### Refs
 - [A Prehistory of the Ethereum Protocol | vitalik.eth.limo](https://vitalik.eth.limo/general/2017/09/14/prehistory.html)
 - [Inevitable Ethereum - World Computer](https://inevitableeth.com/home/ethereum/world-computer)
 - [密码朋克 | 以太坊协议的史前史](https://epf.wiki/#/wiki/protocol/prehistory?id=cypherpunks-write-code)
 
+
+### 2025.02.11
+
+#### 以太坊的组成
+
+以太坊通过三个Part 组件致力于实现通用计算平台：
+- EVM Ethereum Virtual Machine 以太坊虚拟机
+- Ethereum Blockchain 以太坊区块链
+- Ethereum Network 以太坊网络
+
+三个组件并非相互独立，而是嵌套的，EVM是一个安装在物理设备（节点）上的一个程序，其中包含以太坊区块链，而全世界的节点组成以太坊网络。
+
+要理解以太坊这个平台不能以“服务器-客户端”的模型去理解，而是每一个节点都是一个完整的副本，即每个参与以太坊的物理世界的计算机都拥有一个可信的计算平台也就是EVM，在EVM中更新区块链。
+
+##### Refs
+- [协议架构概览 | epf.wiki](https://epf.wiki/#/wiki/protocol/architecture?id=protocol-architecture-overview)
+- [节点架构](https://ethereum.org/zh/developers/docs/nodes-and-clients/node-architecture/)
+- [Vitalik Buterin带你三十分钟了解以太坊 | Devcon Bogotá](https://www.youtube.com/watch?v=UihMqcj-cqc)
+
+### 2025.02.12
+
+#### 以太坊账户
+
+以太坊有两种账户：
+- Externally-owned account 外部所有的帐户 (EOA)
+- Smart contract account 智能合约帐户
+
+举个例子，我们在Metamask创建的账户、我们自己拥有私钥的账户就是EOA，而拥有的USDT就是智能合约账户，所以USDT有CA（Contract Address 合约地址）。
+
+在以太坊中，EOA只能进行ETH和代币交易，假设我在我的EOA中转移USDT，实际上它并不保存在我的账户中，而是EOA和USDT的智能合约进行交互，在合约中更新了token ID
+
+##### Refs
+- [以太坊账户|EF](https://ethereum.org/zh/developers/docs/accounts/)
 
 
 <!-- Content_END -->

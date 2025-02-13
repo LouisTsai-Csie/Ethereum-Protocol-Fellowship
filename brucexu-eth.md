@@ -190,9 +190,97 @@ Light clients are nodes that do not contain entire blockchain data. Instead, the
 
 选择要验证的 tx 的相关 hash 即可，因为上层的 hash 节点都是计算生成的。
 
-TODO https://epf.wiki/#/eps/week1
-
 TODO 跑一下代码 https://github.com/dajuguan/lab/blob/main/eth/randao.py
+
+# 2025.02.12
+
+## https://epf.wiki/#/eps/week1
+
+![image](https://github.com/user-attachments/assets/3635c3a4-c051-4557-a8cb-0621a5b84467)
+
+The Merge 的过程，其实是构建了一个平行的 Beacon Chain 一直在运行和检测，之后把 execution layer 接过来。
+
+As hinted above, the main high level components of Ethereum are execution and consensus layer. These are 2 networks which are connected and dependent on each other. Execution layer provides the execution engine, handles user transaction and all state (address, contract data) while consensus implements the proof-of-stake mechanism ensuring security and fault tolerance.
+
+The traditional development cycle for new features or changes is Idea - Research - Development - Testing - Adoption. However, problems might arise at any moment of this cycle resulting in iterating again from the beginning.
+
+The coordination mainly happens via regular calls which are scheduled in the PM repo.
+
+The ideas and proposed changes from the community are coordinated using EIP process. Additionally, there are a few discussion forums. The biggest one discussing core upgrades is https://ethresear.ch. Another forum which is connected to the EIP process and serves for discussion about specific proposals is Ethereum Magicians. Lots of important discussion is also happening on the R&D Discord server (ping us in EPFsg discord to get an invite) and in client team groups. There are also offsites or workshops where many core developers meet in person to speed up the process face to face.
+
+通过 https://github.com/ethereum/pm 学习到的社区协调和管理经验：
+
+1. 通过创建 issues + tag 来放议题、会议链接等信息，例如 https://github.com/ethereum/pm/issues/1253 包括全部的会议，不仅仅是 ACDE ACDC
+2. 提供了一个 Google Calendar 来快速添加，但是目前不知道是自动还是人工维护的
+3. 欢迎大家通过评论的方式，添加议题等
+4. 写清楚了议题如何添加、谁能参加、谁主持等
+5. ECH 提供了字幕稿，然后下面有个大表单，可以看到每次会议的录屏、notes、讨论等等
+
+对 LXDAO 的启发：
+
+- 可以考虑将会议集中在这里管理，避免在论坛占用大家的注意力
+- 提供会议的速记和内容稿，作为社区周报的内容，而非比较制式的，重点在于引导大家讨论
+
+TODO https://notes.ethereum.org/@mikeneuder/rcr2vmsvftv
+
+# 2025.02.13
+
+## https://epf.wiki/#/eps/week2
+
+### https://github.com/ethereum/consensus-specs/blob/dev/specs/deneb/beacon-chain.md#modified-process_execution_payload
+
+```
+class ExecutionPayload(Container):
+    # Execution block header fields
+    parent_hash: Hash32 # 上一个区块的 hash，连起来
+    fee_recipient: ExecutionAddress  # 'beneficiary' in the yellow paper 执行层中，是区块提交者的地址
+    state_root: Bytes32
+    receipts_root: Bytes32
+    logs_bloom: ByteVector[BYTES_PER_LOGS_BLOOM] # 用于日志过滤的 bloom 过滤器，用于快速查找日志
+    prev_randao: Bytes32  # 'difficulty' in the yellow paper
+    block_number: uint64  # 'number' in the yellow paper
+    gas_limit: uint64
+    gas_used: uint64
+    timestamp: uint64
+    extra_data: ByteList[MAX_EXTRA_DATA_BYTES]
+    base_fee_per_gas: uint256
+    # Extra payload fields
+    block_hash: Hash32  # Hash of execution block
+    transactions: List[Transaction, MAX_TRANSACTIONS_PER_PAYLOAD]
+    withdrawals: List[Withdrawal, MAX_WITHDRAWALS_PER_PAYLOAD] # 目前区块的提款列表
+    blob_gas_used: uint64  # [New in Deneb:EIP4844]
+    excess_blob_gas: uint64  # [New in Deneb:EIP4844]
+```
+
+需要进行能力扩展和数据增加，就是通过类似 EIP4844 这样的标准，创建新的标准，然后客户端来实现读取和保存记录。
+
+真实的信息和数据：
+
+![image](https://github.com/user-attachments/assets/185dcd23-b49a-4980-8c9a-f6f66d365543)
+
+![image](https://github.com/user-attachments/assets/51da5284-ff7a-44af-8b53-b286f9e35555)
+
+![image](https://github.com/user-attachments/assets/7861ddc2-dc22-4da3-84aa-406d639f2eda)
+
+logs_bloom 的工作原理：
+
+- logs_bloom 是一个固定大小的位数组，通常为256字节，即2048位。
+- 当一个新的日志被添加到区块中时，计算该日志的哈希值，并使用多个哈希函数（如3个）生成多个哈希值。
+- 将这些哈希值映射到logs_bloom的位数组中，将对应的位设置为1。
+- 查询某个日志是否存在于某个区块的时候，只需要计算日志的 hash，然后快速检查 logs_bloom 的对应的位置是否全部为 1，如果是，那么日志可能在当前区块。可能会存在误报
+- 通过这个，可以快速过滤不包含特定日志的区块，提高检索效率，比如查询 event 发生在哪些区块，从而仅仅加载和处理相关区块
+
+TODO Hackerscan 可以加入查看原始区块信息的功能，没有找到 logs_bloom 的原始数据
+
+TODO Contract Internal Transactions 是什么？跟 Block 的 transactions 区别是什么？
+
+TODO 明天把整个区块的所有信息和内容过一下 https://etherscan.io/block/21833528 https://eth.blockscout.com/block/21833528?tab=index
+
+TODO randao
+TODO withdrawals 提款工作原理？
+
+
+
 
 
 
