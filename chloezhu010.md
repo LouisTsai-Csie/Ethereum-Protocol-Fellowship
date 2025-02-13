@@ -225,7 +225,7 @@ timezone: Europe/Berlin
 - What's SSZ? What's its purpose?
     - simple serialize is a serialization format designed specifically for eth2
     - encode & decode data structure in a more efficient, type-aware, optimized for merkleization style
-- What's union?
-- What's ephemeral header?
+### 2025.02.13
+
 
 <!-- Content_END -->
