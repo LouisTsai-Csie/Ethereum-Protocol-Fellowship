@@ -71,4 +71,15 @@ timezone: Asia/Shanghai
 
         >透過權重最大（最多驗證者投票的）的子樹來決定主鏈，確保惡意節點無法輕易影響共識。
 
+### 2025.02.12
+
+#### [SGweek4](https://epf.wiki/#/eps/week4)
+
+week 4 是有關 Ethereum 測試的內容。
+
+##### Execution Layer Testing
+
+- 用於確保 Ethereum 執行客戶端的正確性，避免因實作差異導致的鏈分叉，需要 EVM testing 進行測試，為客戶端提供相同 pre-state (賬戶餘額、nonce、合約代碼和存儲)、環境、輸入 (交易) 、規則，預期得到相同的 post-state。
+- Test Filling 可以跨客戶端執行，確保所有實作遵循相同的行為。
+
 <!-- Content_END -->

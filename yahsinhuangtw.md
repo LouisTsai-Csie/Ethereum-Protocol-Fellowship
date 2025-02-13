@@ -50,4 +50,16 @@ https://youtu.be/UihMqcj-cqc?si=MqL3ac9Xg30LPJmE
 
 這裡要強調的重點是，merkle tree 在以太坊驗證資料上持續扮演重要角色。以太坊技術底層中到處都有使用到 merkle tree，主要用途是在以太坊的驗證資料方面。你要驗證有龐大的 40 gb 的 state 資料的某一塊小小的資料時，你不需要全部 40 gb 都撈出來驗證，只要一小塊 tree 的某些節點資料拿出來就可以驗證。
 
+### 2025.02.12
+
+今日晚上殘酷學習時間，拜讀了 Nic Lin 林老師今天發表的新文章「Ethereum Pectra 硬分叉介紹」https://medium.com/taipei-ethereum-meetup/ethereum-pectra-eips-introduction-1f90f4ea25d5  
+
+<img width="749" alt="Screenshot 2025-02-12 at 9 12 55 PM" src="https://github.com/user-attachments/assets/888b2f3c-3dfc-4114-bd1f-c0e2fdab1206" />
+
+中間段落提到，EIP-7251: Increase the MAX_EFFECTIVE_BALANCE 這段，提及 EIP-7251 之後，質押下限（MIN_ACTIVATION_BALANCE）仍然是 32 ETH，但上限（MAX_EFFECTIVE_BALANCE）大幅調高為 2048 ETH。這裡意思是之後就可以質押 32~2048 ETH 這麼大一個範圍。
+
+<img width="713" alt="Screenshot 2025-02-12 at 9 12 16 PM" src="https://github.com/user-attachments/assets/a230bed3-ce10-44b8-8c71-37e1b5e6e618" />
+
+還有一段提到 EIP-7702 這個改進，最關鍵的改動是，之後 EOA 可以搖身一變成合約。老師文中舉例，如果你填一個 Safe 合約地址，那你的 EOA 就會變身成為 Safe 合約。
+
 <!-- Content_END -->
